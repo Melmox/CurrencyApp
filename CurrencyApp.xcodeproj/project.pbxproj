@@ -26,6 +26,9 @@
 		D2E3A6BD29C1A28C00F496EB /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BC29C1A28C00F496EB /* CurrencyTableViewCell.swift */; };
 		D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */; };
 		D2EECDBA29C9B3E500711997 /* CurrencyHistoryInfoTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoTableController.swift */; };
+		D2EECDBC29C9E33B00711997 /* BasicControllerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */; };
+		D2EECDBE29C9E46500711997 /* WalletCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBD29C9E46500711997 /* WalletCardTableViewCell.swift */; };
+		D2EECDC029C9E4BA00711997 /* WalletTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBF29C9E4BA00711997 /* WalletTableViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		D2E3A6BC29C1A28C00F496EB /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyTableViewCell.swift; path = CurrencyApp/Modules/CurrencyHistory/View/Cells/CurrencyTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHeaderView.swift; sourceTree = "<group>"; };
 		D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoTableController.swift; sourceTree = "<group>"; };
+		D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicControllerTableCell.swift; sourceTree = "<group>"; };
+		D2EECDBD29C9E46500711997 /* WalletCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardTableViewCell.swift; sourceTree = "<group>"; };
+		D2EECDBF29C9E4BA00711997 /* WalletTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */,
+				D2EECDBD29C9E46500711997 /* WalletCardTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 			children = (
 				D24634F929C35F4B0058A610 /* BasicViewController.swift */,
 				D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */,
+				D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 			children = (
 				D24634FB29C3638F0058A610 /* WalletViewModel.swift */,
 				D246350529C4598B0058A610 /* WalletCollectionViewCellViewModel.swift */,
+				D2EECDBF29C9E4BA00711997 /* WalletTableViewCellViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -395,9 +404,12 @@
 				D2E3A6B729BF4A5B00F496EB /* Coordinator.swift in Sources */,
 				D2E3A6B929BF758C00F496EB /* CurrencyHistoryController.swift in Sources */,
 				D24634FC29C3638F0058A610 /* WalletViewModel.swift in Sources */,
+				D2EECDBC29C9E33B00711997 /* BasicControllerTableCell.swift in Sources */,
 				D2E3A69929BF2CA400F496EB /* CurrencyApp.xcdatamodeld in Sources */,
+				D2EECDC029C9E4BA00711997 /* WalletTableViewCellViewModel.swift in Sources */,
 				D2E3A6A629BF360100F496EB /* Networking.swift in Sources */,
 				D246350629C4598B0058A610 /* WalletCollectionViewCellViewModel.swift in Sources */,
+				D2EECDBE29C9E46500711997 /* WalletCardTableViewCell.swift in Sources */,
 				D2E3A6BD29C1A28C00F496EB /* CurrencyTableViewCell.swift in Sources */,
 				D2E3A6B329BF3CC800F496EB /* TabBarController.swift in Sources */,
 				D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */,

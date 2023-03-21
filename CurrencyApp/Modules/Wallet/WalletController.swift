@@ -24,7 +24,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         super.viewDidLoad()
 //        self.view.backgroundColor = UIColor.systemPink
         setupTableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WalletCardTableViewCell")
         tableView.tableHeaderView = headerView
     }
     
@@ -47,7 +47,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     
     //MARK: DataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WalletCardTableViewCell", for: indexPath)
         cell.textLabel?.text = "Cell \(indexPath.row)"
         cell.selectionStyle = .none
         return cell

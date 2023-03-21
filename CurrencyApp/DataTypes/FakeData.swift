@@ -25,6 +25,7 @@ struct AmountOfMoney {
 }
 
 final class WalletHeaderViewModel {}
+
 final class WalletCellViewModel {
     let currencyAndAmount: [CurrencyName : AmountOfMoney]
     private var cardNumber: String!

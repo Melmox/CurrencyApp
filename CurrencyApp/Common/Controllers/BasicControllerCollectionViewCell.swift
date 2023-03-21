@@ -31,9 +31,5 @@ class BasicControllerCollectionViewCell<CollectionViewCell: BasicControllerColle
     override func prepareForReuse() {
 //        <#code#>
     }
-//
-//    func configureCollectionViewCell() {
-//        myItem.configure()
-//    }
     
 }

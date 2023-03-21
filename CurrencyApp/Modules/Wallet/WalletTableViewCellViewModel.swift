@@ -1,13 +1,13 @@
 //
-//  WalletCollectionViewCellViewModel.swift
+//  WalletTableViewCellViewModel.swift
 //  CurrencyApp
 //
-//  Created by developer_tmp on 17.03.2023.
+//  Created by developer_tmp on 21.03.2023.
 //
 
 import Foundation
 
-final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItemModel{
+final class WalletTableViewCellViewModel: BasicControllerUITableViewCell{
     //MARK: - Properties
     //MARK: Fakedata
     
@@ -25,27 +25,28 @@ final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItem
     private weak var interfaceCoordinator: Coordinator?
     
     //    private var header: WalletHeaderViewModel()
-    private var items: [WalletCellViewModel] = []
-    
-    
-    
-    
-    
+    private lazy var items: [WalletCellViewModel] = {
+        for i in 0...codeOfMoney.count - 1{
+            items.append(WalletCellViewModel(currencyAndAmount: [codeOfMoney[i]:amountOfMoney[i]]))
+        }
+        return items
+    }()
     
     
     
     //MARK: - Init
     
-    //    init(coordinator: Coordinator) {
-    //        interfaceCoordinator = coordinator
-    //    }
+    init(coordinator: Coordinator) {
+        interfaceCoordinator = coordinator
+    }
     
     //MARK: - Appearance
     
     func configure() {
-        for i in 0...codeOfMoney.count - 1{
-            items.append(WalletCellViewModel(currencyAndAmount: [codeOfMoney[i] : amountOfMoney[i]]))
-        }
+        //        let someData = getSomeFakeData()
+        
+        //        configureHeader()
+        //        configureItems()
     }
     
     //    private func configureItems(with someData: SomeDAta) {
@@ -54,17 +55,12 @@ final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItem
     
     //MARK: - Provider
     
-    var getNumberOfItems: Int {
+    var numberOfItems: Int {
         items.count
     }
     
-    func getItem(at indexPath: IndexPath) -> WalletCellViewModel {
+    func item(at indexPath: IndexPath) -> WalletCellViewModel {
         items[indexPath.row]
-    }
-    
-    func getItems() -> [WalletCellViewModel] {
-        configure()
-        return items
     }
     
     

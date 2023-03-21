@@ -67,8 +67,7 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
         let headerView = UIView(frame: CGRectMake(0, 0, frame.size.width, tableView.sectionHeaderHeight))
 
         let button = UIButton(frame: CGRectMake(0, 0, frame.size.width, headerView.frame.size.height))
-//        button.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.white), for: .normal)
-        button.setImage(UIImage(named: "chevron.down") as UIImage?, for: .normal)
+        button.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.white), for: .normal)
         button.tag = section
         button.setTitle("Section \(section)", for: .normal)
             button.backgroundColor = .systemGray

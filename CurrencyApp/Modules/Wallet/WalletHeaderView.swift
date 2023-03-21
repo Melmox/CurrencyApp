@@ -43,7 +43,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         else { return UICollectionViewCell() }
         cell.isFirst = indexPath.row == 0
         cell.isLast = indexPath.row == (codeOfMoney.count - 1)
-        cell.configure()
+        cell.configure(index: indexPath.row)
         return cell
     }
     
@@ -61,7 +61,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .systemGreen
+//        collectionView.backgroundColor = .systemGreen
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
         collectionViewConstraints(collection: collectionView)

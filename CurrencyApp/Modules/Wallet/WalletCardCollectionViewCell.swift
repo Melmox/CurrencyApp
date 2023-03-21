@@ -13,7 +13,9 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
 
     static let identifier = String(describing: WalletCardCollectionViewCell.self)
 //    static let identifier = "CardCollectionViewCell" // if its possible, create indentifier by using class name
-    private lazy var creditCardNumber = getCreditCardNumber()
+//    private lazy var creditCardNumber = getCreditCardNumber()
+    
+    private var testData = WalletCollectionViewCellViewModel().getItems()
     
     var isFirst : Bool = false
     var isLast : Bool = false
@@ -27,13 +29,23 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         currencyLabel.text = nil
         isFirst = false
         isLast = false
+//        self.updateConstraints()
+//        window?.removeConstraints(window!.constraints)
+        
+        amountLabel.translatesAutoresizingMaskIntoConstraints = true
+        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
+        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
+        leftArrow.translatesAutoresizingMaskIntoConstraints = true
+        rightArrow.translatesAutoresizingMaskIntoConstraints = true
+        
+//        setupView()
     }
     
     // MARK: Views
     
     private let currencyLabel: UILabel = {
         let currencyLabel = UILabel()
-        currencyLabel.text = "USD"
+//        currencyLabel.text = "USD"
         currencyLabel.textColor = .white
         currencyLabel.font = currencyLabel.font.withSize(20)
         currencyLabel.textAlignment = .left
@@ -43,7 +55,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private let amountLabel: UILabel = {
         let amountLabel = UILabel()
-        amountLabel.text = "100500$"
+//        amountLabel.text = "100500$"
         amountLabel.textColor = .white
         amountLabel.font = amountLabel.font.withSize(20)
         amountLabel.textAlignment = .right
@@ -53,7 +65,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private lazy var cardNumberLabel: UILabel = {
         let cardNumberLabel = UILabel()
-        cardNumberLabel.text = creditCardNumber
+//        cardNumberLabel.text = testData[0]._cardNumber
         cardNumberLabel.textColor = .white
         cardNumberLabel.font = cardNumberLabel.font.withSize(20)
         cardNumberLabel.textAlignment = .center
@@ -92,13 +104,26 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     // MARK: - Appearance
     
-    func configure(){
+    func configure(index: Int){
         leftArrow.isHidden = isFirst
         rightArrow.isHidden = isLast
         
-        currencyLabel.text = "USD"
-        amountLabel.text = "100500$"
-        cardNumberLabel.text = creditCardNumber
+        for key in testData[index].currencyAndAmount.keys{
+            currencyLabel.text = key.currencyName
+        }
+        for value in testData[index].currencyAndAmount.values{
+            amountLabel.text = String(value.amountOfMoney)
+        }
+        cardNumberLabel.text = testData[index]._cardNumber
+        
+//        amountLabel.translatesAutoresizingMaskIntoConstraints = false
+//        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+//        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
+//        leftArrow.translatesAutoresizingMaskIntoConstraints = false
+//        rightArrow.translatesAutoresizingMaskIntoConstraints = false
+//        self.updateConstraints()
+
+        setupView()
     }
     
     private func setupView() {
@@ -139,22 +164,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         if cell.backgroundView != nil{
             cell.backgroundView?.addSubview(imageView)
         }
-    }
-    
-    private func getCreditCardNumber() -> String{
-        var creditCardNumber = "4441"
-        var counterToDoSpaces = 0
-        repeat {
-            if counterToDoSpaces == 0 || counterToDoSpaces == 4
-            {
-                creditCardNumber += "  "
-                counterToDoSpaces = 0
-            }
-            creditCardNumber += String(Int.random(in: 0..<10))
-            counterToDoSpaces += 1
-        }
-        while creditCardNumber.count < 16 + 6
-        return creditCardNumber
     }
 }
 
