@@ -8,26 +8,24 @@
 import UIKit
 
 class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
 
     //MARK: - General
     let tableView = UITableView()
-//    lazy var headerView: TableViewHeaderView = {
-//        let width = UIView.screenWidth
-//        let height = width * 0.6
-//        let headerView = TableViewHeaderView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-//        return headerView
-//    }()
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.systemPink
+//        self.view.backgroundColor = UIColor.systemPink
         setupTableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 //        tableView.tableHeaderView = headerView
         
         //headerView(viewModel: viewModel.header)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: - Constraints
@@ -50,6 +48,20 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Cell \(indexPath.row)"
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
+    
+    //MARK: - TableViewAction
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let destination = CurrencyHistoryInfoTableController()
+//        destination.view.backgroundColor = .red
+//        destination.title = "Cell \(indexPath.row)"
+        destination.navigationItem.title = "Cell \(indexPath.row)"
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
 }
+
+

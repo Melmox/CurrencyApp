@@ -43,9 +43,9 @@ final class Coordinator {
         return walletController
     }
     
-    private func createCurrencyHistoryController() -> UIViewController{
+    private func createCurrencyHistoryController() -> UINavigationController{
         let currencyHistoryController = CurrencyHistoryController()
-        return currencyHistoryController
+        return UINavigationController(rootViewController: currencyHistoryController)
     }
     
 }

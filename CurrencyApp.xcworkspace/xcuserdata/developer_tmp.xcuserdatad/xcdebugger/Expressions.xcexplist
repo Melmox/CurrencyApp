@@ -30,5 +30,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryController.tableView(_:didSelectRowAt:):CurrencyHistoryController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "super">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

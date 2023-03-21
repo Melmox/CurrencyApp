@@ -62,7 +62,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     }()
     private let leftArrow: UIImageView = {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
-        let leftArrow = UIImageView(image: UIImage(systemName: "arrow.left", withConfiguration: largeConfig)!)
+        let leftArrow = UIImageView(image: UIImage(systemName: "chevron.compact.left", withConfiguration: largeConfig)!)
         leftArrow.translatesAutoresizingMaskIntoConstraints = false
         leftArrow.tintColor = .systemGray
         leftArrow.layer.opacity = 0.5
@@ -71,7 +71,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private let rightArrow: UIImageView = {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
-        let rightArrow = UIImageView(image: UIImage(systemName: "arrow.right", withConfiguration: largeConfig)!)
+        let rightArrow = UIImageView(image: UIImage(systemName: "chevron.compact.right", withConfiguration: largeConfig)!)
         rightArrow.translatesAutoresizingMaskIntoConstraints = false
         rightArrow.tintColor = .systemGray
         rightArrow.layer.opacity = 0.5

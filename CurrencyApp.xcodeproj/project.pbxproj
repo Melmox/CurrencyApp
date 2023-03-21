@@ -25,6 +25,7 @@
 		D2E3A6BB29C09B3000F496EB /* WalletCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */; };
 		D2E3A6BD29C1A28C00F496EB /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BC29C1A28C00F496EB /* CurrencyTableViewCell.swift */; };
 		D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */; };
+		D2EECDBA29C9B3E500711997 /* CurrencyHistoryInfoTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoTableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2E3A6BC29C1A28C00F496EB /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyTableViewCell.swift; path = CurrencyApp/Modules/CurrencyHistory/View/Cells/CurrencyTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHeaderView.swift; sourceTree = "<group>"; };
+		D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoTableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E3A6B829BF758C00F496EB /* CurrencyHistoryController.swift */,
+				D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoTableController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */,
 				D2E3A6B529BF46ED00F496EB /* WalletController.swift in Sources */,
 				D246350829C45B9D0058A610 /* FakeData.swift in Sources */,
+				D2EECDBA29C9B3E500711997 /* CurrencyHistoryInfoTableController.swift in Sources */,
 				D2E3A68F29BF2CA400F496EB /* AppDelegate.swift in Sources */,
 				D2E3A6BB29C09B3000F496EB /* WalletCardCollectionViewCell.swift in Sources */,
 				D24634FA29C35F4B0058A610 /* BasicViewController.swift in Sources */,

@@ -22,7 +22,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.systemPink
+//        self.view.backgroundColor = UIColor.systemPink
         setupTableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableHeaderView = headerView
@@ -49,6 +49,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Cell \(indexPath.row)"
+        cell.selectionStyle = .none
         return cell
     }
 }
