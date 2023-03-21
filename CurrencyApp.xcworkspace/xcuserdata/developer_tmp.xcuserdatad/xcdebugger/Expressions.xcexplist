@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CardCollectionViewCell.sutupView():CardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "amountLabel">
+            </PersistentString>
+            <PersistentString
+               value = "amountLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "cardNumberLabel.frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CardCollectionViewCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
