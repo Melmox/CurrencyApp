@@ -11,6 +11,9 @@ final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItem
     //MARK: - Properties
     //MARK: Fakedata
     
+//    let data = ApiDescriptor().descriptApi()
+    
+    
     private let codeOfMoney : [CurrencyName] = [CurrencyName(currencyName: "UAH"),
                                                 CurrencyName(currencyName: "USD"),
                                                 CurrencyName(currencyName: "EUR"),
@@ -22,15 +25,10 @@ final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItem
     
     //MARK: Content
     
-    private weak var interfaceCoordinator: Coordinator?
+//    private weak var interfaceCoordinator: Coordinator?
     
     //    private var header: WalletHeaderViewModel()
     private var items: [WalletCellViewModel] = []
-    
-    
-    
-    
-    
     
     
     
@@ -46,6 +44,7 @@ final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItem
         for i in 0...codeOfMoney.count - 1{
             items.append(WalletCellViewModel(currencyAndAmount: [codeOfMoney[i] : amountOfMoney[i]]))
         }
+                
     }
     
     //    private func configureItems(with someData: SomeDAta) {

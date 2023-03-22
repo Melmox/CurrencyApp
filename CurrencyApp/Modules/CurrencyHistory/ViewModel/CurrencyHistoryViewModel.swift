@@ -1,13 +1,13 @@
 //
-//  WalletViewModel.swift
+//  CurrencyHistoryViewModel.swift
 //  CurrencyApp
 //
-//  Created by developer_tmp on 16.03.2023.
+//  Created by developer_tmp on 22.03.2023.
 //
 
 import Foundation
 
-final class WalletViewModel: BasicControllerViewModel {
+final class CurrencyHistoryViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
     //MARK: Fakedata
@@ -67,6 +67,8 @@ final class WalletViewModel: BasicControllerViewModel {
     func item(at indexPath: IndexPath) -> WalletCellViewModel {
         items[indexPath.row]
     }
+    
+    
     
     //MARK: - Navigation
     

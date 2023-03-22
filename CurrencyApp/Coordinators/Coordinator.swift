@@ -23,6 +23,8 @@ final class Coordinator {
         let tabBarController = createTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        getData()
     }
     
     // MARK: - Modules

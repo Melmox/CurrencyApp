@@ -32,11 +32,11 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
 //        self.updateConstraints()
 //        window?.removeConstraints(window!.constraints)
         
-        amountLabel.translatesAutoresizingMaskIntoConstraints = true
-        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
-        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
-        leftArrow.translatesAutoresizingMaskIntoConstraints = true
-        rightArrow.translatesAutoresizingMaskIntoConstraints = true
+//        amountLabel.translatesAutoresizingMaskIntoConstraints = true
+//        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
+//        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
+//        leftArrow.translatesAutoresizingMaskIntoConstraints = true
+//        rightArrow.translatesAutoresizingMaskIntoConstraints = true
         
 //        setupView()
     }
@@ -116,14 +116,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         }
         cardNumberLabel.text = testData[index]._cardNumber
         
-//        amountLabel.translatesAutoresizingMaskIntoConstraints = false
-//        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-//        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
-//        leftArrow.translatesAutoresizingMaskIntoConstraints = false
-//        rightArrow.translatesAutoresizingMaskIntoConstraints = false
-//        self.updateConstraints()
-
-        setupView()
+//        setupView()
     }
     
     private func setupView() {

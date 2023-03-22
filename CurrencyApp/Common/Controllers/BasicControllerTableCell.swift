@@ -14,22 +14,34 @@ protocol BasicControllerUITableViewCell {
 
 class BasicControllerTableCell<TableViewCell: BasicControllerUITableViewCell>: UITableViewCell {
     
-//    private(set) var myItem : CGRect
-//
-//
-//    override init(frame: CGRect) {
-//        self.myItem = frame
-//        super.init(frame: myItem)
-//    }
+//    private(set) var tableViewCell: TableViewCell
     
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
+//    init(tableViewCell: BasicControllerUITableViewCell) {
+//        self.tableViewCell = tableViewCell as! TableViewCell
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
 
     override func prepareForReuse() {
-//        <#code#>
+        super.prepareForReuse()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        initView()
+    }
+    
+    func initView() {
+        backgroundColor = .clear
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        preservesSuperviewLayoutMargins = false
+        separatorInset = UIEdgeInsets.zero
+        layoutMargins = UIEdgeInsets.zero
+    }
 }

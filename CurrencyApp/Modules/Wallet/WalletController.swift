@@ -42,7 +42,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     //MARK: - UITableView
     //MARK: Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
     
     //MARK: DataSource

@@ -17,12 +17,8 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         super.viewDidLoad()
-//        self.view.backgroundColor = UIColor.systemPink
         setupTableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tableView.tableHeaderView = headerView
-        
-        //headerView(viewModel: viewModel.header)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CurrencyHistoryInfoCellViewModel.identifier)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -46,7 +42,7 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyHistoryInfoCellViewModel.identifier, for: indexPath)
         cell.textLabel?.text = "Cell \(indexPath.row)"
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
@@ -57,8 +53,6 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let destination = CurrencyHistoryInfoTableController()
-//        destination.view.backgroundColor = .red
-//        destination.title = "Cell \(indexPath.row)"
         destination.navigationItem.title = "Cell \(indexPath.row)"
         self.navigationController?.pushViewController(destination, animated: true)
     }
