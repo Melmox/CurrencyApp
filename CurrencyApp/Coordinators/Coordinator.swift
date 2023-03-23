@@ -18,13 +18,16 @@ final class Coordinator {
     }
     
     // MARK: - Methods
-    
     func start() {
         let tabBarController = createTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
-        getData()
+//        getData(endpoint: "historical", baseCurrency: "UAH", date: "2003-29-09")
+        
+        getData(endpoint: "latest", baseCurrency: "UAH")
+
+        
     }
     
     // MARK: - Modules

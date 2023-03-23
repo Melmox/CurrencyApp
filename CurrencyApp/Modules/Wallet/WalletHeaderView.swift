@@ -22,7 +22,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect(x: 20, y: 0, width: frame.width - 20 - 20, height: frame.height - 20 - 20), collectionViewLayout: layout)
         collectionView.dataSource = self
-        collectionView.backgroundColor = .systemRed
+//        collectionView.backgroundColor = .systemRed
         return collectionView
     }()
     

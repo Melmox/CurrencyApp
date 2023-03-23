@@ -8,9 +8,18 @@
 import Foundation
 
 class CurrencyHistoryInfoCellViewModel: BasicControllerUITableViewCell {
-    func configure() {
+    func prepareForReuse() {
 //        <#code#>
     }
+    
+    func awakeFromNib() {
+//        <#code#>
+    }
+    
+    func initView() {
+//        <#code#>
+    }
+    
     
     static var identifier: String { return String(describing: self) }
 }

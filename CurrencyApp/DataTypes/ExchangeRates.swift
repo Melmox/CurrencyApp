@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct ExchangeRates: Decodable {
+// MARK: - ApiResponseStructure
+struct ApiResponseStructure: Codable {
+    let response: ExchangeRates
+}
+
+
+// MARK: - Response
+struct ExchangeRates: Codable {
     //    let date: Date // for "/latest" it is Date
     //    let date: String // for "/historical" it is String
     var date, base: String

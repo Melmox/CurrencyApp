@@ -9,23 +9,14 @@ import Foundation
 import UIKit
 
 protocol BasicControllerUITableViewCell {
-    func configure()
+    func prepareForReuse()
+    
+    func awakeFromNib()
+    
+    func initView()
 }
 
 class BasicControllerTableCell<TableViewCell: BasicControllerUITableViewCell>: UITableViewCell {
-    
-//    private(set) var tableViewCell: TableViewCell
-    
-
-    
-//    init(tableViewCell: BasicControllerUITableViewCell) {
-//        self.tableViewCell = tableViewCell as! TableViewCell
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -37,8 +28,6 @@ class BasicControllerTableCell<TableViewCell: BasicControllerUITableViewCell>: U
     }
     
     func initView() {
-        backgroundColor = .clear
-        
         translatesAutoresizingMaskIntoConstraints = false
         preservesSuperviewLayoutMargins = false
         separatorInset = UIEdgeInsets.zero

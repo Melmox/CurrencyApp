@@ -18,7 +18,7 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         super.viewDidLoad()
         setupTableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CurrencyHistoryInfoCellViewModel.identifier)
+        tableView.register(CurrencyNameCell.self, forCellReuseIdentifier: "CurrencyNameCell")
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -42,10 +42,10 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyHistoryInfoCellViewModel.identifier, for: indexPath)
-        cell.textLabel?.text = "Cell \(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyNameCell", for: indexPath) as! CurrencyNameCell
+        cell.currencyName.text = "Cell \(indexPath.row)"
         cell.accessoryType = .disclosureIndicator
-        cell.selectionStyle = .none
+//        cell.selectionStyle = .none
         return cell
     }
     

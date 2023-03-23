@@ -22,7 +22,7 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
         tableView.dataSource = self
         super.viewDidLoad()
         setupTableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CurrencyHistoryInfoCell.self, forCellReuseIdentifier: "CurrencyHistoryInfoCell")
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -50,14 +50,11 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
     
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryInfoCell", for: indexPath) as! CurrencyHistoryInfoCell
         cell.textLabel?.text = "Cell \(indexPath.row)"
         cell.selectionStyle = .none
         return cell
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Section \(section)"
-//    }
     
     //MARK: - TableViewHeaderInSection
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

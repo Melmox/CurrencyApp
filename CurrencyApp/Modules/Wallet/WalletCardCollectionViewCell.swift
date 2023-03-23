@@ -9,11 +9,11 @@ import UIKit
 
 final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<WalletCollectionViewCellViewModel> { //rename to
     
-//final class WalletCardCollectionViewCell: UICollectionViewCell{
-
+    //final class WalletCardCollectionViewCell: UICollectionViewCell{
+    
     static let identifier = String(describing: WalletCardCollectionViewCell.self)
-//    static let identifier = "CardCollectionViewCell" // if its possible, create indentifier by using class name
-//    private lazy var creditCardNumber = getCreditCardNumber()
+    //    static let identifier = "CardCollectionViewCell" // if its possible, create indentifier by using class name
+    //    private lazy var creditCardNumber = getCreditCardNumber()
     
     private var testData = WalletCollectionViewCellViewModel().getItems()
     
@@ -29,23 +29,25 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         currencyLabel.text = nil
         isFirst = false
         isLast = false
-//        self.updateConstraints()
-//        window?.removeConstraints(window!.constraints)
         
-//        amountLabel.translatesAutoresizingMaskIntoConstraints = true
-//        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
-//        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
-//        leftArrow.translatesAutoresizingMaskIntoConstraints = true
-//        rightArrow.translatesAutoresizingMaskIntoConstraints = true
+        amountLabel.translatesAutoresizingMaskIntoConstraints = true
+        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
+        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
+        leftArrow.translatesAutoresizingMaskIntoConstraints = true
+        rightArrow.translatesAutoresizingMaskIntoConstraints = true
         
-//        setupView()
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
+        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        leftArrow.translatesAutoresizingMaskIntoConstraints = false
+        rightArrow.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // MARK: Views
     
     private let currencyLabel: UILabel = {
         let currencyLabel = UILabel()
-//        currencyLabel.text = "USD"
+        //        currencyLabel.text = "USD"
         currencyLabel.textColor = .white
         currencyLabel.font = currencyLabel.font.withSize(20)
         currencyLabel.textAlignment = .left
@@ -55,7 +57,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private let amountLabel: UILabel = {
         let amountLabel = UILabel()
-//        amountLabel.text = "100500$"
+        //        amountLabel.text = "100500$"
         amountLabel.textColor = .white
         amountLabel.font = amountLabel.font.withSize(20)
         amountLabel.textAlignment = .right
@@ -65,7 +67,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private lazy var cardNumberLabel: UILabel = {
         let cardNumberLabel = UILabel()
-//        cardNumberLabel.text = testData[0]._cardNumber
+        //        cardNumberLabel.text = testData[0]._cardNumber
         cardNumberLabel.textColor = .white
         cardNumberLabel.font = cardNumberLabel.font.withSize(20)
         cardNumberLabel.textAlignment = .center
@@ -116,37 +118,32 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         }
         cardNumberLabel.text = testData[index]._cardNumber
         
-//        setupView()
     }
     
     private func setupView() {
+        
         addBackgroundImage(cell: self)
         contentView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         contentView.addSubview(currencyLabel)
-        currencyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: contentView.frame.height * 0.2).isActive = true
-        currencyLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: contentView.frame.width * 0.1).isActive = true
-                
+        currencyLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: self.frame.height * 0.2).isActive = true
+        currencyLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1).isActive = true
+        
         contentView.addSubview(amountLabel)
-        amountLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: contentView.frame.height * 0.8 ).isActive = true
-        amountLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -amountLabel.intrinsicContentSize.width + 0.1 * contentView.frame.width).isActive = true
-        amountLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0.9 * contentView.frame.width - amountLabel.intrinsicContentSize.width).isActive = true
+        amountLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: frame.height * 0.8 ).isActive = true
+        amountLabel.rightAnchor.constraint(equalTo: self.leftAnchor, constant: frame.width * 0.9).isActive = true
         
         contentView.addSubview(cardNumberLabel)
         cardNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (contentView.frame.height - cardNumberLabel.intrinsicContentSize.height) / 1.5).isActive = true
-        cardNumberLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (contentView.frame.width - cardNumberLabel.intrinsicContentSize.width) / 2).isActive = true
+        cardNumberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         contentView.addSubview(rightArrow)
-        rightArrow.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (contentView.frame.height - rightArrow.image!.size.height) / 2).isActive = true
-        rightArrow.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (0.95 * contentView.frame.width - rightArrow.image!.size.width)).isActive = true
+        rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        rightArrow.leftAnchor.constraint(equalTo: self.leftAnchor, constant: (0.95 * self.frame.width - rightArrow.image!.size.width)).isActive = true
         
         contentView.addSubview(leftArrow)
-        leftArrow.topAnchor.constraint(
-            equalTo: contentView.topAnchor,
-            constant: (contentView.frame.height - leftArrow.image!.size.height) / 2
-        ).isActive = true
-        
-        leftArrow.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (0.05 * contentView.frame.width)).isActive = true
+        leftArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        leftArrow.leftAnchor.constraint(equalTo: self.leftAnchor, constant: (0.05 * self.frame.width)).isActive = true
     }
     
     private func addBackgroundImage(cell: UICollectionViewCell){

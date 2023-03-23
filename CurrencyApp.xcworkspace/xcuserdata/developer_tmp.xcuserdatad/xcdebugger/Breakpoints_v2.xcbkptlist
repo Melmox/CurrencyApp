@@ -46,118 +46,10 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/Controller/CurrencyHistoryInfoTableController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "WalletCardCollectionViewCell"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - 35ab6862e334e883"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.isFirst.getter : Swift.Bool"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - fbf2d5bdb94f41b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.isFirst.setter : Swift.Bool"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - 9ec6f23045d262b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.isFirst.modify : Swift.Bool"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - 8038d08515cffeae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.isFirst.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - 221d0a0e2b9262df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.init(frame: __C.CGRect) -&gt; CurrencyApp.WalletCardCollectionViewCell"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "252">
-               </Location>
-               <Location
-                  uuid = "F3BA0C16-4ECF-4BF8-A329-27179A98CE3D - 4f12436f5c8fd975"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletCardCollectionViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CurrencyApp.WalletCardCollectionViewCell&gt;"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "212">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,9 +62,148 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "configure(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/WalletController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "WalletController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - c32e882725b4a4d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; in implicit closure #1 (CurrencyApp.WalletViewModel) -&gt; (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; in variable initialization expression of CurrencyApp.WalletController.preparedData : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - ffeef6751e814ff5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.preparedData.getter : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - e110c083b1c257f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.preparedData.setter : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - ceb50f873b2601ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.preparedData.modify : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - a682ecd226b4274"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.preparedData.modify : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - 86b7eca3e64bba66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.init(viewModel: CurrencyApp.WalletViewModel) -&gt; CurrencyApp.WalletController"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "528">
+               </Location>
+               <Location
+                  uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - 4f406ce4f470dc0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CurrencyApp.WalletController&gt;"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/WalletController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "548">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "650EED51-64E8-42D2-9D82-B9975D76DB11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/WalletController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

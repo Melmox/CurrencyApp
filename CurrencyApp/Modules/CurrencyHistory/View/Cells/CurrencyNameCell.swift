@@ -1,13 +1,13 @@
 //
-//  CurrencyHistoryInfoCell.swift
+//  CurrencyNameCell.swift
 //  CurrencyApp
 //
-//  Created by developer_tmp on 22.03.2023.
+//  Created by developer_tmp on 15.03.2023.
 //
 
 import UIKit
 
-class CurrencyHistoryInfoCell: BasicControllerTableCell<CurrencyHistoryInfoCellViewModel> {
+class CurrencyNameCell: BasicControllerTableCell<CurrencyInfoCellViewModel> {
     
     var currencyName = UILabel()
     
@@ -15,7 +15,7 @@ class CurrencyHistoryInfoCell: BasicControllerTableCell<CurrencyHistoryInfoCellV
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        contentView.backgroundColor = .systemMint
+        contentView.backgroundColor = .systemYellow
         
         currencyName.translatesAutoresizingMaskIntoConstraints = false
 
@@ -29,5 +29,4 @@ class CurrencyHistoryInfoCell: BasicControllerTableCell<CurrencyHistoryInfoCellV
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

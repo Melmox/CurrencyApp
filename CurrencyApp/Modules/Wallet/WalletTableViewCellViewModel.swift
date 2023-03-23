@@ -8,6 +8,19 @@
 import Foundation
 
 final class WalletTableViewCellViewModel: BasicControllerUITableViewCell{
+    func prepareForReuse() {
+//        <#code#>
+    }
+    
+    func awakeFromNib() {
+//        <#code#>
+    }
+    
+    func initView() {
+//        <#code#>
+    }
+    
+    
     //MARK: - Properties
     //MARK: Fakedata
     
@@ -21,9 +34,7 @@ final class WalletTableViewCellViewModel: BasicControllerUITableViewCell{
                                                    AmountOfMoney(amountOfMoney: 25.7)]
     
     //MARK: Content
-    
-    private weak var interfaceCoordinator: Coordinator?
-    
+        
     //    private var header: WalletHeaderViewModel()
     private lazy var items: [WalletCellViewModel] = {
         for i in 0...codeOfMoney.count - 1{
@@ -36,22 +47,11 @@ final class WalletTableViewCellViewModel: BasicControllerUITableViewCell{
     
     //MARK: - Init
     
-    init(coordinator: Coordinator) {
-        interfaceCoordinator = coordinator
-    }
+
     
     //MARK: - Appearance
     
-    func configure() {
-        //        let someData = getSomeFakeData()
-        
-        //        configureHeader()
-        //        configureItems()
-    }
-    
-    //    private func configureItems(with someData: SomeDAta) {
-    //
-    //    }
+
     
     //MARK: - Provider
     
