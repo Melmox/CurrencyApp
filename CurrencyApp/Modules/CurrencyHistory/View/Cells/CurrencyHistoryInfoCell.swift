@@ -9,20 +9,37 @@ import UIKit
 
 class CurrencyHistoryInfoCell: BasicControllerTableCell<CurrencyHistoryInfoCellViewModel> {
     
-    var currencyName = UILabel()
+    var currencyLabel = UILabel()
+    var dateLabel = UILabel()
+    var arrowImage = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        contentView.backgroundColor = .systemMint
+//        contentView.backgroundColor = .systemMint
         
-        currencyName.translatesAutoresizingMaskIntoConstraints = false
+        
 
-        contentView.addSubview(currencyName)
+        contentView.addSubview(currencyLabel)
+        contentView.addSubview(dateLabel)
+        contentView.addSubview(arrowImage)
+        
+        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        arrowImage.translatesAutoresizingMaskIntoConstraints = false
 
-        currencyName.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-        currencyName.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+
+        currencyLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+        currencyLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        
+        dateLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: self.contentView.frame.width * 0.05).isActive = true
+        dateLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        
+        arrowImage.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -self.contentView.frame.width * 0.05).isActive = true
+        arrowImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        arrowImage.heightAnchor.constraint(equalToConstant: self.contentView.frame.height * 0.8).isActive = true
+        arrowImage.widthAnchor.constraint(equalToConstant: self.contentView.frame.height * 0.8).isActive = true
         
     }
     

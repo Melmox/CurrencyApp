@@ -25,7 +25,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 44;
+        tableView.rowHeight = 44
 
         super.viewDidLoad()
 //        self.view.backgroundColor = UIColor.systemPink

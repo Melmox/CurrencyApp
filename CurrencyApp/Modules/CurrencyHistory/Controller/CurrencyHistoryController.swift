@@ -28,7 +28,7 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     
     func setupTableView() {
         view.addSubview(tableView)
-        tableView.rowHeight = 44;
+        tableView.rowHeight = 44
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

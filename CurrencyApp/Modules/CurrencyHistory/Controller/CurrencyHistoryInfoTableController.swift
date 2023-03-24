@@ -31,12 +31,13 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
     //MARK: - Constraints
     
     func setupTableView() {
-      view.addSubview(tableView)
-      tableView.translatesAutoresizingMaskIntoConstraints = false
-      tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        view.addSubview(tableView)
+        tableView.rowHeight = 44;
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     //MARK: - TableViewDelegate
@@ -44,14 +45,28 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
         return visibilityOfSections.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if visibilityOfSections[section] == true{ return 9 }
-        else{ return 0 }
+        switch section{
+        case 0:
+            if visibilityOfSections[section] == true{ return 7 }
+            else{ return 0 }
+        case 1:
+            if visibilityOfSections[section] == true{ return 14 }
+            else{ return 0 }
+        case 2:
+            if visibilityOfSections[section] == true{ return 31 }
+            else{ return 0 }
+        default:
+            return 0
+        }
     }
     
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryInfoCell", for: indexPath) as! CurrencyHistoryInfoCell
-        cell.textLabel?.text = "Cell \(indexPath.row)"
+        cell.dateLabel.text = "01.01.2001"
+        cell.currencyLabel.text = "36.6$"
+//        cell.arrowImage.image = UIImage(systemName: "arrow.up.right")!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        cell.arrowImage.image = UIImage(systemName: "arrow.down.right")!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         cell.selectionStyle = .none
         return cell
     }
@@ -62,30 +77,30 @@ class CurrencyHistoryInfoTableController: UIViewController, UITableViewDelegate,
         let frame = tableView.frame
         tableView.sectionHeaderHeight = frame.size.height * 0.05
         let headerView = UIView(frame: CGRectMake(0, 0, frame.size.width, tableView.sectionHeaderHeight))
-
+        
         let button = UIButton(frame: CGRectMake(0, 0, frame.size.width, headerView.frame.size.height))
-        button.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.white), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
         button.tag = section
         button.setTitle("Section \(section)", for: .normal)
-            button.backgroundColor = .systemGray
-                
+        button.backgroundColor = .systemGray
+        
         
         button.semanticContentAttribute = .forceRightToLeft
-
+        
         
         
         button.tag = section
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-
+        
         headerView.addSubview(button)
-
+        
         return headerView
     }
     
     @objc func buttonAction(sender: UIButton!) {
         visibilityOfSections[sender.tag] = visibilityOfSections[sender.tag] ? false : true
-//        print(visibilityOfSections[sender.tag])
-//         print("Button Clicked")
+        //        print(visibilityOfSections[sender.tag])
+        //         print("Button Clicked")
         tableView.reloadData()
     }
 }

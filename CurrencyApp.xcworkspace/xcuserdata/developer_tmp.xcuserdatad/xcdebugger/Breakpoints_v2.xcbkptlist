@@ -46,8 +46,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/Controller/CurrencyHistoryInfoTableController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>
