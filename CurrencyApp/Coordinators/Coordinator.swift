@@ -23,9 +23,8 @@ final class Coordinator {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
-//        getData(endpoint: "historical", baseCurrency: "UAH", date: "2003-29-09")
         
-        getData(endpoint: "latest", baseCurrency: "UAH")
+//        getData(endpoint: ExchangeRatesDateRange.self, baseCurrency: "UAH", start_date: "2023-03-18", end_date: "2023-03-22")
 
         
     }

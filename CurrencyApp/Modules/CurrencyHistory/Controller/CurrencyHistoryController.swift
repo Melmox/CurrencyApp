@@ -9,7 +9,7 @@ import UIKit
 
 class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    
     //MARK: - General
     let tableView = UITableView()
     
@@ -27,12 +27,13 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
     //MARK: - Constraints
     
     func setupTableView() {
-      view.addSubview(tableView)
-      tableView.translatesAutoresizingMaskIntoConstraints = false
-      tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        view.addSubview(tableView)
+        tableView.rowHeight = 44;
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     //MARK: - TableViewDelegate
@@ -45,7 +46,7 @@ class CurrencyHistoryController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyNameCell", for: indexPath) as! CurrencyNameCell
         cell.currencyName.text = "Cell \(indexPath.row)"
         cell.accessoryType = .disclosureIndicator
-//        cell.selectionStyle = .none
+        //        cell.selectionStyle = .none
         return cell
     }
     

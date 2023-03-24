@@ -10,8 +10,10 @@ import UIKit
 final class WalletController: BasicViewController<WalletViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - General
+    
+    var smth: () = WalletViewModel(coordinator: Coordinator(window: UIWindow())).configure()
     let tableView = UITableView()
-    var preparedData = WalletViewModel(coordinator: Coordinator(window: UIWindow())).prepareString
+    var preparedData = WalletViewModel(coordinator: Coordinator(window: UIWindow())).prepareString()
 
     lazy var headerView: TableViewHeaderView = {
         let width = UIView.screenWidth

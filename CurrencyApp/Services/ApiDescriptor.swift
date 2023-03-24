@@ -10,18 +10,16 @@ import Foundation
 //MARK: - Decoding of data from API
 
 final class ApiDescriptor {
-    var decodeJSON = { (jsonData: Data) -> ExchangeRates in
+    
+    func decodeJSON<T: Decodable>(type: T.Type, jsonData: Data) -> T? {
         let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(ApiResponseStructure.self, from: jsonData)
-            let response = decodedData.response
-//            WalletViewModel().someClosureToTakeArray(response)
-//            print(response)
-            return response
-        } catch {
-            print(error)
-        }
-        return ExchangeRates(date: "", base: "", rates: ["" : 0])
+            do {
+                let decodedData = try decoder.decode(type, from: jsonData)
+                return decodedData
+            } catch {
+                print(error)
+            }
+        return nil
     }
 }
 

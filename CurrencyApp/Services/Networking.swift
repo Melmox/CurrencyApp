@@ -10,24 +10,29 @@ import Alamofire
 
 //MARK: - Request data from API
 
-private let apiKey = "3dff8c75da9d399819589f515422fde1"
-
-func getData(endpoint: String, baseCurrency: String, date: String? = nil) {
+func getData<T: Codable>(endpoint: T.Type, baseCurrency: String, start_date: String? = nil, end_date: String? = nil, completion: @escaping (T?) -> Void) {
     
-    let url = "https://api.currencybeacon.com/v1/\(endpoint)"
-    
+    var pathEndpoint = ""
     var parameters: Parameters = [
-        "api_key": apiKey,
         "base": baseCurrency
-        ]
-    if date != nil{
-        parameters.updateValue(date!, forKey: "date")
+    ]
+    
+    switch endpoint {
+    case is ExchangeRatesLatest.Type:
+        pathEndpoint = "latest"
+    case is ExchangeRatesDateRange.Type:
+        pathEndpoint = "timeseries"
+        parameters.updateValue(start_date!, forKey: "start_date")
+        parameters.updateValue(end_date!, forKey: "end_date")
+    default:
+        break
     }
-        AF.request(url, parameters: parameters).responseData { response in
-
+    
+    let url = "https://api.exchangerate.host/\(pathEndpoint)"
+    AF.request(url, parameters: parameters).responseData { response in
         switch response.result {
-            case .success(let data): print(ApiDescriptor().decodeJSON(data))
+        case .success(let data): completion(ApiDescriptor().decodeJSON(type: endpoint, jsonData: data))
         case .failure(_): break
-            }
+        }
     }
 }
