@@ -11,22 +11,28 @@ final class Coordinator {
     
     var window: UIWindow?
     
+    var currencyHistoryController: CurrencyHistoryCurrencyNameController?
+    
+    
     // MARK: - Initialization
     
     init(window: UIWindow?) {
         self.window = window
     }
     
+    
     // MARK: - Methods
     func start() {
         let tabBarController = createTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        
-        
-//        getData(endpoint: ExchangeRatesDateRange.self, baseCurrency: "UAH", start_date: "2023-03-18", end_date: "2023-03-22")
-
-        
+    }
+    
+    func presentCurrencyHistoryInfoDetailsController(title: String, data: ExchangeRatesDateRange? = nil) {
+        let controller = createCurrencyHistoryInfoDetailsController()
+        controller.navigationItem.title = title
+        controller.viewModel.exchangeCureencyRates = data
+        currencyHistoryController?.navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Modules
@@ -40,16 +46,23 @@ final class Coordinator {
         return tabBarController
     }
     
-    private func createWalletController() -> UIViewController{
+    private func createWalletController() -> WalletController {
         let walletController = WalletController(
             viewModel: WalletViewModel(coordinator: self)
         )
         return walletController
     }
     
-    private func createCurrencyHistoryController() -> UINavigationController{
-        let currencyHistoryController = CurrencyHistoryController()
+    private func createCurrencyHistoryController() -> UINavigationController {
+        let currencyHistoryController = CurrencyHistoryCurrencyNameController(viewModel: CurrencyHistoryCurrencyNameViewModel(coordinator: self))
+        self.currencyHistoryController = currencyHistoryController
         return UINavigationController(rootViewController: currencyHistoryController)
     }
     
+    private func createCurrencyHistoryInfoDetailsController() -> CurrencyHistoryInfoDetailsController {
+        let currencyHistoryInfoDetails = CurrencyHistoryInfoDetailsController(
+            viewModel: CurrencyHistoryInfoDetailsViewModel(coordinator: self)
+        )
+        return currencyHistoryInfoDetails
+    }
 }

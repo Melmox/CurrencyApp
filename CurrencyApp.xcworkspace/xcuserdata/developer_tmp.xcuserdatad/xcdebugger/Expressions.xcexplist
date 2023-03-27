@@ -28,10 +28,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
+         contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "CardCollectionViewCell">
+               value = "testData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,10 +47,18 @@
          contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
       </ContextState>
       <ContextState
-         contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
+         contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "testData">
+               value = "CardCollectionViewCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellViewModels.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

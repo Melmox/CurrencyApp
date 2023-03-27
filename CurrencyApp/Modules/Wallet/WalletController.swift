@@ -11,9 +11,8 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     
     //MARK: - General
     
-    var smth: () = WalletViewModel(coordinator: Coordinator(window: UIWindow())).configure()
     let tableView = UITableView()
-    var preparedData = WalletViewModel(coordinator: Coordinator(window: UIWindow())).prepareString()
+    
 
     lazy var headerView: TableViewHeaderView = {
         let width = UIView.screenWidth
@@ -29,9 +28,13 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
 
         super.viewDidLoad()
 //        self.view.backgroundColor = UIColor.systemPink
+        viewModel.configure()
         setupTableView()
         tableView.register(WalletTableViewCell.self, forCellReuseIdentifier: "WalletTableViewCell")
         tableView.tableHeaderView = headerView
+        viewModel.willReload = {
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: - Constraints
@@ -46,18 +49,22 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    //MARK: - UITableView
-    //MARK: Delegate
+    //MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WalletViewModel(coordinator: Coordinator(window: UIWindow())).numberOfItems
+        viewModel.numberOfItems
     }
     
-    //MARK: DataSource
+    //MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WalletTableViewCell", for: indexPath) as! WalletTableViewCell
-        cell.exchangeRatelabel.text = preparedData[indexPath.row]
+        let cellViewModel = viewModel.item(at: indexPath)
+        cell.configure(with: cellViewModel)
         return cell
     }
+    
+    //MARK: - Moving cells
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
@@ -67,9 +74,9 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.preparedData[sourceIndexPath.row]
-        preparedData.remove(at: sourceIndexPath.row)
-        preparedData.insert(movedObject, at: destinationIndexPath.row)
+        let movedObject = viewModel.cellViewModels[sourceIndexPath.row]
+        viewModel.cellViewModels.remove(at: sourceIndexPath.row)
+        viewModel.cellViewModels.insert(movedObject, at: destinationIndexPath.row)
     }
 }
 

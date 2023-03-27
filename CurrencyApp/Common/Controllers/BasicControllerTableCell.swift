@@ -8,29 +8,24 @@
 import Foundation
 import UIKit
 
-protocol BasicControllerUITableViewCell {
-    func prepareForReuse()
+class BasicTableCell<ViewModel>: UITableViewCell {
     
-    func awakeFromNib()
+    //MARK: - Properties
+    //MARK: Content
     
-    func initView()
-}
-
-class BasicControllerTableCell<TableViewCell: BasicControllerUITableViewCell>: UITableViewCell {
-
+    private var viewModel: ViewModel?
+    
+    //MARK: - Lifecycle
+    
     override func prepareForReuse() {
         super.prepareForReuse()
+        viewModel = nil
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        initView()
-    }
+    //MARK: - ViewModel
+    //MARK: Configuration
     
-    func initView() {
-        translatesAutoresizingMaskIntoConstraints = false
-        preservesSuperviewLayoutMargins = false
-        separatorInset = UIEdgeInsets.zero
-        layoutMargins = UIEdgeInsets.zero
+    func configure(with viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 }

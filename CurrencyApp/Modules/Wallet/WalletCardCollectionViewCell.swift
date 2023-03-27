@@ -22,7 +22,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     // MARK: - Properties
     
-    //MARK: Prepareation for reusing
+    // MARK: Prepareation for reusing
     override func prepareForReuse() {
         amountLabel.text = nil
         cardNumberLabel.text = nil
@@ -106,7 +106,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     // MARK: - Appearance
     
-    func configure(index: Int){
+    func configure(index: Int) {
         leftArrow.isHidden = isFirst
         rightArrow.isHidden = isLast
         

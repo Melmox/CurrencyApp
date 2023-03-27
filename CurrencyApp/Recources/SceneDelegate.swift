@@ -11,12 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var coordinator: Coordinator?    
+    var coordinator: Coordinator?
+    
+//    var coordinator: loginCoordinator?
+
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         coordinator = Coordinator(window: window)
+//        coordinator = loginCoordinator(window: window)
         coordinator?.start()
         }
 

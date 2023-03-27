@@ -5,10 +5,9 @@
 //  Created by developer_tmp on 21.03.2023.
 //
 
-import Foundation
 import UIKit
 
-final class WalletTableViewCell: BasicControllerTableCell<WalletTableViewCellViewModel> {
+final class WalletTableViewCell: BasicTableCell<WalletTableViewCellViewModel> {
     
     var exchangeRatelabel = UILabel()
     
@@ -26,5 +25,13 @@ final class WalletTableViewCell: BasicControllerTableCell<WalletTableViewCellVie
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - ViewModel
+    // MARK: Configure
+    
+    override func configure(with viewModel: WalletTableViewCellViewModel) {
+        super.configure(with: viewModel)
+        exchangeRatelabel.text = viewModel.title
     }
 }

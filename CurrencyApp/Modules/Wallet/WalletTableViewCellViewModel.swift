@@ -7,17 +7,6 @@
 
 import Foundation
 
-final class WalletTableViewCellViewModel: BasicControllerUITableViewCell{
-    func prepareForReuse() {
-//        <#code#>
-    }
-    
-    func awakeFromNib() {
-//        <#code#>
-    }
-    
-    func initView() {
-//        <#code#>
-    }
-    
+struct WalletTableViewCellViewModel {
+    let title: String
 }

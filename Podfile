@@ -7,5 +7,6 @@ target 'CurrencyApp' do
 
   # Pods for CurrencyApp
   pod 'Alamofire'
+  pod 'Firebase'
 
 end
