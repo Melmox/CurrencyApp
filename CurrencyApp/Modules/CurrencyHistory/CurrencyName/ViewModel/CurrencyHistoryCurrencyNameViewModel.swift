@@ -40,14 +40,14 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
         
         let networkManager: NetworkManager = NetworkManager()
         networkManager.getData(endpoint: ExchangeRatesDateRange.self,
-                               baseCurrency: "UAH",
+                               baseCurrency: "USD",
                                start_date: dateFormatter.string(from: monthEarlierDate ?? currentDate),
                                end_date: dateFormatter.string(from: currentDate))
         { [weak self] latestRates in
             if let latestRates {
-                if latestRates.rates.values.first != nil && self != nil{
-                    self!.cellViewModels = latestRates.rates.values.first!.map { key, value in
-                            CurrencyHistoryCurrencyNameCellViewModel(currencyName: key)
+                if (latestRates.rates.first != nil && self != nil){
+                    self!.cellViewModels = latestRates.rates.first!.rate.map { rate in
+                        CurrencyHistoryCurrencyNameCellViewModel(currencyName: rate.currencyName)
                     }
                     self!.willReload?()
                     self!.downloadedData = latestRates

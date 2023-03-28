@@ -13,6 +13,7 @@
 		D246350429C455D50058A610 /* BasicControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */; };
 		D246350629C4598B0058A610 /* WalletCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246350529C4598B0058A610 /* WalletCollectionViewCellViewModel.swift */; };
 		D246350829C45B9D0058A610 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246350729C45B9D0058A610 /* FakeData.swift */; };
+		D286447929D3004B00A3BAA6 /* CurrencyHistoryCurrencyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286447829D3004B00A3BAA6 /* CurrencyHistoryCurrencyNameCell.swift */; };
 		D2CC021D29D16944008B9C11 /* LoginLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021C29D16944008B9C11 /* LoginLaunchScreen.swift */; };
 		D2CC021F29D16974008B9C11 /* LoginProcessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021E29D16974008B9C11 /* LoginProcessScreen.swift */; };
 		D2CC022129D16994008B9C11 /* RegistrationProcessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC022029D16994008B9C11 /* RegistrationProcessScreen.swift */; };
@@ -28,10 +29,9 @@
 		D2E3A6B729BF4A5B00F496EB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6B629BF4A5B00F496EB /* Coordinator.swift */; };
 		D2E3A6B929BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6B829BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift */; };
 		D2E3A6BB29C09B3000F496EB /* WalletCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */; };
-		D2E3A6BD29C1A28C00F496EB /* CurrencyHistoryCurrencyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BC29C1A28C00F496EB /* CurrencyHistoryCurrencyNameCell.swift */; };
 		D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */; };
 		D2EECDBA29C9B3E500711997 /* CurrencyHistoryInfoDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoDetailsController.swift */; };
-		D2EECDBC29C9E33B00711997 /* BasicControllerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */; };
+		D2EECDBC29C9E33B00711997 /* BasicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBB29C9E33B00711997 /* BasicTableCell.swift */; };
 		D2EECDBE29C9E46500711997 /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBD29C9E46500711997 /* WalletTableViewCell.swift */; };
 		D2EECDC029C9E4BA00711997 /* WalletTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDBF29C9E4BA00711997 /* WalletTableViewCellViewModel.swift */; };
 		D2EECDC229CAFB1500711997 /* APIDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EECDC129CAFB1500711997 /* APIDescriptor.swift */; };
@@ -52,6 +52,7 @@
 		D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicControllerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D246350529C4598B0058A610 /* WalletCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		D246350729C45B9D0058A610 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		D286447829D3004B00A3BAA6 /* CurrencyHistoryCurrencyNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyHistoryCurrencyNameCell.swift; path = ../../../../../../../CurrencyHistoryCurrencyNameCell.swift; sourceTree = "<group>"; };
 		D2CC021C29D16944008B9C11 /* LoginLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLaunchScreen.swift; sourceTree = "<group>"; };
 		D2CC021E29D16974008B9C11 /* LoginProcessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProcessScreen.swift; sourceTree = "<group>"; };
 		D2CC022029D16994008B9C11 /* RegistrationProcessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessScreen.swift; sourceTree = "<group>"; };
@@ -69,10 +70,9 @@
 		D2E3A6B629BF4A5B00F496EB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D2E3A6B829BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCurrencyNameController.swift; sourceTree = "<group>"; };
 		D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardCollectionViewCell.swift; sourceTree = "<group>"; };
-		D2E3A6BC29C1A28C00F496EB /* CurrencyHistoryCurrencyNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyHistoryCurrencyNameCell.swift; path = CurrencyApp/Modules/CurrencyHistory/View/Cells/CurrencyHistoryCurrencyNameCell.swift; sourceTree = SOURCE_ROOT; };
 		D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHeaderView.swift; sourceTree = "<group>"; };
 		D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoDetailsController.swift; sourceTree = "<group>"; };
-		D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicControllerTableCell.swift; sourceTree = "<group>"; };
+		D2EECDBB29C9E33B00711997 /* BasicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableCell.swift; sourceTree = "<group>"; };
 		D2EECDBD29C9E46500711997 /* WalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
 		D2EECDBF29C9E4BA00711997 /* WalletTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		D2EECDC129CAFB1500711997 /* APIDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDescriptor.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 			children = (
 				D24634F929C35F4B0058A610 /* BasicViewController.swift */,
 				D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */,
-				D2EECDBB29C9E33B00711997 /* BasicControllerTableCell.swift */,
+				D2EECDBB29C9E33B00711997 /* BasicTableCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,9 +136,8 @@
 		D24634FD29C449C90058A610 /* CurrencyHistory */ = {
 			isa = PBXGroup;
 			children = (
-				D246350029C44A140058A610 /* View */,
-				D24634FF29C449F30058A610 /* ViewModel */,
-				D24634FE29C449DD0058A610 /* Controller */,
+				D2ABA2AF29D2FBE800BFB2C0 /* CurrencyName */,
+				D2ABA2AE29D2FBDB00BFB2C0 /* InfoDetails */,
 			);
 			path = CurrencyHistory;
 			sourceTree = "<group>";
@@ -147,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				D2E3A6B829BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift */,
-				D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoDetailsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,9 +153,7 @@
 		D24634FF29C449F30058A610 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D2EECDCA29CB0E4500711997 /* CurrencyHistoryInfoDetailsViewModel.swift */,
 				D2EECDCC29CB0E6D00711997 /* CurrencyHistoryCurrencyNameViewModel.swift */,
-				D2EECDD029CB0EDA00711997 /* CurrencyHistoryInfoDetailsCellViewModel.swift */,
 				D2EECDD229CB0EFC00711997 /* CurrencyHistoryCurrencyNameCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -174,8 +170,7 @@
 		D246350129C44A1D0058A610 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D2E3A6BC29C1A28C00F496EB /* CurrencyHistoryCurrencyNameCell.swift */,
-				D2EECDCE29CB0E9D00711997 /* CurrencyHistoryInfoDetailsCell.swift */,
+				D286447829D3004B00A3BAA6 /* CurrencyHistoryCurrencyNameCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -186,6 +181,59 @@
 				D2E3A6B229BF3CC800F496EB /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D2ABA2AE29D2FBDB00BFB2C0 /* InfoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABA2B029D2FBF400BFB2C0 /* View */,
+				D2ABA2B629D2FC2B00BFB2C0 /* Controller */,
+				D2ABA2B129D2FBFC00BFB2C0 /* ViewModel */,
+			);
+			path = InfoDetails;
+			sourceTree = "<group>";
+		};
+		D2ABA2AF29D2FBE800BFB2C0 /* CurrencyName */ = {
+			isa = PBXGroup;
+			children = (
+				D24634FF29C449F30058A610 /* ViewModel */,
+				D24634FE29C449DD0058A610 /* Controller */,
+				D246350029C44A140058A610 /* View */,
+			);
+			path = CurrencyName;
+			sourceTree = "<group>";
+		};
+		D2ABA2B029D2FBF400BFB2C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABA2B729D2FC5800BFB2C0 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2ABA2B129D2FBFC00BFB2C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2EECDCA29CB0E4500711997 /* CurrencyHistoryInfoDetailsViewModel.swift */,
+				D2EECDD029CB0EDA00711997 /* CurrencyHistoryInfoDetailsCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2ABA2B629D2FC2B00BFB2C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D2EECDB929C9B3E500711997 /* CurrencyHistoryInfoDetailsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D2ABA2B729D2FC5800BFB2C0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D2EECDCE29CB0E9D00711997 /* CurrencyHistoryInfoDetailsCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D2CC021929D168D6008B9C11 /* LoginFlow */ = {
@@ -467,8 +515,9 @@
 				D2E3A6B929BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift in Sources */,
 				D2EECDD129CB0EDA00711997 /* CurrencyHistoryInfoDetailsCellViewModel.swift in Sources */,
 				D24634FC29C3638F0058A610 /* WalletViewModel.swift in Sources */,
-				D2EECDBC29C9E33B00711997 /* BasicControllerTableCell.swift in Sources */,
+				D2EECDBC29C9E33B00711997 /* BasicTableCell.swift in Sources */,
 				D2E3A69929BF2CA400F496EB /* CurrencyApp.xcdatamodeld in Sources */,
+				D286447929D3004B00A3BAA6 /* CurrencyHistoryCurrencyNameCell.swift in Sources */,
 				D2CC021D29D16944008B9C11 /* LoginLaunchScreen.swift in Sources */,
 				D2EECDC029C9E4BA00711997 /* WalletTableViewCellViewModel.swift in Sources */,
 				D2E3A6A629BF360100F496EB /* Networking.swift in Sources */,
@@ -481,7 +530,6 @@
 				D2EECDBE29C9E46500711997 /* WalletTableViewCell.swift in Sources */,
 				D2EECDCD29CB0E6D00711997 /* CurrencyHistoryCurrencyNameViewModel.swift in Sources */,
 				D2EECDC429CB052B00711997 /* ExchangeRates.swift in Sources */,
-				D2E3A6BD29C1A28C00F496EB /* CurrencyHistoryCurrencyNameCell.swift in Sources */,
 				D2E3A6B329BF3CC800F496EB /* TabBarController.swift in Sources */,
 				D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */,
 				D2E3A6B529BF46ED00F496EB /* WalletController.swift in Sources */,

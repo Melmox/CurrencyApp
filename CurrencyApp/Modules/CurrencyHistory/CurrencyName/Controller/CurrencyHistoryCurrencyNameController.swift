@@ -28,6 +28,7 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK: - Constraints
@@ -59,6 +60,9 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.coordinateNextPage(title: viewModel.cellViewModels[indexPath.row].currencyName)
+        self.tabBarController?.tabBar.isHidden = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Currency List", style: .plain, target: nil, action: nil)
     }
 }
 

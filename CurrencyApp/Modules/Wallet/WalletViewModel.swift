@@ -32,8 +32,8 @@ final class WalletViewModel: BasicControllerViewModel {
         let networkManager: NetworkManager = NetworkManager()
         networkManager.getData(endpoint: ExchangeRatesLatest.self, baseCurrency: "UAH") { [weak self] latestRates in
             if let latestRates {
-                self!.cellViewModels = latestRates.prepareForBaseCurrencyRate().map { key, value in
-                    WalletTableViewCellViewModel(title: "Per 1 \(key) you can buy \(Double(round(100 * value) / 100)) \(latestRates.base)")
+                self!.cellViewModels = latestRates.rates.map { rate in
+                    WalletTableViewCellViewModel(title: "Per 1 \(rate.currencyName) you can buy \(String(format: "%.2f", 1/rate.exchangeCourse)) \(latestRates.base)")
                 }
                 self!.willReload?()
             } else {

@@ -103,3 +103,5 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         tableView.reloadData()
     }
 }
+
+// performBenchUpdate

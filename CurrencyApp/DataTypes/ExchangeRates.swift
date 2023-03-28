@@ -12,15 +12,25 @@ import Foundation
 protocol ExchangeRates {
     var success: Bool { get set }
     var base: String { get set }
-//    var date: String { get set }
-    }
+}
 
 struct ExchangeRatesLatest: ExchangeRates, Codable {
     var success: Bool
     var base: String
     
     var date: String
-    var rates: [String: Double]
+    var _rates: [String : Double]
+    
+    enum CodingKeys: String, CodingKey {
+        case success = "success"
+        case base = "base"
+        case date = "date"
+        case _rates = "rates"
+    }
+    
+    var rates: [Rate] {
+        _rates.map { Rate(currencyName: $0.0, exchangeCourse: $0.1) }
+    }
 }
 
 struct ExchangeRatesDateRange: ExchangeRates, Codable {
@@ -28,31 +38,45 @@ struct ExchangeRatesDateRange: ExchangeRates, Codable {
     var base: String
     
     var start_date, end_date: String
-    var rates: [String: [String: Double]]
+    var _rates: [String : [String : Double]]
+//    var _rates: [String : [Rate]]
     
-}
+    enum CodingKeys: String, CodingKey {
+        case success = "success"
+        case base = "base"
+        case start_date = "start_date"
+        case end_date = "end_date"
+        case _rates = "rates"
+    }
 
-extension ExchangeRatesLatest {
-    func prepareForBaseCurrencyRate() -> [String: Double] {
-//    mutating func prepareForBaseCurrencyRate(){
-
-        var preparedDictionary : [String : Double] = [:]
+    
+    var rates: [RateWithDate] {
         
-        for rate in self.rates {
-            preparedDictionary.updateValue(Double(round(100 * 1/rate.value) / 100), forKey: rate.key)
-        }
-//        self.rates = preparedDictionary
-        return preparedDictionary
+        _rates.map { RateWithDate(date: $0.0, rate:  $0.1.map { Rate(currencyName: $0.0, exchangeCourse: $0.1)})}
     }
 }
+
+struct Rate: Codable{
     
-var someTestData = ExchangeRatesLatest(success: true, base: "UAH", date: "18.03.2023", rates: ["USD": 0.04199034,
-                                                                          "EUR": 0.0376191,
-                                                                          "GBP": 0.03211844,
-                                                                          "INR": 3.01423406,
-                                                                          "AUD": 0.06037806,
-                                                                          "CAD": 0.05458492,
-                                                                          "SGD": 0.05668141,
-                                                                          "CHF": 0.04082162,
-                                                                          "MYR": 0.17228638,])
+    var currencyName: String
+    var exchangeCourse: Double
+}
+
+struct RateWithDate: Codable {
+    var date: String
+    var rate: [Rate]
+}
+
+
+//extension ExchangeRatesLatest {
+//    func prepareForBaseCurrencyRate() -> Rate {
+////        var preparedDictionary : BaseRate
+//        var preparedDictionary : Rate
+//
+//        for rate in self.rates {
+//            preparedDictionary.updateValue(Double(round(100 * 1/rate.exchangeCourse) / 100), forKey: rate.currencyName)
+//        }
+//        return preparedDictionary
+//    }
+//}
 

@@ -1,5 +1,5 @@
 //
-//  BasicControllerTableCell.swift
+//  BasicTableCell.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 21.03.2023.

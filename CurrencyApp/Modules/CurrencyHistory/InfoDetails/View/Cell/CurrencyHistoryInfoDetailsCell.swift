@@ -46,18 +46,22 @@ class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsC
     // MARK: - ViewModel
     // MARK: Configure
     
+    var currancyRateState: CurrencyRateState?
+
+    
     override func configure(with viewModel: CurrencyHistoryInfoDetailsCellViewModel) {
         super.configure(with: viewModel)
-        currencyExchangeCourceLabel.text = viewModel.currencyExchangeCource
-        dateLabel.text = viewModel.date
+        currencyExchangeCourceLabel.text = viewModel.value
+        dateLabel.text = viewModel.title
+        currancyRateState = viewModel.currancyRateState
         
-        switch viewModel.imageName{
-        case "arrow.up.right":
-            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-        case "arrow.down.right":
-            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        switch currancyRateState{
+        case .up:
+            arrowImage.image = UIImage(systemName: viewModel.iconName)!.withTintColor(viewModel.color, renderingMode: .alwaysOriginal)
+        case .down:
+            arrowImage.image = UIImage(systemName: viewModel.iconName)!.withTintColor(viewModel.color, renderingMode: .alwaysOriginal)
         default:
-            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+            arrowImage.image = UIImage(systemName: viewModel.iconName)!.withTintColor(viewModel.color, renderingMode: .alwaysOriginal)
         }
     }
 }
