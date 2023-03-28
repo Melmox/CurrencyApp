@@ -3,15 +3,28 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CurrencyHistoryController.tableView(_:didSelectRowAt:):CurrencyHistoryController.swift">
+         contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "super">
+               value = "testData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
+         contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletCardCollectionViewCell.configure():WalletCardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testData[0].currencyAndAmount.description">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CardCollectionViewCell.sutupView():CardCollectionViewCell.swift">
@@ -36,25 +49,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "testData">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "WalletCardCollectionViewCell.configure():WalletCardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "testData[0].currencyAndAmount.description">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
-      </ContextState>
-      <ContextState
          contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -63,18 +57,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
+         contextName = "CurrencyHistoryController.tableView(_:didSelectRowAt:):CurrencyHistoryController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cellViewModels.count">
+               value = "super">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryInfoDetailsCell.configure(with:):CurrencyHistoryInfoDetailsCell.swift">
       </ContextState>
       <ContextState
          contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
                value = "testData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellViewModels.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -91,6 +96,12 @@
                value = "Double(cellViewModels[cellViewModelIndex - 1].currencyExchangeCource)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

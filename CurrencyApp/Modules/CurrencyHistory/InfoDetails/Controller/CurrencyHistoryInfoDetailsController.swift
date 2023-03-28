@@ -99,8 +99,10 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
     }
     
     @objc func buttonAction(sender: UIButton!) {
+        var indexSet = IndexSet()
+        indexSet.insert(sender.tag)
         visibilityOfSections[sender.tag] = visibilityOfSections[sender.tag] ? false : true
-        tableView.reloadData()
+        tableView.reloadSections(indexSet, with: .automatic)
     }
 }
 
