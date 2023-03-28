@@ -50,7 +50,14 @@ class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsC
         super.configure(with: viewModel)
         currencyExchangeCourceLabel.text = viewModel.currencyExchangeCource
         dateLabel.text = viewModel.date
-        arrowImage.image = UIImage(systemName: viewModel.imageName)!
+        
+        switch viewModel.imageName{
+        case "arrow.up.right":
+            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+        case "arrow.down.right":
+            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        default:
+            arrowImage.image = UIImage(systemName: viewModel.imageName)!.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        }
     }
-
 }

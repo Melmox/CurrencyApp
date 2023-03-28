@@ -10,23 +10,18 @@ import Foundation
 final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
-    let currentDate = Date()
-    let monthEarlierDate = Calendar.current.date(byAdding: .month, value: -1, to: Date())
-    let dateFormatter = DateFormatter()
-
+    
     //MARK: Content
     
     private weak var interfaceCoordinator: Coordinator?
     lazy var cellViewModels: [CurrencyHistoryInfoDetailsCellViewModel] = []
     
     var exchangeCureencyRates: ExchangeRatesDateRange?
+    var selectedCurrency: String?
     
     //MARK: Callbacks
     
     var willReload: (() -> ())?
-    
-    var getDataFromAnotherViewModel: (() -> ExchangeRatesDateRange?)?
-    
     
     //MARK: - Init
     
@@ -37,45 +32,43 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     //MARK: - Appearance
     
     func configure() {
-        //getDataFromAnotherViewModel()
-        let tempCurrencyNameTappedOnTableView = "USD"
-        
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        let networkManager: NetworkManager = NetworkManager()
-        networkManager.getData(endpoint: ExchangeRatesDateRange.self,
-                               baseCurrency: "UAH",
-                               start_date: dateFormatter.string(from: monthEarlierDate ?? currentDate),
-                               end_date: dateFormatter.string(from: currentDate))
-        { [weak self] latestRates in
-            if let latestRates {
-                if latestRates.rates.values.first != nil && self != nil{
-                    self!.cellViewModels = latestRates.rates.map { key, value in
-                        CurrencyHistoryInfoDetailsCellViewModel(currencyExchangeCource: String(value[tempCurrencyNameTappedOnTableView] ?? 0.0),
-                                                                    date: key,
-                                                                    imageName: "arrow.up.right")
-                    }
-                    self!.willReload?()
-                }
-
-            } else {
-                print("some error")
+        if exchangeCureencyRates != nil && selectedCurrency != nil {
+            cellViewModels = exchangeCureencyRates!.rates.map { key, value in
+                CurrencyHistoryInfoDetailsCellViewModel(currencyExchangeCource: String(value[selectedCurrency!] ?? 0.0),
+                                                        date: key,
+                                                        imageName: "arrow.right")
             }
+            cellViewModels = cellViewModels.sorted(by: {
+                if $0.date != $1.date { return $0.date < $1.date }
+                else {
+                    return String(describing: $0.date) < String(describing: $1.date)
+                }
+            })
+            for cellViewModelIndex in 0...numberOfItems-1 {
+                if cellViewModelIndex > 0{
+                    if (Double(cellViewModels[cellViewModelIndex].currencyExchangeCource) ?? 0.0 > Double(cellViewModels[cellViewModelIndex - 1].currencyExchangeCource) ?? 0.0){
+                        cellViewModels[cellViewModelIndex].setNewImageName(newImageName: "arrow.up.right")
+                    }
+                    if (Double(cellViewModels[cellViewModelIndex].currencyExchangeCource) ?? 0.0 < Double(cellViewModels[cellViewModelIndex - 1].currencyExchangeCource) ?? 0.0){
+                        cellViewModels[cellViewModelIndex].setNewImageName(newImageName: "arrow.down.right")
+                    }
+                }
+            }
+            willReload?()
         }
     }
-    
-    func item(at indexPath: IndexPath) -> CurrencyHistoryInfoDetailsCellViewModel{
-        return cellViewModels[indexPath.row]
+        
+        func item(at indexPath: IndexPath) -> CurrencyHistoryInfoDetailsCellViewModel{
+            return cellViewModels[indexPath.row]
+        }
+        
+        //MARK: - Provider
+        
+        var numberOfItems: Int {
+            cellViewModels.count
+        }
+        
+        //MARK: - Navigation
+        
+        
     }
-    
-    //MARK: - Provider
-    
-    var numberOfItems: Int {
-        cellViewModels.count
-    }
-    
-    //MARK: - Navigation
-    
-    
-}

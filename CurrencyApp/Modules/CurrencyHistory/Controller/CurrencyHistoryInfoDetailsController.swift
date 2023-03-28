@@ -21,7 +21,11 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         tableView.dataSource = self
         super.viewDidLoad()
         setupTableView()
+        viewModel.configure()
         tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: "CurrencyHistoryInfoDetailsCell")
+        viewModel.willReload = {
+            self.tableView.reloadData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -52,7 +56,7 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
             if visibilityOfSections[section] == true{ return 14 }
             else{ return 0 }
         case 2:
-            if visibilityOfSections[section] == true{ return 31 }
+            if visibilityOfSections[section] == true{ return viewModel.numberOfItems }
             else{ return 0 }
         default:
             return 0
@@ -62,16 +66,17 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryInfoDetailsCell", for: indexPath) as! CurrencyHistoryInfoDetailsCell
-        cell.dateLabel.text = "01.01.2001"
-        cell.currencyExchangeCourceLabel.text = "36.6$"
-        cell.arrowImage.image = UIImage(systemName: "arrow.up.right")!.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-        cell.arrowImage.image = UIImage(systemName: "arrow.down.right")!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        let cellViewModel = viewModel.item(at: indexPath)
+        cell.configure(with: cellViewModel)
         cell.selectionStyle = .none
         return cell
     }
     
     //MARK: - TableViewHeaderInSection
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let estimatedNumberOfRowsInSection = [7, 14, viewModel.numberOfItems]
+
         tableView.sectionHeaderTopPadding = 0
         let frame = tableView.frame
         tableView.sectionHeaderHeight = frame.size.height * 0.05
@@ -79,14 +84,11 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         
         let button = UIButton(frame: CGRectMake(0, 0, frame.size.width, headerView.frame.size.height))
         button.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-        button.tag = section
-        button.setTitle("Section \(section)", for: .normal)
+        button.tag = estimatedNumberOfRowsInSection[section]
+        button.setTitle("\(estimatedNumberOfRowsInSection[section]) days", for: .normal)
         button.backgroundColor = .systemGray
         
-        
         button.semanticContentAttribute = .forceRightToLeft
-        
-        
         
         button.tag = section
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -98,8 +100,6 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
     
     @objc func buttonAction(sender: UIButton!) {
         visibilityOfSections[sender.tag] = visibilityOfSections[sender.tag] ? false : true
-        //        print(visibilityOfSections[sender.tag])
-        //         print("Button Clicked")
         tableView.reloadData()
     }
 }

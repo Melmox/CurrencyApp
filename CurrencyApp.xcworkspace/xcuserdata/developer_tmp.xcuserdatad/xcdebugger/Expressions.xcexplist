@@ -28,6 +28,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellViewModels">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -67,6 +75,20 @@
          <PersistentStrings>
             <PersistentString
                value = "testData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellViewModels[cellViewModelIndex].currencyExchangeCource">
+            </PersistentString>
+            <PersistentString
+               value = "cellViewModels">
+            </PersistentString>
+            <PersistentString
+               value = "Double(cellViewModels[cellViewModelIndex - 1].currencyExchangeCource)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -32,6 +32,7 @@ final class Coordinator {
         let controller = createCurrencyHistoryInfoDetailsController()
         controller.navigationItem.title = title
         controller.viewModel.exchangeCureencyRates = data
+        controller.viewModel.selectedCurrency = title
         currencyHistoryController?.navigationController?.pushViewController(controller, animated: true)
     }
     
