@@ -53,9 +53,16 @@ class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsC
         super.configure(with: viewModel)
         currencyExchangeCourceLabel.text = viewModel.value
         dateLabel.text = viewModel.title
-        currancyRateState = viewModel.currancyRateState
+        currancyRateState = viewModel.currancyRateState        
         
-        switch currancyRateState{
+        switch viewModel.didSelected{
+        case true:
+            super.backgroundColor = .none
+        case false:
+            super.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        }
+
+        switch currancyRateState {
         case .up:
             arrowImage.image = UIImage(systemName: viewModel.iconName)!.withTintColor(viewModel.color, renderingMode: .alwaysOriginal)
         case .down:

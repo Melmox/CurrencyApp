@@ -23,9 +23,7 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         setupTableView()
         viewModel.configure()
         tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: "CurrencyHistoryInfoDetailsCell")
-        viewModel.willReload = {
-            self.tableView.reloadData()
-        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -43,7 +41,19 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
+    //MARK: - ViewModel
+    //MARK: Configuration
+    
+    override func configureViewModel() {
+        viewModel.willReload = { [unowned self] in
+            self.tableView.reloadData()
+        }
+        
+        super.configureViewModel()
+    }
+    
     //MARK: - TableViewDelegate
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return visibilityOfSections.count
     }
@@ -63,12 +73,17 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath)
+        tableView.reloadData()
+    }
+    
     //MARK: - TableViewDataSource
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryInfoDetailsCell", for: indexPath) as! CurrencyHistoryInfoDetailsCell
         let cellViewModel = viewModel.item(at: indexPath)
         cell.configure(with: cellViewModel)
-        cell.selectionStyle = .none
         return cell
     }
     

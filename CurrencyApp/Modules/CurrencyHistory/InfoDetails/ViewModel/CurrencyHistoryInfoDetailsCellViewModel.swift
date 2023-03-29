@@ -21,14 +21,15 @@ final class CurrencyHistoryInfoDetailsCellViewModel {
     private(set) var content : RateWithDate
 
     
-    
+    var didSelected: Bool
     var choosenCurrency: String
     var currancyRateState: CurrencyRateState
     
     //MARK: - Initialization
     
-    init(content: RateWithDate, choosenCurrency: String, currancyRateState: CurrencyRateState) {
+    init(content: RateWithDate, didSelected: Bool, choosenCurrency: String, currancyRateState: CurrencyRateState) {
         self.content = content
+        self.didSelected = didSelected
         self.choosenCurrency = choosenCurrency
         self.currancyRateState = currancyRateState
     }

@@ -37,7 +37,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
 
                 .sorted(by:  {$0.date > $1.date })
                 .compactMap { rate in
-                    return CurrencyHistoryInfoDetailsCellViewModel(content: rate, choosenCurrency: currency, currancyRateState: .same)
+                    return CurrencyHistoryInfoDetailsCellViewModel(content: rate, didSelected: true, choosenCurrency: currency, currancyRateState: .same)
                 }
             
             cellViewModels.enumerated().forEach { index, element in
@@ -73,7 +73,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     }
     
     private func processItemSelection(with item: CurrencyHistoryInfoDetailsCellViewModel) {
-        
+        item.didSelected = item.didSelected ? false : true
     }
     
     //MARK: - Provider

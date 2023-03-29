@@ -66,6 +66,17 @@
       </ContextState>
       <ContextState
          contextName = "CurrencyHistoryInfoDetailsCell.configure(with:):CurrencyHistoryInfoDetailsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "super">
+            </PersistentString>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "super.selectionStyle">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">

@@ -22,7 +22,7 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
         setupTableView()
         tableView.register(CurrencyHistoryCurrencyNameCell.self, forCellReuseIdentifier: "CurrencyHistoryCurrencyNameCell")
         viewModel.configure()
-        viewModel.willReload = {
+        viewModel.willReload = { [unowned self] in 
             self.tableView.reloadData()
         }
     }
