@@ -33,6 +33,7 @@ class BasicViewController<ViewModel: BasicControllerViewModel>: UIViewController
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
+        configureViewModel()
         super.viewDidLoad()
     }
     

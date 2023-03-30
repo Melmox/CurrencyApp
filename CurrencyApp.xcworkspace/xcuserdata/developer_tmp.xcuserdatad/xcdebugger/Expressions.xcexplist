@@ -109,6 +109,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CurrencyHistoryInfoDetailsViewModel.didSelectSection(at:):CurrencyHistoryInfoDetailsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "willReloadSection">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
       </ContextState>
       <ContextState

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsCellViewModel> {
+final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsCellViewModel> {
     
     var currencyExchangeCourceLabel = UILabel()
     var dateLabel = UILabel()

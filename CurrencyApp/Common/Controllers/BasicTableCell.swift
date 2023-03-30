@@ -5,7 +5,6 @@
 //  Created by developer_tmp on 21.03.2023.
 //
 
-import Foundation
 import UIKit
 
 class BasicTableCell<ViewModel>: UITableViewCell {

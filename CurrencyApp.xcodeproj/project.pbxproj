@@ -16,6 +16,8 @@
 		D288B4B929D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4B829D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift */; };
 		D288B4BB29D4208400085C93 /* CurrencyHistoryInfoDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4BA29D4208400085C93 /* CurrencyHistoryInfoDetailsSectionViewModel.swift */; };
 		D288B4BE29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4BD29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionHeader.swift */; };
+		D288B4C029D4289F00085C93 /* BasicTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4BF29D4289F00085C93 /* BasicTableViewHeaderFooterView.swift */; };
+		D288B4C229D42B5C00085C93 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4C129D42B5C00085C93 /* Typealias.swift */; };
 		D2CC021D29D16944008B9C11 /* LoginLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021C29D16944008B9C11 /* LoginLaunchScreen.swift */; };
 		D2CC021F29D16974008B9C11 /* LoginProcessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021E29D16974008B9C11 /* LoginProcessScreen.swift */; };
 		D2CC022129D16994008B9C11 /* RegistrationProcessScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC022029D16994008B9C11 /* RegistrationProcessScreen.swift */; };
@@ -57,6 +59,8 @@
 		D288B4B829D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCurrencyNameCell.swift; sourceTree = "<group>"; };
 		D288B4BA29D4208400085C93 /* CurrencyHistoryInfoDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoDetailsSectionViewModel.swift; sourceTree = "<group>"; };
 		D288B4BD29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoDetailsSectionHeader.swift; sourceTree = "<group>"; };
+		D288B4BF29D4289F00085C93 /* BasicTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		D288B4C129D42B5C00085C93 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		D2CC021C29D16944008B9C11 /* LoginLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLaunchScreen.swift; sourceTree = "<group>"; };
 		D2CC021E29D16974008B9C11 /* LoginProcessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProcessScreen.swift; sourceTree = "<group>"; };
 		D2CC022029D16994008B9C11 /* RegistrationProcessScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessScreen.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				D24634F929C35F4B0058A610 /* BasicViewController.swift */,
 				D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */,
 				D2EECDBB29C9E33B00711997 /* BasicTableCell.swift */,
+				D288B4BF29D4289F00085C93 /* BasicTableViewHeaderFooterView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				D24634F829C35F2E0058A610 /* Controllers */,
 				D2E3A69729BF2CA400F496EB /* CurrencyApp.xcdatamodeld */,
 				D2E3A6B129BF3C0600F496EB /* Views */,
+				D288B4C129D42B5C00085C93 /* Typealias.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -553,10 +559,12 @@
 				D2EECDD329CB0EFC00711997 /* CurrencyHistoryCurrencyNameCellViewModel.swift in Sources */,
 				D2E3A68F29BF2CA400F496EB /* AppDelegate.swift in Sources */,
 				D288B4B929D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift in Sources */,
+				D288B4C029D4289F00085C93 /* BasicTableViewHeaderFooterView.swift in Sources */,
 				D2E3A6BB29C09B3000F496EB /* WalletCardCollectionViewCell.swift in Sources */,
 				D24634FA29C35F4B0058A610 /* BasicViewController.swift in Sources */,
 				D2E3A69129BF2CA400F496EB /* SceneDelegate.swift in Sources */,
 				D246350429C455D50058A610 /* BasicControllerCollectionViewCell.swift in Sources */,
+				D288B4C229D42B5C00085C93 /* Typealias.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

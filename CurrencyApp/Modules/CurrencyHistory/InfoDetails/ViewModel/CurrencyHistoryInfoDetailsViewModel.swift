@@ -7,21 +7,28 @@
 
 import Foundation
 
-final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
+class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
+    
+    let amountOfCellsInSection = [2, 3, 4]
     
     //MARK: Content
     
     private weak var interfaceCoordinator: Coordinator?
-    lazy var cellViewModels: [CurrencyHistoryInfoDetailsCellViewModel] = []
+    //    lazy var cellViewModels: [CurrencyHistoryInfoDetailsCellViewModel] = [] //CurrencyHistoryInfoDetailsItem
+    
+    lazy var sectionViewModels: [CurrencyHistoryInfoDetailsSectionViewModel] = [] //CurrencyHistoryInfoDetailsSection
+    //    lazy var items: [CurrencyHistoryInfoDetailsCellViewModel] = []
+    
     
     var exchangeCureencyRates: ExchangeRatesDateRange?
     var selectedCurrency: String?
     
     //MARK: Callbacks
     
-    var willReload: (() -> ())?
+    var willReload: emptyClosure?
+    var willReloadSection: ((Int) -> ())?
     
     //MARK: - Init
     
@@ -32,62 +39,24 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     //MARK: - Appearance
     
     func configure() {
-        if let rates = exchangeCureencyRates?.rates, let currency = selectedCurrency {
-            cellViewModels = rates
-
-                .sorted(by:  {$0.date > $1.date })
-                .compactMap { rate in
-                    return CurrencyHistoryInfoDetailsCellViewModel(content: rate, didSelected: true, choosenCurrency: currency, currancyRateState: .same)
-                }
-            
-            cellViewModels.enumerated().forEach { index, element in
-                if index == cellViewModels.endIndex - 1 {
-                    element.currancyRateState = .same
-                    return
-                }
-                
-                let nextElementValue = cellViewModels[index + 1].value
-                let currentElementValue = element.value
-                
-                if currentElementValue == nextElementValue {
-                    element.currancyRateState = .same
-                    return
-                }
-                
-                element.currancyRateState = nextElementValue < currentElementValue
-                ? .up
-                : .down
+        sectionViewModels = amountOfCellsInSection
+            .compactMap { header in
+                CurrencyHistoryInfoDetailsSectionViewModel(title: String(header) + " days", isShowed: true)
             }
-            
-            willReload?()
-        }
-    }
-    
-    func getExchangeRate(choosenCurrency: String, content: RateWithDate) -> String? {
-        for rate in content.rate{
-            if rate.currencyName == choosenCurrency{
-                return String(format: "%.2f", rate.exchangeCourse)
-            }
-        }
-        return nil
-    }
-    
-    private func processItemSelection(with item: CurrencyHistoryInfoDetailsCellViewModel) {
-        item.didSelected = item.didSelected ? false : true
+        willReload?()
     }
     
     //MARK: - Provider
     
-    var numberOfItems: Int {
-        cellViewModels.count
+    var numberOfSections: Int {
+        sectionViewModels.count
     }
     
-    func item(at indexPath: IndexPath) -> CurrencyHistoryInfoDetailsCellViewModel {
-        return cellViewModels[indexPath.item]
+    func section(at section: Int) -> CurrencyHistoryInfoDetailsSectionViewModel {
+        sectionViewModels[section]
     }
     
-    func didSelectItem(at indexPath: IndexPath) { // add hightlighted for several selected cells
-        let item = item(at: indexPath)
-        processItemSelection(with: item)
+    func didSelectSection(at section: Int) {
+        willReloadSection?(section)
     }
 }
