@@ -1,5 +1,5 @@
 //
-//  CurrencyHistoryInfoDetailsCellViewModel.swift
+//  CurrencyHistoryInfoDetailsSectionItem.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 22.03.2023.
@@ -13,7 +13,7 @@ enum CurrencyRateState {
     case same
 }
 
-final class CurrencyHistoryInfoDetailsCellViewModel {
+final class CurrencyHistoryInfoDetailsSectionItem {
     
     // MARK: - Properties
     // MARK: Content

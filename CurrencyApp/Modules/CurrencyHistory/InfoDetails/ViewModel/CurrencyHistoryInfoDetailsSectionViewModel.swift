@@ -2,7 +2,7 @@
 //  CurrencyHistoryInfoDetailsSectionViewModel.swift
 //  CurrencyApp
 //
-//  Created by developer_tmp on 29.03.2023.
+//  Created by developer_tmp on 30.03.2023.
 //
 
 import Foundation
@@ -12,20 +12,21 @@ final class CurrencyHistoryInfoDetailsSectionViewModel {
     // MARK: - Properties
     // MARK: Content
     
-    var title: String
-    var isShowed: Bool
-
+    private lazy var amountOfItemsInSection = 0
+    private lazy var header: CurrencyHistoryInfoDetailsSectionHeader = CurrencyHistoryInfoDetailsSectionHeader(title: "")
+    private lazy var items: [CurrencyHistoryInfoDetailsSectionItem] = []
     
-    //MARK: - Initialization
-
-    init(title: String, isShowed: Bool) {
-        self.title = title
-        self.isShowed = isShowed
+    // MARK: - Initialization
+    
+    init(header: CurrencyHistoryInfoDetailsSectionHeader, items: [CurrencyHistoryInfoDetailsSectionItem], amountOfItemsInSection: Int) {
+        self.header = header
+        self.items = items
+        self.amountOfItemsInSection = amountOfItemsInSection
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
-    func updateSelectedState() {
-        isShowed.toggle()
+    var numberOfItems: Int {
+        header.isShowed ? amountOfItemsInSection : .zero
     }
 }

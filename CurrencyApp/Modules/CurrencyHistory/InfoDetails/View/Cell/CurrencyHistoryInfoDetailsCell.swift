@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsCellViewModel> {
+final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsSectionItem> {
+    
+    static let identifier = String(describing: CurrencyHistoryInfoDetailsCell.self)
     
     var currencyExchangeCourceLabel = UILabel()
     var dateLabel = UILabel()
@@ -49,7 +51,7 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
     var currancyRateState: CurrencyRateState?
 
     
-    override func configure(with viewModel: CurrencyHistoryInfoDetailsCellViewModel) {
+    override func configure(with viewModel: CurrencyHistoryInfoDetailsSectionItem) {
         super.configure(with: viewModel)
         currencyExchangeCourceLabel.text = viewModel.value
         dateLabel.text = viewModel.title

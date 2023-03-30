@@ -1,5 +1,5 @@
 //
-//  CurrencyHistoryInfoDetailsSectionHeader.swift
+//  CurrencyHistoryInfoDetailsSectionView.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 29.03.2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class CurrencyHistoryInfoDetailsSectionHeaderView: BasicTableViewHeaderFooterView<CurrencyHistoryInfoDetailsSectionViewModel> {
+final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterView<CurrencyHistoryInfoDetailsSectionHeader> {
     
     // MARK: - Properties
     // MARK: Content
-    
+    static let identifier = String(describing: CurrencyHistoryInfoDetailsSectionView.self)
     var sectionHeaderButton = UIButton()
     
     // MARK: Callbacks:
@@ -56,7 +56,7 @@ final class CurrencyHistoryInfoDetailsSectionHeaderView: BasicTableViewHeaderFoo
     // MARK: - ViewModel
     // MARK: Configuration
     
-    override func configure(with viewModel: CurrencyHistoryInfoDetailsSectionViewModel) {
+    override func configure(with viewModel: CurrencyHistoryInfoDetailsSectionHeader) {
         super.configure(with: viewModel)
         
         sectionHeaderButton.setTitle(viewModel.title, for: .normal)

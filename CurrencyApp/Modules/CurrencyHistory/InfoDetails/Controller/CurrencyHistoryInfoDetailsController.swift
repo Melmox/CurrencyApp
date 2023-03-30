@@ -7,10 +7,7 @@
 
 import UIKit
 
-class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryInfoDetailsViewModel>, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
+final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryInfoDetailsViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - General
     let tableView = UITableView()
@@ -21,8 +18,8 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
         super.viewDidLoad()
         setupTableView()
         viewModel.configure()
-        tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: "CurrencyHistoryInfoDetailsCell")
-        tableView.register(CurrencyHistoryInfoDetailsSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "CurrencyHistoryInfoDetailsSectionHeaderView")
+        tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: CurrencyHistoryInfoDetailsCell.identifier)
+        tableView.register(CurrencyHistoryInfoDetailsSectionView.self, forHeaderFooterViewReuseIdentifier: CurrencyHistoryInfoDetailsSectionView.identifier)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
@@ -58,39 +55,34 @@ class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryI
     //MARK: - TableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
+        viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.section(at: section).isShowed == true{
-                return viewModel.amountOfCellsInSection[section]
-            }
-            return 0
-        }
+        viewModel.numberOfItemsInSection(in: section)
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath)
         tableView.reloadData()
     }
     
     //MARK: - TableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryInfoDetailsCell", for: indexPath) as! CurrencyHistoryInfoDetailsCell
-//        let cellViewModel = viewModel.item(at: indexPath)
-//        cell.configure(with: cellViewModel)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyHistoryInfoDetailsCell.identifier, for: indexPath) as! CurrencyHistoryInfoDetailsCell
+        let cellViewModel = viewModel.item(at: indexPath)
+        cell.configure(with: cellViewModel)
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionVieModel = viewModel.section(at: section)
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CurrencyHistoryInfoDetailsSectionHeaderView") as? CurrencyHistoryInfoDetailsSectionHeaderView
-        headerView?.configure(with: sectionVieModel)
+        let sectionViewModel = viewModel.sectionHeader(at: section)
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CurrencyHistoryInfoDetailsSectionView.identifier) as? CurrencyHistoryInfoDetailsSectionView
+        headerView?.configure(with: sectionViewModel)
         headerView?.didSelect = { [weak self] in
             self?.viewModel.didSelectSection(at: section)
         }
-        
         return headerView
     }
 }
-
-// performBenchUpdate
