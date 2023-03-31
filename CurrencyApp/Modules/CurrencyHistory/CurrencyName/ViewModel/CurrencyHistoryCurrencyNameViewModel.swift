@@ -12,7 +12,6 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
     let currentDate = Date()
-    let monthEarlierDate = Calendar.current.date(byAdding: .month, value: -1, to: Date())
     let dateFormatter = DateFormatter()
 
     //MARK: Content
@@ -21,6 +20,8 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     lazy var cellViewModels: [CurrencyHistoryCurrencyNameCellViewModel] = []
     
     var downloadedData: ExchangeRatesDateRange?
+    var previousMonthDownloadedData: ExchangeRatesDateRange?
+
     
     //MARK: Callbacks
     
@@ -36,12 +37,12 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     //MARK: - Appearance
     
     func configure() {
+        // MARK: - DownloadData
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        
         let networkManager: NetworkManager = NetworkManager()
         networkManager.getData(endpoint: ExchangeRatesDateRange.self,
                                baseCurrency: "USD",
-                               start_date: dateFormatter.string(from: monthEarlierDate ?? currentDate),
+                               start_date: dateFormatter.string(from: currentDate.startDateOfMonth),
                                end_date: dateFormatter.string(from: currentDate))
         { [weak self] latestRates in
             if let latestRates {
@@ -56,6 +57,25 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
                 print("some error")
             }
         }
+        
+        // MARK: - PreviousMonthDownloadData
+        guard let previousMonthDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: currentDate) else {
+            fatalError("Unable to get end date from date")
+        }
+        networkManager.getData(endpoint: ExchangeRatesDateRange.self,
+                               baseCurrency: "USD",
+                               start_date: dateFormatter.string(from: previousMonthDate.startDateOfMonth),
+                               end_date: dateFormatter.string(from: previousMonthDate.endDateOfMonth))
+        { [weak self] latestRates in
+            if let latestRates {
+                if (latestRates.rates.first != nil && self != nil){
+                    self!.previousMonthDownloadedData = latestRates
+                }
+            } else {
+                print("some error")
+            }
+        }
+        
     }
     
     func item(at indexPath: IndexPath) -> CurrencyHistoryCurrencyNameCellViewModel {
@@ -71,7 +91,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
     func coordinateNextPage(title: String) {
-        interfaceCoordinator?.presentCurrencyHistoryInfoDetailsController(title: title, data: downloadedData)
+        interfaceCoordinator?.presentCurrencyHistoryInfoDetailsController(title: title, data: downloadedData, previousMonthData: previousMonthDownloadedData)
     }
     
 }

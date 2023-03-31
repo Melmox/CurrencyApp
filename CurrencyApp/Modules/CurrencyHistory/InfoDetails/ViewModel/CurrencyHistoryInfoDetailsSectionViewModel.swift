@@ -13,20 +13,28 @@ final class CurrencyHistoryInfoDetailsSectionViewModel {
     // MARK: Content
     
     private lazy var amountOfItemsInSection = 0
-    private lazy var header: CurrencyHistoryInfoDetailsSectionHeader = CurrencyHistoryInfoDetailsSectionHeader(title: "")
-    private lazy var items: [CurrencyHistoryInfoDetailsSectionItem] = []
+    lazy var header: CurrencyHistoryInfoDetailsSectionHeader = CurrencyHistoryInfoDetailsSectionHeader(title: "")
+    lazy var items: [CurrencyHistoryInfoDetailsSectionItem] = []
+    
+    lazy var isFirst: Bool = false
     
     // MARK: - Initialization
     
-    init(header: CurrencyHistoryInfoDetailsSectionHeader, items: [CurrencyHistoryInfoDetailsSectionItem], amountOfItemsInSection: Int) {
+    init(header: CurrencyHistoryInfoDetailsSectionHeader, items: [CurrencyHistoryInfoDetailsSectionItem], amountOfItemsInSection: Int, isFirst: Bool) {
         self.header = header
         self.items = items
         self.amountOfItemsInSection = amountOfItemsInSection
+        self.isFirst = isFirst
     }
     
     // MARK: - Appearance
-    
     var numberOfItems: Int {
-        header.isShowed ? amountOfItemsInSection : .zero
+        if isFirst{
+            header.title = ""
+            return amountOfItemsInSection
+        }
+        else {
+            return header.isShowed ? amountOfItemsInSection : .zero
+        }
     }
 }

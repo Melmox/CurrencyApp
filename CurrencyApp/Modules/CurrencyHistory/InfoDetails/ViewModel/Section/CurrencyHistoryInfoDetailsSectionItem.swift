@@ -79,7 +79,43 @@ final class CurrencyHistoryInfoDetailsSectionItem {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        return dateFormatter.string(from: date!)
+        
+        if Date().numberOfWeekInMonth == self.getNumberOfWeekInMonth && Date().numberOfMonth == self.getNumberOfMonth {
+            let relativeDateFormatter = DateFormatter()
+            relativeDateFormatter.timeStyle = .none
+            relativeDateFormatter.dateStyle = .medium
+            relativeDateFormatter.locale = Locale(identifier: "en_GB")
+            relativeDateFormatter.doesRelativeDateFormatting = true
+            if (relativeDateFormatter.string(from: date!) == "Today" || relativeDateFormatter.string(from: date!) == "Yesterday")
+            {
+                return relativeDateFormatter.string(from: date!)
+            }
+            else {
+                relativeDateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+                return relativeDateFormatter.string(from: date!)
+            }
+        }
+        else {
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            return dateFormatter.string(from: date!)
+        }
+    }
+    
+    var getNumberOfWeekInMonth: Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: self.content.date) else {
+            fatalError("Unable to get date format from this date")
+        }
+        return date.numberOfWeekInMonth
+    }
+    
+    var getNumberOfMonth: Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: self.content.date) else {
+            fatalError("Unable to get date format from this date")
+        }
+        return date.numberOfMonth
     }
 }

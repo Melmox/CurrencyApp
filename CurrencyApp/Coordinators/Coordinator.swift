@@ -26,12 +26,45 @@ final class Coordinator {
         let tabBarController = createTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+//
+//        var currentDate = Date()
+//        print(currentDate)
+//        print(currentDate.numberOfWeekInMonth)
+////
+//        var calendar = Calendar.current
+//        calendar.locale = Locale(identifier: "uk")
+//
+//        var weekOfMonth = calendar.component(.weekOfMonth, from: currentDate)
+//        print(weekOfMonth)
+////
+//        currentDate = calendar.date(byAdding: .day, value: 3, to: currentDate)!
+//        print(currentDate.numberOfWeekInMonth)
+
+//        weekOfMonth = calendar.component(.weekOfMonth, from: currentDate)
+//        print(weekOfMonth)
+//        print(currentDate.startDateOfMonth)
+//        print(currentDate.endDateOfMonth)
+//        print(currentDate.dayNumberOfWeek)
+//
+//
+//        let previousMonthDate = calendar.date(byAdding: .month, value: -1, to: currentDate)!
+//        print(previousMonthDate)
+//
+//        print(calendar.locale)
+//        let previousMonth = calendar.component(.month, from: previousMonthDate)
+        
+//        print(previousMonthDate.startDateOfMonth)
+//        print(previousMonthDate.endDateOfMonth)
+
+
     }
     
-    func presentCurrencyHistoryInfoDetailsController(title: String, data: ExchangeRatesDateRange? = nil) {
+    func presentCurrencyHistoryInfoDetailsController(title: String, data: ExchangeRatesDateRange? = nil, previousMonthData: ExchangeRatesDateRange? = nil) {
         let controller = createCurrencyHistoryInfoDetailsController()
         controller.navigationItem.title = title
         controller.viewModel.exchangeCureencyRates = data
+        controller.viewModel.previousMonthExchangeCureencyRates = previousMonthData
         controller.viewModel.selectedCurrency = title
         currencyHistoryController?.navigationController?.pushViewController(controller, animated: true)
     }

@@ -39,7 +39,7 @@ struct ExchangeRatesDateRange: ExchangeRates, Codable {
     
     var start_date, end_date: String
     var _rates: [String : [String : Double]]
-//    var _rates: [String : [Rate]]
+
     
     enum CodingKeys: String, CodingKey {
         case success = "success"
@@ -67,16 +67,4 @@ struct RateWithDate: Codable {
     var rate: [Rate]
 }
 
-
-//extension ExchangeRatesLatest {
-//    func prepareForBaseCurrencyRate() -> Rate {
-////        var preparedDictionary : BaseRate
-//        var preparedDictionary : Rate
-//
-//        for rate in self.rates {
-//            preparedDictionary.updateValue(Double(round(100 * 1/rate.exchangeCourse) / 100), forKey: rate.currencyName)
-//        }
-//        return preparedDictionary
-//    }
-//}
 

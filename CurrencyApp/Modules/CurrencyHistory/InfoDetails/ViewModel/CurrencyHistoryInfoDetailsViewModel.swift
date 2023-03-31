@@ -16,15 +16,21 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     private weak var interfaceCoordinator: Coordinator?
     
     lazy var cellViewModels: [CurrencyHistoryInfoDetailsSectionItem] = []
-    
+    lazy var previousMonthCellViewModels : [CurrencyHistoryInfoDetailsSectionItem] = []
     lazy var sectionHeaders: [CurrencyHistoryInfoDetailsSectionHeader] = []
-    
     lazy var sectionViewModels: [CurrencyHistoryInfoDetailsSectionViewModel] = []
-    
-    lazy var items: [CurrencyHistoryInfoDetailsSectionItem] = []
+        
+    private var arrayOfWeeksInMonth : [Int] {
+        var arrayOfWeeksInMonth : [Int] = []
+        for i in (0...Date().numberOfWeekInMonth) {
+            arrayOfWeeksInMonth.append(i)
+        }
+        return arrayOfWeeksInMonth.reversed()
+    }
     
     
     var exchangeCureencyRates: ExchangeRatesDateRange?
+    var previousMonthExchangeCureencyRates: ExchangeRatesDateRange?
     var selectedCurrency: String?
     
     //MARK: Callbacks
@@ -42,11 +48,40 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     func configure() {
         
+        // MARK: PreviousMonthItems
+        if let rates = previousMonthExchangeCureencyRates?.rates, let currency = selectedCurrency {
+            previousMonthCellViewModels = rates
+                .sorted(by:  {$0.date > $1.date })
+                .compactMap { rate in
+                    CurrencyHistoryInfoDetailsSectionItem(content: rate, didSelected: true, choosenCurrency: currency, currancyRateState: .same)
+                }
+            
+            previousMonthCellViewModels.enumerated().forEach { index, element in
+                if index == previousMonthCellViewModels.endIndex - 1 {
+                    element.currancyRateState = .same
+                    return
+                }
+                
+                let nextElementValue = previousMonthCellViewModels[index + 1].value
+                let currentElementValue = element.value
+                
+                if currentElementValue == nextElementValue {
+                    element.currancyRateState = .same
+                    return
+                }
+                
+                element.currancyRateState = nextElementValue < currentElementValue
+                ? .up
+                : .down
+            }
+        }
+        
+        // MARK: Items
         if let rates = exchangeCureencyRates?.rates, let currency = selectedCurrency {
             cellViewModels = rates
                 .sorted(by:  {$0.date > $1.date })
                 .compactMap { rate in
-                    return CurrencyHistoryInfoDetailsSectionItem(content: rate, didSelected: true, choosenCurrency: currency, currancyRateState: .same)
+                    CurrencyHistoryInfoDetailsSectionItem(content: rate, didSelected: true, choosenCurrency: currency, currancyRateState: .same)
                 }
             
             cellViewModels.enumerated().forEach { index, element in
@@ -67,20 +102,39 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
                 ? .up
                 : .down
             }
-            
-            let amountOfItemsInSection = [7, 14, numberOfItems]
-
-            sectionHeaders = amountOfItemsInSection
-                .compactMap { header in
-                    CurrencyHistoryInfoDetailsSectionHeader(title: String(header) + " days")
-                }
-            sectionViewModels = amountOfItemsInSection
-                .enumerated()
-                .compactMap { n, x in
-                    CurrencyHistoryInfoDetailsSectionViewModel(header: sectionHeader(at: n), items: cellViewModels, amountOfItemsInSection: amountOfItemsInSection[n])
-                }
-            willReload?()
         }
+        
+        // MARK: SectionHeaders
+        
+        sectionHeaders = arrayOfWeeksInMonth
+            .compactMap { header in
+                CurrencyHistoryInfoDetailsSectionHeader(title: "Week " + String(header) )
+            }
+        
+        // MARK: Sections
+        
+        sectionViewModels = arrayOfWeeksInMonth
+            .enumerated()
+            .compactMap { index, numberOfWeek in
+                if numberOfWeek != 0 {
+                    let itemInSection = cellViewModels.filter {item in
+                        return item.getNumberOfWeekInMonth == numberOfWeek
+                    }
+                    return CurrencyHistoryInfoDetailsSectionViewModel(header: sectionHeader(at: index),
+                                                                      items:  itemInSection,
+                                                                      amountOfItemsInSection: itemInSection.count,
+                                                                      isFirst: index == 0)
+                }
+                else {
+                    let sectionHeader = sectionHeader(at: index)
+                    sectionHeader.title = "Previous month"
+                    return CurrencyHistoryInfoDetailsSectionViewModel(header: sectionHeader,
+                                                                      items:  previousMonthCellViewModels,
+                                                                      amountOfItemsInSection: previousMonthCellViewModels.count,
+                                                                      isFirst: index == 0)
+                }
+            }
+        willReload?()
     }
     
     //MARK: - Provider
@@ -106,9 +160,9 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     var numberOfItems: Int {
         cellViewModels.count
     }
-
+    
     func item(at indexPath: IndexPath) -> CurrencyHistoryInfoDetailsSectionItem {
-        return cellViewModels[indexPath.item]
+        sectionViewModels[indexPath.section].items[indexPath.item]
     }
     
     //MARK: Actions
@@ -122,6 +176,9 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     }
     
     func didSelectSection(at section: Int) {
-        willReloadSection?(section)
+        if !self.section(at: section).isFirst
+        {
+            willReloadSection?(section)
+        }
     }
 }

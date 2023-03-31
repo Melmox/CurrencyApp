@@ -61,8 +61,10 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
         
         sectionHeaderButton.setTitle(viewModel.title, for: .normal)
         sectionHeaderButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        sectionHeaderButton.setImage(UIImage(systemName: "chevron.down")?
-            .withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        if sectionHeaderButton.currentTitle != "" {
+            sectionHeaderButton.setImage(UIImage(systemName: "chevron.down")?
+                .withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        }
     }
     
     private func updateSelectedState() {

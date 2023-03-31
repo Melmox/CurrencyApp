@@ -335,5 +335,259 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1918C9AC-D2F4-42A3-97C9-748B9E3D8E4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1918C9AC-D2F4-42A3-97C9-748B9E3D8E4B - 2236c7e63a91a3d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (Swift.Int, Swift.Int) -&gt; Swift.Optional&lt;CurrencyApp.CurrencyHistoryInfoDetailsSectionViewModel&gt; in CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "1918C9AC-D2F4-42A3-97C9-748B9E3D8E4B - 49976dfcdd064c90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CurrencyApp.CurrencyHistoryInfoDetailsSectionItem) -&gt; Swift.Bool in closure #5 (Swift.Int, Swift.Int) -&gt; Swift.Optional&lt;CurrencyApp.CurrencyHistoryInfoDetailsSectionViewModel&gt; in CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3095428-004C-49BC-B6C2-AB2F1FD647CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "797B3DBD-CF2B-4EAF-8822-D102DE50F2DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47C3549F-3757-45E3-9010-EB7D2A08E5A7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B911B99-FA31-488B-8365-CDA6CE653709"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B911B99-FA31-488B-8365-CDA6CE653709 - 65febda233c989c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "900">
+               </Location>
+               <Location
+                  uuid = "0B911B99-FA31-488B-8365-CDA6CE653709 - 65febda233c989c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1056">
+               </Location>
+               <Location
+                  uuid = "0B911B99-FA31-488B-8365-CDA6CE653709 - 65febda233c989c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1854283-4B08-499D-AA8D-9BFDDCC827E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F1854283-4B08-499D-AA8D-9BFDDCC827E5 - 65febda233c9857f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "F1854283-4B08-499D-AA8D-9BFDDCC827E5 - 65febda233c9857f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "F1854283-4B08-499D-AA8D-9BFDDCC827E5 - 65febda233c9857f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.CurrencyHistoryInfoDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63B33CAC-96F0-4E8C-B809-EDE43D946EC9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3F75A37-2BEF-4918-987F-D55654E4BBAC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "CurrencyHistoryInfoDetailsViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

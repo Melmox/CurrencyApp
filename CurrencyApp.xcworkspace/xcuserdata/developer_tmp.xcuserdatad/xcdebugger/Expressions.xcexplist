@@ -11,6 +11,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sectionViewModels">
+            </PersistentString>
+            <PersistentString
+               value = "item.getNumberOfWeekInMonth">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,7 +55,10 @@
          contextName = "closure #1 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cellViewModels">
+               value = "previousMonthCellViewModels">
+            </PersistentString>
+            <PersistentString
+               value = "self.previousMonthCellViewModels">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -95,10 +109,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+      </ContextState>
+      <ContextState
          contextName = "CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
          <PersistentStrings>
             <PersistentString
                value = "cellViewModels[cellViewModelIndex].currencyExchangeCource">
+            </PersistentString>
+            <PersistentString
+               value = "sectionViewModels">
             </PersistentString>
             <PersistentString
                value = "cellViewModels">

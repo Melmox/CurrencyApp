@@ -71,7 +71,7 @@ final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyHistoryInfoDetailsCell.identifier, for: indexPath) as! CurrencyHistoryInfoDetailsCell
-        let cellViewModel = viewModel.item(at: indexPath)
+        let cellViewModel =  viewModel.item(at: indexPath)
         cell.configure(with: cellViewModel)
         return cell
     }
