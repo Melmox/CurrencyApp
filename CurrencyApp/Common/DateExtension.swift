@@ -28,7 +28,8 @@ extension Date {
         calendar.locale = Locale(identifier: "uk")
         return calendar.component(.weekOfMonth, from: self)
     }
-    var numberOfMonth: Int {
+    
+    var numberOfMonthInYear: Int {
         var calendar = Calendar.current
         calendar.locale = Locale(identifier: "uk")
         return calendar.component(.month, from: self)

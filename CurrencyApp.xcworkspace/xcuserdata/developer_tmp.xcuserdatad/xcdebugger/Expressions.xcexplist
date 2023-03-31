@@ -137,6 +137,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CurrencyHistoryInfoDetailsSectionItem.prepareDate(dateString:):CurrencyHistoryInfoDetailsSectionItem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "prepareFormatter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
       </ContextState>
       <ContextState

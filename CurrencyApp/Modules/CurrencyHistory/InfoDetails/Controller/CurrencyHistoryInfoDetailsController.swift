@@ -9,7 +9,9 @@ import UIKit
 
 final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHistoryInfoDetailsViewModel>, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: - General
+    // MARK: - Properties
+    // MARK: Content
+    
     let tableView = UITableView()
     
     override func viewDidLoad() {

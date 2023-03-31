@@ -10,7 +10,6 @@ import Foundation
 final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
-    
     //MARK: Content
     
     private weak var interfaceCoordinator: Coordinator?

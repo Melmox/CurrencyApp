@@ -19,11 +19,74 @@ final class CurrencyHistoryInfoDetailsSectionItem {
     // MARK: Content
     
     private(set) var content : RateWithDate
-
+    
+    private var decodeFormatter : DateFormatter {
+        let decodeFormatter = DateFormatter()
+        decodeFormatter.dateFormat = "yyyy-MM-dd"
+        return decodeFormatter
+    }
+    
+    private let prepareFormatter = DateFormatter()
+    
+    let numberOfCurrentWeek = Date().numberOfWeekInMonth
+    let numberOfCurrentMonth = Date().numberOfMonthInYear
     
     var didSelected: Bool
     var choosenCurrency: String
     var currancyRateState: CurrencyRateState
+    
+    var getNumberOfWeekInMonth: Int {
+        guard let date = decodeFormatter.date(from: self.content.date) else {
+            fatalError("Unable to get date format from this date")
+        }
+        return date.numberOfWeekInMonth
+    }
+    
+    var getNumberOfMonthInYear: Int {
+        guard let date = decodeFormatter.date(from: self.content.date) else {
+            fatalError("Unable to get date format from this date")
+        }
+        return date.numberOfMonthInYear
+    }
+    
+    private func configurePrepareFormatter() {
+        prepareFormatter.timeStyle = .none
+        prepareFormatter.dateStyle = .medium
+        prepareFormatter.locale = Locale(identifier: "en_GB")
+        prepareFormatter.doesRelativeDateFormatting = true
+    }
+    
+    private func getNecessaryExchangeRate(choosenCurrency: String, content: RateWithDate) -> String {
+        for rate in content.rate{
+            if rate.currencyName == choosenCurrency{
+                return String(format: "%.2f", rate.exchangeCourse)
+            }
+        }
+        return "Information about currency wasn't found"
+    }
+    
+    private func prepareDate(dateString: String) -> String{
+        let cellDateNumberOfWeek = self.getNumberOfWeekInMonth
+        let cellDateNumberOfMonth = self.getNumberOfMonthInYear
+        
+        guard let date = decodeFormatter.date(from: dateString)
+        else {
+            fatalError("Unable to get start date from date")
+        }
+        if (numberOfCurrentWeek == cellDateNumberOfWeek && numberOfCurrentMonth == cellDateNumberOfMonth) {
+            configurePrepareFormatter()
+            if (Calendar.current.isDateInToday(date) || Calendar.current.isDateInYesterday(date))
+            {
+                return prepareFormatter.string(from: date)
+            } else {
+                prepareFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+                return prepareFormatter.string(from: date)
+            }
+        } else {
+            prepareFormatter.dateFormat = "dd.MM.yyyy"
+            return prepareFormatter.string(from: date)
+        }
+    }
     
     //MARK: - Initialization
     
@@ -37,7 +100,7 @@ final class CurrencyHistoryInfoDetailsSectionItem {
     // MARK: - Appearance
     
     var title: String {
-        prepareDate(date: content.date)
+        prepareDate(dateString: content.date)
     }
     
     var value: String {
@@ -64,58 +127,5 @@ final class CurrencyHistoryInfoDetailsSectionItem {
         case .same:
             return .systemGray
         }
-    }
-    
-    func getNecessaryExchangeRate(choosenCurrency: String, content: RateWithDate) -> String {
-        for rate in content.rate{
-            if rate.currencyName == choosenCurrency{
-                return String(format: "%.2f", rate.exchangeCourse)
-            }
-        }
-        return "Information about currency wasn't found"
-    }
-    
-    func prepareDate(date: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.date(from: date)
-        
-        if Date().numberOfWeekInMonth == self.getNumberOfWeekInMonth && Date().numberOfMonth == self.getNumberOfMonth {
-            let relativeDateFormatter = DateFormatter()
-            relativeDateFormatter.timeStyle = .none
-            relativeDateFormatter.dateStyle = .medium
-            relativeDateFormatter.locale = Locale(identifier: "en_GB")
-            relativeDateFormatter.doesRelativeDateFormatting = true
-            if (relativeDateFormatter.string(from: date!) == "Today" || relativeDateFormatter.string(from: date!) == "Yesterday")
-            {
-                return relativeDateFormatter.string(from: date!)
-            }
-            else {
-                relativeDateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
-                return relativeDateFormatter.string(from: date!)
-            }
-        }
-        else {
-            dateFormatter.dateFormat = "dd.MM.yyyy"
-            return dateFormatter.string(from: date!)
-        }
-    }
-    
-    var getNumberOfWeekInMonth: Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let date = dateFormatter.date(from: self.content.date) else {
-            fatalError("Unable to get date format from this date")
-        }
-        return date.numberOfWeekInMonth
-    }
-    
-    var getNumberOfMonth: Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let date = dateFormatter.date(from: self.content.date) else {
-            fatalError("Unable to get date format from this date")
-        }
-        return date.numberOfMonth
     }
 }

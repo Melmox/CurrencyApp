@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B837D82F20E188D92A53A79 /* Pods_CurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE833FF57C1550ED6911AEC /* Pods_CurrencyApp.framework */; };
+		D244BD8329D710D000AEC43C /* UITextFieldExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = D244BD8229D710D000AEC43C /* UITextFieldExtension .swift */; };
+		D244BD8529D71AD900AEC43C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244BD8429D71AD900AEC43C /* UIImageViewExtension.swift */; };
 		D24634FA29C35F4B0058A610 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634F929C35F4B0058A610 /* BasicViewController.swift */; };
 		D24634FC29C3638F0058A610 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634FB29C3638F0058A610 /* WalletViewModel.swift */; };
 		D246350429C455D50058A610 /* BasicControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */; };
@@ -53,6 +55,8 @@
 		3DE833FF57C1550ED6911AEC /* Pods_CurrencyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FE188BD85DD6C028FCA7FE /* Pods-CurrencyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyApp.release.xcconfig"; path = "Target Support Files/Pods-CurrencyApp/Pods-CurrencyApp.release.xcconfig"; sourceTree = "<group>"; };
 		CADA3F9B76A14756796AD10A /* Pods-CurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyApp/Pods-CurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D244BD8229D710D000AEC43C /* UITextFieldExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextFieldExtension .swift"; sourceTree = "<group>"; };
+		D244BD8429D71AD900AEC43C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		D24634F929C35F4B0058A610 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		D24634FB29C3638F0058A610 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		D246350329C455D50058A610 /* BasicControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicControllerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 				D2E3A6B129BF3C0600F496EB /* Views */,
 				D288B4C129D42B5C00085C93 /* Typealias.swift */,
 				D286667D29D5B61C00464DC9 /* DateExtension.swift */,
+				D244BD8229D710D000AEC43C /* UITextFieldExtension .swift */,
+				D244BD8429D71AD900AEC43C /* UIImageViewExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -555,7 +561,9 @@
 				D288B4BE29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionView.swift in Sources */,
 				D2EECDC029C9E4BA00711997 /* WalletTableViewCellViewModel.swift in Sources */,
 				D2E3A6A629BF360100F496EB /* Networking.swift in Sources */,
+				D244BD8529D71AD900AEC43C /* UIImageViewExtension.swift in Sources */,
 				D2EECDC229CAFB1500711997 /* APIDescriptor.swift in Sources */,
+				D244BD8329D710D000AEC43C /* UITextFieldExtension .swift in Sources */,
 				D246350629C4598B0058A610 /* WalletCollectionViewCellViewModel.swift in Sources */,
 				D2EECDCB29CB0E4500711997 /* CurrencyHistoryInfoDetailsViewModel.swift in Sources */,
 				D2EECDCF29CB0E9D00711997 /* CurrencyHistoryInfoDetailsCell.swift in Sources */,

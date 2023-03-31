@@ -297,8 +297,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/Controller/CurrencyHistoryInfoDetailsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,8 +313,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/Controller/CurrencyHistoryInfoDetailsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,8 +329,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/Controller/CurrencyHistoryInfoDetailsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "configureViewModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -345,8 +345,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "configure()"
             landmarkType = "7">
             <Locations>
@@ -393,8 +393,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -409,8 +409,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -425,8 +425,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -441,8 +441,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "configure()"
             landmarkType = "7">
             <Locations>
@@ -504,8 +504,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "configure()"
             landmarkType = "7">
             <Locations>
@@ -567,8 +567,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -583,8 +583,8 @@
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "CurrencyHistoryInfoDetailsViewModel"
             landmarkType = "3">
          </BreakpointContent>

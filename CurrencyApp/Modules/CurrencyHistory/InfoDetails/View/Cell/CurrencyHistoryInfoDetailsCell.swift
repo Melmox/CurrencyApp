@@ -9,11 +9,16 @@ import UIKit
 
 final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDetailsSectionItem> {
     
+    // MARK: - Properties
+    // MARK: Content
+    
     static let identifier = String(describing: CurrencyHistoryInfoDetailsCell.self)
     
     var currencyExchangeCourceLabel = UILabel()
     var dateLabel = UILabel()
     var arrowImage = UIImageView()
+    
+    // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

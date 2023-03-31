@@ -18,14 +18,16 @@ final class loginCoordinator {
     
     // MARK: - Methods
     func start() {
-        let lauchController = createLoginProcessController()
+        let lauchController = createLoginLaunchScreenController()
+//        let lauchController = createLoginProcessController()
+//        let lauchController = createRegistrationProcessController()
         window?.rootViewController = lauchController
         window?.makeKeyAndVisible()
     }
     
     // MARK: - Modules
     
-    private func createLoginLaunchScreenController() -> UIViewController{
+    private func createLoginLaunchScreenController() -> UINavigationController{
         let loginLaunchScreenController = LoginLaunchScreen()
         return loginLaunchScreenController
     }

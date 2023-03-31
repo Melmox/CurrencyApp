@@ -10,13 +10,13 @@ import UIKit
 class CurrencyHistoryCurrencyNameCell : BasicTableCell<CurrencyHistoryCurrencyNameCellViewModel> {
     
     var currencyNameLabel = UILabel()
+    
+    // MARK: - Initialize
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-
-//        contentView.backgroundColor = .systemYellow
-
+        
         currencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(currencyNameLabel)
