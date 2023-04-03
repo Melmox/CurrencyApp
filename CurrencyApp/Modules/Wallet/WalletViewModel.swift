@@ -12,7 +12,7 @@ final class WalletViewModel: BasicControllerViewModel {
     //MARK: - Properties
     //MARK: Content
     
-    private weak var interfaceCoordinator: Coordinator?
+    private weak var interfaceCoordinator: MainFlowCoordinator?
     lazy var cellViewModels: [WalletTableViewCellViewModel] = []
     
     //MARK: Callbacks
@@ -22,7 +22,7 @@ final class WalletViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: Coordinator) {
+    init(coordinator: MainFlowCoordinator) {
         interfaceCoordinator = coordinator
     }
     

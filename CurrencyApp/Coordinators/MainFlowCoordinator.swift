@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  MainFlowCoordinator.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 13.03.2023.
@@ -7,57 +7,23 @@
 
 import UIKit
 
-final class Coordinator {
-    
-    var window: UIWindow?
+final class MainFlowCoordinator {
     
     var currencyHistoryController: CurrencyHistoryCurrencyNameController?
-    
+    var parentCoordinator: AppCoordinator?
     
     // MARK: - Initialization
     
-    init(window: UIWindow?) {
-        self.window = window
+    init(parentCoordinator: AppCoordinator?) {
+        self.parentCoordinator = parentCoordinator
     }
     
     
     // MARK: - Methods
     func start() {
         let tabBarController = createTabBarController()
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
-        
-//
-//        var currentDate = Date()
-//        print(currentDate)
-//        print(currentDate.numberOfWeekInMonth)
-////
-//        var calendar = Calendar.current
-//        calendar.locale = Locale(identifier: "uk")
-//
-//        var weekOfMonth = calendar.component(.weekOfMonth, from: currentDate)
-//        print(weekOfMonth)
-////
-//        currentDate = calendar.date(byAdding: .day, value: 3, to: currentDate)!
-//        print(currentDate.numberOfWeekInMonth)
-
-//        weekOfMonth = calendar.component(.weekOfMonth, from: currentDate)
-//        print(weekOfMonth)
-//        print(currentDate.startDateOfMonth)
-//        print(currentDate.endDateOfMonth)
-//        print(currentDate.dayNumberOfWeek)
-//
-//
-//        let previousMonthDate = calendar.date(byAdding: .month, value: -1, to: currentDate)!
-//        print(previousMonthDate)
-//
-//        print(calendar.locale)
-//        let previousMonth = calendar.component(.month, from: previousMonthDate)
-        
-//        print(previousMonthDate.startDateOfMonth)
-//        print(previousMonthDate.endDateOfMonth)
-
-
+        parentCoordinator?.window?.rootViewController = tabBarController
+        parentCoordinator?.window?.makeKeyAndVisible()
     }
     
     func presentCurrencyHistoryInfoDetailsController(title: String, data: ExchangeRatesDateRange? = nil, previousMonthData: ExchangeRatesDateRange? = nil) {

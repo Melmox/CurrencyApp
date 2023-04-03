@@ -16,7 +16,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
 
     //MARK: Content
     
-    private weak var interfaceCoordinator: Coordinator?
+    private weak var interfaceCoordinator: MainFlowCoordinator?
     lazy var cellViewModels: [CurrencyHistoryCurrencyNameCellViewModel] = []
     
     var downloadedData: ExchangeRatesDateRange?
@@ -30,7 +30,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: Coordinator) {
+    init(coordinator: MainFlowCoordinator) {
         interfaceCoordinator = coordinator
     }
     

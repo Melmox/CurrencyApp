@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "84038080-6D2D-445D-A71C-3D6C726490D6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyApp/Common/Views/CardCollectionViewCell.swift"
@@ -85,7 +85,7 @@
             <Locations>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - c32e882725b4a4d3"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "implicit closure #2 (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; in implicit closure #1 (CurrencyApp.WalletViewModel) -&gt; (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; in variable initialization expression of CurrencyApp.WalletController.preparedData : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
@@ -100,7 +100,7 @@
                </Location>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - ffeef6751e814ff5"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.preparedData.getter : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
@@ -115,7 +115,7 @@
                </Location>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - e110c083b1c257f9"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.preparedData.setter : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
@@ -130,7 +130,7 @@
                </Location>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - ceb50f873b2601ea"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.preparedData.modify : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt;"
@@ -145,7 +145,7 @@
                </Location>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - a682ecd226b4274"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.preparedData.modify : (CurrencyApp.ExchangeRates) -&gt; Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
@@ -160,7 +160,7 @@
                </Location>
                <Location
                   uuid = "DD9A987D-D167-4B9B-8884-4853537A34AF - 86b7eca3e64bba66"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.init(viewModel: CurrencyApp.WalletViewModel) -&gt; CurrencyApp.WalletController"
@@ -224,7 +224,7 @@
             <Locations>
                <Location
                   uuid = "D53E23DE-E884-4348-9B48-4FE242C0ADEF - 580cfd45da7f237"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CurrencyApp.WalletController.viewDidLoad() -&gt; ()"
@@ -239,7 +239,7 @@
                </Location>
                <Location
                   uuid = "D53E23DE-E884-4348-9B48-4FE242C0ADEF - 681e4498bef17822"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 () -&gt; () in CurrencyApp.WalletController.viewDidLoad() -&gt; ()"
@@ -577,7 +577,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B3F75A37-2BEF-4918-987F-D55654E4BBAC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyApp/Modules/CurrencyHistory/InfoDetails/ViewModel/CurrencyHistoryInfoDetailsViewModel.swift"
@@ -587,6 +587,70 @@
             endingLineNumber = "31"
             landmarkName = "CurrencyHistoryInfoDetailsViewModel"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A147B0EC-18F1-44EB-86B9-8BAB34D0CA20"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/LoginFlow/View/LoginLaunchScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "registrationTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A1F798F-A663-4F92-91FF-EBF76D6CE71B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Coordinators/LoginCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "createLoginLaunchScreenController()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "205E05A7-6069-4771-B4FC-693D1B522F73"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/LoginFlow/View/LoginProcessScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "addConstraints()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F84E4F0F-4EFF-47E1-8033-C940BF53FE6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/LoginFlow/View/LoginProcessScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "addConstraints()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

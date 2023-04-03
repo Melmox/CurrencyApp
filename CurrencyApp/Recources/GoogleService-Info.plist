@@ -2,33 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>CLIENT_ID</key>
-	<string>1091127886199-3em96a64t28kgrhj1sm0roceaoa93jvv.apps.googleusercontent.com</string>
+	<string>927779286700-ii9m3s080i28tgvoa19lcn6b2bn7qok5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1091127886199-3em96a64t28kgrhj1sm0roceaoa93jvv</string>
+	<string>com.googleusercontent.apps.927779286700-ii9m3s080i28tgvoa19lcn6b2bn7qok5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDlHAdNFXujwiA7F08LJ5lWkciIAn44n8o</string>
+	<string>AIzaSyABZFuOty7CSSXiuxy_kY_rb9Awe-dtqz0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1091127886199</string>
+	<string>927779286700</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>melnyk.CurrencyApp</string>
 	<key>PROJECT_ID</key>
-	<string>currencyapp-d52a1</string>
+	<string>currencyapp-2258a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>currencyapp-d52a1.appspot.com</string>
+	<string>currencyapp-2258a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1091127886199:ios:b6b56416321dd0e4f0e172</string>
+	<string>1:927779286700:ios:cef3051d98c49aaeed3909</string>
 </dict>
 </plist>

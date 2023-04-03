@@ -12,7 +12,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     //MARK: - Properties
     //MARK: Content
     
-    private weak var interfaceCoordinator: Coordinator?
+    private weak var interfaceCoordinator: MainFlowCoordinator?
     
     lazy var cellViewModels: [CurrencyHistoryInfoDetailsSectionItem] = []
     lazy var previousMonthCellViewModels : [CurrencyHistoryInfoDetailsSectionItem] = []
@@ -39,7 +39,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: Coordinator) {
+    init(coordinator: MainFlowCoordinator) {
         interfaceCoordinator = coordinator
     }
     

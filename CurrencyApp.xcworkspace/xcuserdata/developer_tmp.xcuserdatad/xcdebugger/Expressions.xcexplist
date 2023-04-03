@@ -93,12 +93,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "testData">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
       </ContextState>
       <ContextState
          contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
@@ -109,7 +104,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+         contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testData">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
@@ -133,6 +133,14 @@
          <PersistentStrings>
             <PersistentString
                value = "willReloadSection">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginCoordinator.start():LoginCoordinator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginLaunchScreenController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
