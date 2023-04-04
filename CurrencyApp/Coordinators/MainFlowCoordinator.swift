@@ -9,8 +9,9 @@ import UIKit
 
 final class MainFlowCoordinator {
     
-    var currencyHistoryController: CurrencyHistoryCurrencyNameController?
-    var parentCoordinator: AppCoordinator?
+    private var currencyHistoryController: CurrencyHistoryCurrencyNameController?
+    private var parentCoordinator: AppCoordinator?
+    var currentController: UIViewController?
     
     // MARK: - Initialization
     

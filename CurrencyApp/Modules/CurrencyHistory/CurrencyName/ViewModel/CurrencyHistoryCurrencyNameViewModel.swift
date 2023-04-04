@@ -77,12 +77,12 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
         }
         
     }
+        
+    //MARK: - Provider
     
     func item(at indexPath: IndexPath) -> CurrencyHistoryCurrencyNameCellViewModel {
         return cellViewModels[indexPath.row]
     }
-    
-    //MARK: - Provider
     
     var numberOfItems: Int {
         cellViewModels.count

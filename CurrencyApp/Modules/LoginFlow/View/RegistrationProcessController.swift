@@ -1,5 +1,5 @@
 //
-//  RegistrationProcessScreen.swift
+//  RegistrationProcessController.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 27.03.2023.
@@ -7,87 +7,90 @@
 
 import UIKit
 
-class RegistrationProcessScreen: BasicViewController<RegistrationProcessViewModel>, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    var registrationButton = UIButton()
+final class RegistrationProcessController: BasicViewController<RegistrationProcessViewModel> {
+    
+    //MARK: - Properties
+
     var nameTextField = UITextField()
     var loginTextField = UITextField()
     var passwordTextField = UITextField()
     var confirmPasswordTextField = UITextField()
     var addPictureButton = UIButton()
     var imageView = UIImageView()
-        
-    // MARK: - LifeCycle
+    var registrationButton = UIButton()
     
-    override func viewDidLoad() {
+    // MARK: - Configure
+    
+    func configure() {
         navigationItem.title = "Sign Up"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 25)!]
         navigationController?.navigationBar.tintColor = .systemGreen
-        
         view.backgroundColor = .white
-        registrationButton.setTitle("Sign Up", for: .normal)
-        addPictureButton.setTitle("Add profile picture", for: .normal)
-        registrationButton.addTarget(self, action: #selector(registrationTapped), for: .touchUpInside)
-        addPictureButton.addTarget(self, action: #selector(addPictureTapped), for: .touchUpInside)
 
-        nameTextField.backgroundColor = .systemGray5
-        loginTextField.backgroundColor = .systemGray5
-        passwordTextField.backgroundColor = .systemGray5
-        confirmPasswordTextField.backgroundColor = .systemGray5
-
-        registrationButton.backgroundColor = .systemGreen
-        addPictureButton.backgroundColor = .systemGreen
-
-        nameTextField.layer.cornerRadius = 15
-        loginTextField.layer.cornerRadius = 15
-        passwordTextField.layer.cornerRadius = 15
-        registrationButton.layer.cornerRadius = 15
-        confirmPasswordTextField.layer.cornerRadius = 15
-        addPictureButton.layer.cornerRadius = 15
-        
-        registrationButton.titleLabel?.font =  registrationButton.titleLabel?.font.withSize(25)
-        addPictureButton.titleLabel?.font =  addPictureButton.titleLabel?.font.withSize(25)
-        nameTextField.font = nameTextField.font?.withSize(20)
-        loginTextField.font =  loginTextField.font?.withSize(20)
-        passwordTextField.font =  passwordTextField.font?.withSize(20)
-        confirmPasswordTextField.font =  confirmPasswordTextField.font?.withSize(20)
-        
-        passwordTextField.isSecureTextEntry = true
-        confirmPasswordTextField.isSecureTextEntry = true
-        
+        configureTextField(textField: nameTextField)
         nameTextField.placeholder = "Your name"
-        loginTextField.placeholder = "yourmail@mail.com"
-        passwordTextField.placeholder = "Password"
-        confirmPasswordTextField.placeholder = "Confirm password"
-
-        nameTextField.setPadding()
-        loginTextField.setPadding()
-        passwordTextField.setPadding()
-        confirmPasswordTextField.setPadding()
-        
         nameTextField.autocorrectionType = .no
+        nameTextField.returnKeyType = .next
+        
+        configureTextField(textField: loginTextField)
+        loginTextField.placeholder = "yourmail@mail.com"
         loginTextField.autocorrectionType = .no
         loginTextField.keyboardType = .emailAddress
         loginTextField.autocapitalizationType = .none
-        
-        nameTextField.returnKeyType = .next
         loginTextField.returnKeyType = .next
+        
+        configureTextField(textField: passwordTextField)
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = "Password"
+        passwordTextField.autocapitalizationType = .none
         passwordTextField.returnKeyType = .next
+
+        configureTextField(textField: confirmPasswordTextField)
+        confirmPasswordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.placeholder = "Confirm password"
+        confirmPasswordTextField.autocapitalizationType = .none
         confirmPasswordTextField.returnKeyType = .continue
 
+        addPictureButton.setTitle("Add profile picture", for: .normal)
+        addPictureButton.addTarget(self, action: #selector(addPictureTapped), for: .touchUpInside)
+        addPictureButton.backgroundColor = .systemGreen
+        addPictureButton.layer.cornerRadius = 15
+        addPictureButton.titleLabel?.font =  addPictureButton.titleLabel?.font.withSize(25)
+        
         imageView.image = UIImage(systemName: "person")
         imageView.tintColor = .systemGray5
         
+        registrationButton.setTitle("Sign Up", for: .normal)
+        registrationButton.addTarget(self, action: #selector(registrationTapped), for: .touchUpInside)
+        registrationButton.backgroundColor = .systemGreen
+        registrationButton.layer.cornerRadius = 15
+        registrationButton.titleLabel?.font =  registrationButton.titleLabel?.font.withSize(25)
+    }
+    
+    func configureTextField(textField: UITextField) {
+        textField.backgroundColor = .systemGray5
+        textField.layer.cornerRadius = 15
+        textField.font = textField.font?.withSize(20)
+        textField.setPadding()
+    }
+    
+    // MARK: - LifeCycle
+    
+    override func viewDidLoad() {
+        configure()
         addConstraints()
     }
+    
     // MARK: - Constraints
+    
     private func addConstraints() {
-        view.addSubview(registrationButton)
         view.addSubview(nameTextField)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
         view.addSubview(confirmPasswordTextField)
         view.addSubview(addPictureButton)
         view.addSubview(imageView)
+        view.addSubview(registrationButton)
         
         registrationButton.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -96,11 +99,6 @@ class RegistrationProcessScreen: BasicViewController<RegistrationProcessViewMode
         confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         addPictureButton.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        registrationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        registrationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -view.frame.height * 0.02).isActive = true
-        registrationButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.8).isActive = true
-        registrationButton.heightAnchor.constraint(equalToConstant: view.frame.height * 0.07).isActive = true
         
         nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.height * 0.02).isActive = true
@@ -132,15 +130,26 @@ class RegistrationProcessScreen: BasicViewController<RegistrationProcessViewMode
         imageView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.4).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: view.frame.width * 0.4).isActive = true
         
+        registrationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        registrationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -view.frame.height * 0.02).isActive = true
+        registrationButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.8).isActive = true
+        registrationButton.heightAnchor.constraint(equalToConstant: view.frame.height * 0.07).isActive = true
     }
     
-    // MARK: - ClickHandler
+    // MARK: - Actions
     
     @objc func registrationTapped() {
-        Firebase().createAccount(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
-        viewModel.coordinateMainFlow()
-        print("Registration")
+        let name = nameTextField.text ?? ""
+        let email = loginTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        var confirmPassword = confirmPasswordTextField.text ?? ""
+        let image = imageView.image?.pngData() ?? nil
+        
+        let user = User(name: name, email: email, password: password, profilePhoto: image)
+        confirmPassword = String(confirmPassword.hashValue)
+        viewModel.registrationButtonClick(user: user, confirmPassword: confirmPassword)
     }
+    
     @objc func addPictureTapped() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -148,7 +157,9 @@ class RegistrationProcessScreen: BasicViewController<RegistrationProcessViewMode
         picker.delegate = self
         self.present(picker, animated: true)
     }
-    
+}
+
+extension RegistrationProcessController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = image

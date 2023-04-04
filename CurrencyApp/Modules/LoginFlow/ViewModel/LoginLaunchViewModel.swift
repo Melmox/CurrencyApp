@@ -13,7 +13,8 @@ class LoginLaunchViewModel: BasicControllerViewModel {
 
     //MARK: Content
     
-    private weak var interfaceCoordinator: LoginCoordinator?
+    private weak var appCoordinator: AppCoordinator?
+
 
     
     //MARK: Callbacks
@@ -22,8 +23,11 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: LoginCoordinator) {
-        interfaceCoordinator = coordinator
+//    init(coordinator: LoginCoordinator) {
+//        interfaceCoordinator = coordinator
+//    }
+    init(appCoordinator: AppCoordinator) {
+        self.appCoordinator = appCoordinator
     }
     
     //MARK: - Appearance
@@ -39,9 +43,10 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
     func coordinateLoginPage() {
-        interfaceCoordinator?.presentLoginController()
+        appCoordinator?.loginCoordinator?.presentLoginController()
+//        appCoordinator?.presentPopUpController()
     }
     func coordinateRegistrationPage() {
-        interfaceCoordinator?.presentRegistrationController()
+        appCoordinator?.loginCoordinator?.presentRegistrationController()
     }
 }

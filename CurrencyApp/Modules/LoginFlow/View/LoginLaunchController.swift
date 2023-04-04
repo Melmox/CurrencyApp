@@ -1,5 +1,5 @@
 //
-//  LoginLaunchScreen.swift
+//  LoginLaunchController.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 27.03.2023.
@@ -7,7 +7,10 @@
 
 import UIKit
 
-class LoginLaunchScreen: BasicViewController<LoginLaunchViewModel> {
+class LoginLaunchController: BasicViewController<LoginLaunchViewModel> {
+    
+    //MARK: - Properties
+    
     var loginButton = UIButton()
     var registrationButton = UIButton()
     var container = UIView()
@@ -65,7 +68,7 @@ class LoginLaunchScreen: BasicViewController<LoginLaunchViewModel> {
 
     }
     
-    // MARK: - ClickHandler
+    // MARK: - Action
     
     @objc func loginTapped() {
         viewModel.coordinateLoginPage()

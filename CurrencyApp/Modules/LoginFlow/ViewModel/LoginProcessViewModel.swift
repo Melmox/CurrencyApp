@@ -9,16 +9,18 @@ import Foundation
 
 class LoginProcessViewModel: BasicControllerViewModel {
     //MARK: - Properties
-
-
+    
+    private var email: String?
+    private var password: String?
+    
     //MARK: Content
     
     private weak var interfaceCoordinator: AppCoordinator?
-
+    
     
     //MARK: Callbacks
     
-        
+    
     
     //MARK: - Init
     
@@ -29,7 +31,7 @@ class LoginProcessViewModel: BasicControllerViewModel {
     //MARK: - Appearance
     
     func configure() {
-
+        
     }
     
     //MARK: - Provider
@@ -37,7 +39,26 @@ class LoginProcessViewModel: BasicControllerViewModel {
     
     //MARK: - Navigation
     
-    func coordinateMainFlow() {
-        interfaceCoordinator?.launchMainFlowCoordinator()
+    func loginButtonClick(email: String, password: String) {
+        if email.isValidEmailAddress {
+            self.email = email
+            self.email = self.email?.lowercased()
+        } else {
+            interfaceCoordinator?.presentPopUpController(with: "You used incorrect format of email")
+        }
+        if (password.count >= 6) {
+            self.password = password
+        } else {
+            interfaceCoordinator?.presentPopUpController(with: "You password is too small")
+        }
+        if (self.email != nil && self.password != nil) {
+            Firebase().logIn(email: email, password: password, onSuccess: {
+                self.interfaceCoordinator?.state = .logined
+                self.interfaceCoordinator?.start()
+            }, onError: { (errorMessage) in
+                print(errorMessage)
+            })
+        }
     }
 }
+

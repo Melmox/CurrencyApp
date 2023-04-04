@@ -18,32 +18,90 @@ final class Firebase {
         FirebaseApp.configure()
     }
     
+    // MARK: - Save Photo
+    
+    func savePhoto(email: String, uid: String, profileImage: Data, metadata: StorageMetadata, storageProfileRef: StorageReference, userModelDictionary: Dictionary<String, Any>, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+        storageProfileRef.putData(profileImage, metadata: metadata , completion: {
+            (storageMetaData, error) in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            
+            storageProfileRef.downloadURL(completion: { (url, error) in
+                if let metaImageUrl = url?.absoluteString {
+                    
+                    if let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() {
+                        changeRequest.photoURL = url
+                        changeRequest.displayName = email
+                        changeRequest.commitChanges(completion: { (error) in
+                            if let error = error {
+                                onError(error.localizedDescription)
+                            }
+                        })
+                    }
+                    var tempDictionary = userModelDictionary
+                    
+                    tempDictionary["profileImageUrl"] = metaImageUrl
+                    Database.database().reference().child("users")
+                        .child(uid).updateChildValues(tempDictionary, withCompletionBlock: {
+                            (error, ref) in
+                            if error == nil {
+                                onSuccess()
+                            }
+                            else {
+                                onError(error!.localizedDescription)
+                            }
+                        })
+                }
+            })
+        })
+    }
+    
     // MARK: - Create account
     
-    func createAccount(login: String, password: String, profileImage: UIImage? = nil) {
-        print("Account created with login: \(login) and password: \(password)")
-        Auth.auth().createUser(withEmail: login, password: password){ (authDataResult, error) in
+    func createAccount(user: User, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+        let email = user.email
+        let password = user.password
+        let name = user.name
+        let profileImage = user.profilePhoto
+        Auth.auth().createUser(withEmail: email, password: password) {(authDataResult, error) in
             if error != nil {
-                print(error!.localizedDescription)
+                onError(error!.localizedDescription)
                 return
             }
             if let authData = authDataResult {
-                print(authData.user.email)
+                let userModelDictionary: Dictionary<String, Any> = [
+                    "uid": authData.user.uid,
+                    "email": authData.user.email,
+                    "name": name,
+                    "profileImageUrl": ""
+                ]
+                let storageRef = Storage.storage().reference(forURL: "gs://currencyapp-2258a.appspot.com")
+                let storageProfileRef = storageRef.child("profile").child(authData.user.uid)
+                let metadata = StorageMetadata()
+                metadata.contentType = "image/png"
+                if let profileImage = profileImage {
+                    self.savePhoto(email: email, uid: authData.user.uid, profileImage: profileImage, metadata: metadata, storageProfileRef: storageProfileRef, userModelDictionary: userModelDictionary, onSuccess: {
+                        onSuccess()
+                    }, onError: { (errorMessage) in
+                        onError(errorMessage)
+                    })
+                }
             }
         }
     }
     
     // MARK: - Log in into account
     
-    func logIn(login: String, password: String) {
-        print("You just loginned into account: \(login)")
-        Auth.auth().signIn(withEmail: login, password: password){ (authDataResult, error) in
+    func logIn(email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password){ (authDataResult, error) in
             if error != nil {
-                print(error!.localizedDescription)
+                onError(error!.localizedDescription)
                 return
             }
-            if let authData = authDataResult {
-                print(authData)
+            if authDataResult != nil {
+                onSuccess()
             }
         }
     }

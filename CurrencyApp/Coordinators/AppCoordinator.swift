@@ -7,14 +7,19 @@
 
 import UIKit
 
+enum AppState {
+    case notLogined, logined
+}
+
 class AppCoordinator {
     var window: UIWindow?
     var loginCoordinator: LoginCoordinator?
     var mainCoordinator: MainFlowCoordinator?
     
+//    private var popUpController: PopUpViewController?
+    var currentController: UIViewController?
     
-    let tempState = 0
-    
+    var state = AppState.notLogined
     
     // MARK: - Initialization
     
@@ -23,33 +28,48 @@ class AppCoordinator {
     }
     
     func start() {
-        switch tempState {
-        case 0:
+        switch state {
+        case .notLogined:
             launchLoginCoordinator()
-        case 1:
+        case .logined:
             launchMainFlowCoordinator()
-        default:
-            print("error")
         }
+//        popUpController = createPopUpController()
     }
     
-    func launchLoginCoordinator() {
+    private func launchLoginCoordinator() {
         loginCoordinator = LoginCoordinator(parentCoordinator: self)
         loginCoordinator?.start()
     }
     
-    func launchMainFlowCoordinator() {
+    private func launchMainFlowCoordinator() {
         mainCoordinator = MainFlowCoordinator(parentCoordinator: self)
         mainCoordinator?.start()
     }
     
-    func dismisLoginCoordinator() {
+    private func dismisLoginCoordinator() {
         loginCoordinator = nil
         self.start()
     }
     
-    func dismisMainFlowCoordinator() {
+    private func dismisMainFlowCoordinator() {
         mainCoordinator = nil
         self.start()
+    }
+    
+    private func createPopUpController() -> PopUpViewController {
+        let popUpCoontroller = PopUpViewController(viewModel: PopUpViewModel(appCoordinator: self))
+        return popUpCoontroller
+    }
+    
+    func presentPopUpController(with text: String) {
+        let controller = createPopUpController()
+        controller.viewModel.alertLabelText = text
+        if let currentController = currentController {
+            controller.modalPresentationStyle = .overCurrentContext
+            controller.modalTransitionStyle = .crossDissolve
+            currentController.present(controller, animated: true)
+            self.currentController = controller
+        }
     }
 }

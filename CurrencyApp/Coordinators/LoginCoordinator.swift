@@ -8,9 +8,10 @@
 import UIKit
 
 final class LoginCoordinator {
-    var loginLaunchScreenController: UINavigationController?
-    var parentCoordinator: AppCoordinator?
-
+    private var loginLaunchScreenController: UINavigationController?
+    private var parentCoordinator: AppCoordinator?
+    //    var currentController: UIViewController?
+    
     
     // MARK: - Initialization
     
@@ -28,22 +29,31 @@ final class LoginCoordinator {
     func presentLoginController() {
         let controller = createLoginProcessController()
         loginLaunchScreenController?.pushViewController(controller, animated: true)
+        if let coordinator = parentCoordinator {
+            coordinator.currentController = controller
+        }
     }
     func presentRegistrationController() {
         let controller = createRegistrationProcessController()
         loginLaunchScreenController?.pushViewController(controller, animated: true)
+        if let coordinator = parentCoordinator {
+            coordinator.currentController = controller
+        }
     }
     
     // MARK: - Modules
     
     private func createLoginLaunchScreenController() -> UINavigationController{
-        let loginLaunchScreenController = LoginLaunchScreen(viewModel: LoginLaunchViewModel(coordinator: self))
-        return UINavigationController(rootViewController: loginLaunchScreenController)
+        if let coordinator = parentCoordinator {
+            let loginLaunchScreenController = LoginLaunchController(viewModel: LoginLaunchViewModel(appCoordinator: coordinator))
+            return UINavigationController(rootViewController: loginLaunchScreenController)
+        }
+        return UINavigationController()
     }
     
     private func createLoginProcessController() -> UIViewController{
         if let coordinator = parentCoordinator {
-            let loginProcessController = LoginProcessScreen(viewModel: LoginProcessViewModel(coordinator: coordinator))
+            let loginProcessController = LoginProcessController(viewModel: LoginProcessViewModel(coordinator: coordinator))
             return loginProcessController
         }
         return UIViewController()
@@ -51,7 +61,7 @@ final class LoginCoordinator {
     
     private func createRegistrationProcessController() -> UIViewController{
         if let coordinator = parentCoordinator {
-            let registrationProcessController = RegistrationProcessScreen(viewModel: RegistrationProcessViewModel(coordinator: coordinator))
+            let registrationProcessController = RegistrationProcessController(viewModel: RegistrationProcessViewModel(coordinator: coordinator))
             return registrationProcessController
         }
         return UIViewController()
