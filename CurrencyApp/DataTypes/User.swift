@@ -10,15 +10,13 @@ import Foundation
 struct User {
     let name: String
     let email: String
-    let password: String
     let profilePhoto: Data?
+    let profilePhotoURL: URL?
     
-    init(name: String, email: String, password: String, profilePhoto: Data?) {
+    init(name: String, email: String, profilePhoto: Data? = nil, profilePhotoURL: URL? = nil) {
         self.name = name
         self.email = email
-        self.password = String(password.hashValue)
         self.profilePhoto = profilePhoto
+        self.profilePhotoURL = profilePhotoURL
     }
-    
-    
 }

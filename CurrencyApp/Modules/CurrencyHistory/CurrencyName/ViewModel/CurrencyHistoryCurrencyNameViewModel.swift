@@ -16,7 +16,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
 
     //MARK: Content
     
-    private weak var interfaceCoordinator: MainFlowCoordinator?
+    private weak var interfaceCoordinator: AppCoordinator?
     lazy var cellViewModels: [CurrencyHistoryCurrencyNameCellViewModel] = []
     
     var downloadedData: ExchangeRatesDateRange?
@@ -30,7 +30,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: MainFlowCoordinator) {
+    init(coordinator: AppCoordinator) {
         interfaceCoordinator = coordinator
     }
     
@@ -91,7 +91,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
     func coordinateNextPage(title: String) {
-        interfaceCoordinator?.presentCurrencyHistoryInfoDetailsController(title: title, data: downloadedData, previousMonthData: previousMonthDownloadedData)
+        interfaceCoordinator?.mainCoordinator?.presentCurrencyHistoryInfoDetailsController(title: title, data: downloadedData, previousMonthData: previousMonthDownloadedData)
     }
     
 }

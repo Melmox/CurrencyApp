@@ -53,13 +53,12 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Assign self for delegate for that ViewController can respond to UITabBarControllerDelegate methods
         self.delegate = self
+        self.tabBar.tintColor = .systemGreen
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//                getAPICall()
     }
     
     // MARK: - Appearance
@@ -73,7 +72,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
             }
         }
         self.setViewControllers(viewControllersOnTabBar, animated: true)
-//        self.viewControllers = viewControllersOnTabBar
         
     }
     
@@ -89,8 +87,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     // MARK: - UITabBarControllerDelegate
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        //        print("Selected \(viewController.title!)")
+        
     }
-    
-    
 }

@@ -60,9 +60,9 @@ final class Firebase {
     
     // MARK: - Create account
     
-    func createAccount(user: User, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+    func createAccount(user: User, password: String, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         let email = user.email
-        let password = user.password
+        let password = password
         let name = user.name
         let profileImage = user.profilePhoto
         Auth.auth().createUser(withEmail: email, password: password) {(authDataResult, error) in
@@ -94,14 +94,14 @@ final class Firebase {
     
     // MARK: - Log in into account
     
-    func logIn(email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+    func logIn(email: String, password: String, onSuccess: @escaping(_ authDataResult: AuthDataResult) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password){ (authDataResult, error) in
             if error != nil {
                 onError(error!.localizedDescription)
                 return
             }
             if authDataResult != nil {
-                onSuccess()
+                onSuccess(authDataResult!)
             }
         }
     }

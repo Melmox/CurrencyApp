@@ -10,6 +10,8 @@ import UIKit
 final class MainFlowCoordinator {
     
     private var currencyHistoryController: CurrencyHistoryCurrencyNameController?
+    private var walletController: WalletController?
+    
     private var parentCoordinator: AppCoordinator?
     var currentController: UIViewController?
     
@@ -36,6 +38,16 @@ final class MainFlowCoordinator {
         currencyHistoryController?.navigationController?.pushViewController(controller, animated: true)
     }
     
+    func presentWalletSettingsController() {
+        let controller = createWalletSettingsController()
+        walletController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func presentWebViewController() {
+        let controller = createWebViewController()
+        walletController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     // MARK: - Modules
     
     private func createTabBarController() -> UITabBarController {
@@ -47,23 +59,37 @@ final class MainFlowCoordinator {
         return tabBarController
     }
     
-    private func createWalletController() -> WalletController {
+    private func createWalletController() -> UINavigationController {
         let walletController = WalletController(
-            viewModel: WalletViewModel(coordinator: self)
-        )
-        return walletController
+            viewModel: WalletViewModel(coordinator: parentCoordinator!))
+        self.walletController = walletController
+        return UINavigationController(rootViewController: walletController)
     }
     
     private func createCurrencyHistoryController() -> UINavigationController {
-        let currencyHistoryController = CurrencyHistoryCurrencyNameController(viewModel: CurrencyHistoryCurrencyNameViewModel(coordinator: self))
+        let currencyHistoryController = CurrencyHistoryCurrencyNameController(
+            viewModel: CurrencyHistoryCurrencyNameViewModel(coordinator: parentCoordinator!))
         self.currencyHistoryController = currencyHistoryController
         return UINavigationController(rootViewController: currencyHistoryController)
     }
     
     private func createCurrencyHistoryInfoDetailsController() -> CurrencyHistoryInfoDetailsController {
         let currencyHistoryInfoDetails = CurrencyHistoryInfoDetailsController(
-            viewModel: CurrencyHistoryInfoDetailsViewModel(coordinator: self)
+            viewModel: CurrencyHistoryInfoDetailsViewModel(coordinator: parentCoordinator!)
         )
         return currencyHistoryInfoDetails
     }
+    
+    private func createWalletSettingsController() -> WalletSettingsController {
+        let walletSettingsController = WalletSettingsController(
+            viewModel: WalletSettingsViewModel(coordinator: parentCoordinator!)
+        )
+        return walletSettingsController
+    }
+    
+    private func createWebViewController() -> WalletSettingsWebViewController {
+        let webViewController = WalletSettingsWebViewController()
+        return webViewController
+    }
+    
 }

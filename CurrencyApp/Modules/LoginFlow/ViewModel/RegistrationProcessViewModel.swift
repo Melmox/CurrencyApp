@@ -45,33 +45,37 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
 //    func registrationButtonClick(name: String, email: String, password: String, confirmPassword: String, profileImage: Data? = nil) {
-    func registrationButtonClick(user: User, confirmPassword: String) {
+    func registrationButtonClick(user: User, password: String, confirmPassword: String) {
         if user.name.isValidName {
             name = user.name
             name = name?.trimmingCharacters(in: .whitespaces)
             name = name?.capitalized
         } else {
-            
-            //alert message about inapropriate name
+            interfaceCoordinator?.presentPopUpController(with: "You inputed inappropriate name.")
         }
         
         if user.email.isValidEmailAddress {
             email = user.email
             email = email?.lowercased()
         } else {
-            //alert message about inapropriate email
+            interfaceCoordinator?.presentPopUpController(with: "You inputed inappropriate email.")
         }
-        if (user.password == confirmPassword) {
-            password = user.password
+        if (password.count < 6) {
+            interfaceCoordinator?.presentPopUpController(with: "Your passwords too short. It must be 6 charecters or longer.")
         } else {
-            //alert message about differend passwords or small lenth of password
+            if (password == confirmPassword) {
+                self.password = password
+            } else {
+                interfaceCoordinator?.presentPopUpController(with: "Your passwords are differend.")
+            }
         }
-        if (name != nil && email != nil && password != nil) {
-            Firebase().createAccount(user: user, onSuccess: {
+        if (name != nil && email != nil && self.password != nil) {
+            Firebase().createAccount(user: user, password: password, onSuccess: {
                 self.interfaceCoordinator?.state = .logined
+                self.interfaceCoordinator?.currentUser = user
                 self.interfaceCoordinator?.start()
             }, onError: { (errorMessage) in
-                print(errorMessage)
+                self.interfaceCoordinator?.presentPopUpController(with: errorMessage)
             })
         }
     }

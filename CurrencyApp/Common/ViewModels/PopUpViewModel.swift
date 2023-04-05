@@ -43,8 +43,6 @@ final class PopUpViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
     func closePopUpView() {
-        if let currentController = appCoordinator?.currentController {
-            currentController.dismiss(animated: false, completion:nil)
-        }
+        appCoordinator?.dismisPopUpController()
     }
 }

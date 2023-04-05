@@ -89,11 +89,7 @@ class LoginProcessController: BasicViewController<LoginProcessViewModel> {
     
     @objc func loginTapped() {
         let email = loginTextField.text ?? ""
-        var password = passwordTextField.text ?? ""
-        
-        password = String(password.hashValue)
-
-        
+        let password = passwordTextField.text ?? ""
         viewModel.loginButtonClick(email: email, password: password)
     }
 }

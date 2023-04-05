@@ -145,9 +145,9 @@ final class RegistrationProcessController: BasicViewController<RegistrationProce
         var confirmPassword = confirmPasswordTextField.text ?? ""
         let image = imageView.image?.pngData() ?? nil
         
-        let user = User(name: name, email: email, password: password, profilePhoto: image)
-        confirmPassword = String(confirmPassword.hashValue)
-        viewModel.registrationButtonClick(user: user, confirmPassword: confirmPassword)
+        let user = User(name: name, email: email, profilePhoto: image)
+        confirmPassword = String(confirmPassword)
+        viewModel.registrationButtonClick(user: user, password: password, confirmPassword: confirmPassword)
     }
     
     @objc func addPictureTapped() {

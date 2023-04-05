@@ -16,11 +16,12 @@ class AppCoordinator {
     var loginCoordinator: LoginCoordinator?
     var mainCoordinator: MainFlowCoordinator?
     
-//    private var popUpController: PopUpViewController?
+    var popUpController: PopUpViewController?
     var currentController: UIViewController?
     
     var state = AppState.notLogined
     
+    var currentUser: User?
     // MARK: - Initialization
     
     init(window: UIWindow?) {
@@ -34,27 +35,27 @@ class AppCoordinator {
         case .logined:
             launchMainFlowCoordinator()
         }
-//        popUpController = createPopUpController()
     }
     
     private func launchLoginCoordinator() {
         loginCoordinator = LoginCoordinator(parentCoordinator: self)
         loginCoordinator?.start()
+        dismissMainFlowCoordinator()
     }
     
     private func launchMainFlowCoordinator() {
         mainCoordinator = MainFlowCoordinator(parentCoordinator: self)
         mainCoordinator?.start()
+        dismissLoginCoordinator()
     }
     
-    private func dismisLoginCoordinator() {
+    private func dismissLoginCoordinator() {
         loginCoordinator = nil
-        self.start()
+        currentUser = nil
     }
     
-    private func dismisMainFlowCoordinator() {
+    private func dismissMainFlowCoordinator() {
         mainCoordinator = nil
-        self.start()
     }
     
     private func createPopUpController() -> PopUpViewController {
@@ -63,13 +64,24 @@ class AppCoordinator {
     }
     
     func presentPopUpController(with text: String) {
-        let controller = createPopUpController()
-        controller.viewModel.alertLabelText = text
-        if let currentController = currentController {
+        if currentController != popUpController {
+            let controller = createPopUpController()
+            controller.viewModel.alertLabelText = text
             controller.modalPresentationStyle = .overCurrentContext
             controller.modalTransitionStyle = .crossDissolve
-            currentController.present(controller, animated: true)
-            self.currentController = controller
+            if let currentController = currentController {
+                currentController.present(controller, animated: true)
+                popUpController = controller
+                self.currentController = controller
+            }
+        }
+    }
+    
+    func dismisPopUpController() {
+        if let currentController = currentController {
+            currentController.dismiss(animated: true, completion:nil)
+            popUpController = nil
+            self.currentController = UIApplication.shared.keyWindow?.rootViewController
         }
     }
 }

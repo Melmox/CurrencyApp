@@ -23,9 +23,6 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-//    init(coordinator: LoginCoordinator) {
-//        interfaceCoordinator = coordinator
-//    }
     init(appCoordinator: AppCoordinator) {
         self.appCoordinator = appCoordinator
     }
@@ -44,9 +41,11 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     
     func coordinateLoginPage() {
         appCoordinator?.loginCoordinator?.presentLoginController()
-//        appCoordinator?.presentPopUpController()
     }
     func coordinateRegistrationPage() {
-        appCoordinator?.loginCoordinator?.presentRegistrationController()
+        print("CHANGE IT LATER")
+        appCoordinator?.state = .logined
+        appCoordinator?.start()
+//        appCoordinator?.loginCoordinator?.presentRegistrationController()
     }
 }

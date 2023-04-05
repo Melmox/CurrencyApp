@@ -46,17 +46,18 @@ class LoginProcessViewModel: BasicControllerViewModel {
         } else {
             interfaceCoordinator?.presentPopUpController(with: "You used incorrect format of email")
         }
-        if (password.count >= 6) {
-            self.password = password
-        } else {
-            interfaceCoordinator?.presentPopUpController(with: "You password is too small")
-        }
+        self.password = password
         if (self.email != nil && self.password != nil) {
-            Firebase().logIn(email: email, password: password, onSuccess: {
+            Firebase().logIn(email: email, password: password, onSuccess: { (authDataResult) in
                 self.interfaceCoordinator?.state = .logined
+                if let name = authDataResult.user.displayName, let email = authDataResult.user.email, let profilePhoto = authDataResult.user.photoURL {
+                    self.interfaceCoordinator?.currentUser = User(name: name,
+                                                                  email: email,
+                                                                  profilePhotoURL: profilePhoto)
+                }
                 self.interfaceCoordinator?.start()
             }, onError: { (errorMessage) in
-                print(errorMessage)
+                self.interfaceCoordinator?.presentPopUpController(with: errorMessage)
             })
         }
     }

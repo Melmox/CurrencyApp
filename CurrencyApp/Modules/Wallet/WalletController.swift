@@ -9,10 +9,10 @@ import UIKit
 
 final class WalletController: BasicViewController<WalletViewModel>, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: - General
-    
+    // MARK: - Properties
+
     let tableView = UITableView()
-    
+    let settingsButton = UIImageView(image: UIImage(systemName: "gear"))
 
     lazy var headerView: TableViewHeaderView = {
         let width = UIView.screenWidth
@@ -21,23 +21,41 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         return headerView
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 44
-
         super.viewDidLoad()
-//        self.view.backgroundColor = UIColor.systemPink
         viewModel.configure()
+        view.backgroundColor = .white
         setupTableView()
         tableView.register(WalletTableViewCell.self, forCellReuseIdentifier: "WalletTableViewCell")
         tableView.tableHeaderView = headerView
         viewModel.willReload = {
             self.tableView.reloadData()
         }
+        configureNavigationBarHeader()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK: - Constraints
+    
+    func configureNavigationBarHeader() {
+        self.navigationController?.navigationBar.tintColor = .systemGreen
+        settingsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        settingsButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsTapped(tapGestureRecognizer:)))
+        settingsButton.isUserInteractionEnabled = true
+        settingsButton.addGestureRecognizer(tapGestureRecognizer)
+        let segmentBarItem = UIBarButtonItem(customView: settingsButton)
+        navigationItem.rightBarButtonItem = segmentBarItem
+    }
     
     func setupTableView() {
         view.addSubview(tableView)
@@ -45,10 +63,10 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
-    
+        
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +95,13 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         let movedObject = viewModel.cellViewModels[sourceIndexPath.row]
         viewModel.cellViewModels.remove(at: sourceIndexPath.row)
         viewModel.cellViewModels.insert(movedObject, at: destinationIndexPath.row)
+    }
+    
+    // MARK: - Action
+
+    @objc func settingsTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        viewModel.coordinateNextPage()
     }
 }
 

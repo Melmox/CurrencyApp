@@ -12,7 +12,7 @@ final class WalletViewModel: BasicControllerViewModel {
     //MARK: - Properties
     //MARK: Content
     
-    private weak var interfaceCoordinator: MainFlowCoordinator?
+    private weak var interfaceCoordinator: AppCoordinator?
     lazy var cellViewModels: [WalletTableViewCellViewModel] = []
     
     //MARK: Callbacks
@@ -22,7 +22,7 @@ final class WalletViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: MainFlowCoordinator) {
+    init(coordinator: AppCoordinator) {
         interfaceCoordinator = coordinator
     }
     
@@ -54,5 +54,7 @@ final class WalletViewModel: BasicControllerViewModel {
     
     //MARK: - Navigation
     
-    
+    func coordinateNextPage() {
+        interfaceCoordinator?.mainCoordinator?.presentWalletSettingsController()
+    }
 }

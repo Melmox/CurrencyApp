@@ -10,8 +10,11 @@ import UIKit
 class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistoryCurrencyNameViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     
-    //MARK: - General
+    // MARK: - Properties
+
     let tableView = UITableView()
+    
+    // MARK: - Properties
     
     override func viewDidLoad() {
         tableView.delegate = self

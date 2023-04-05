@@ -9,24 +9,8 @@ import Foundation
 
 extension String {
     var isValidName: Bool {
-        var returnValue = true
-        let nameRegEx = "[A-Za-z\\s]{2,20}"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: nameRegEx)
-            let nsString = self as NSString
-            let results = regex.matches(in: self, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0
-            {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return  returnValue
+        let lettersAndSpacesCharacterSet = CharacterSet.letters.union(.whitespaces).inverted
+        return self.rangeOfCharacter(from: lettersAndSpacesCharacterSet) == nil
     }
     
     var isValidEmailAddress: Bool {
@@ -40,12 +24,12 @@ extension String {
             
             if results.count == 0
             {
-                print("not email")
+//                print("not email")
                 returnValue = false
             }
             
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
+        } catch _ as NSError {
+//            print("invalid regex: \(error.localizedDescription)")
             returnValue = false
         }
         return  returnValue
