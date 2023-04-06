@@ -10,7 +10,7 @@ import Foundation
 struct User {
     let name: String
     let email: String
-    let profilePhoto: Data?
+    var profilePhoto: Data?
     let profilePhotoURL: URL?
     
     init(name: String, email: String, profilePhoto: Data? = nil, profilePhotoURL: URL? = nil) {

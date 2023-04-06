@@ -11,40 +11,49 @@ class WalletSettingsTableFooter: UIView {
     
     // MARK: Properties
     
+    var openWebView: emptyClosure?
     private lazy var linkButton = UIButton()
     
     // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        linkButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(linkButton)
-        linkButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        linkButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        linkButton.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        linkButton.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        
-        let yourAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.black,
-            .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]
-        let attributeString = NSMutableAttributedString(
-           string: "Terms and conditions",
-           attributes: yourAttributes
-        )
-        linkButton.setAttributedTitle(attributeString, for: .normal)
-        linkButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setup View
+    
+    private func configure() {
+        self.addSubview(linkButton)
+        
+        linkButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        linkButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        linkButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        linkButton.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        linkButton.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        
+        let textAtributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.black,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        let attributeString = NSMutableAttributedString(
+           string: "Terms and conditions",
+           attributes: textAtributes
+        )
+        linkButton.setAttributedTitle(attributeString, for: .normal)
+        linkButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+    }
+    
     // MARK: - Action
     
-    @objc func buttonClicked(sender:UIButton)
-    {
-        let loadWebView = emptyClosure.self
+    @objc func buttonClicked(sender:UIButton) {
+        if let openWebView = openWebView {
+            openWebView()
+        }
     }
 }

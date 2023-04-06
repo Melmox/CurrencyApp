@@ -13,7 +13,7 @@ class LoginLaunchViewModel: BasicControllerViewModel {
 
     //MARK: Content
     
-    private weak var appCoordinator: AppCoordinator?
+    private weak var coordinator: LoginCoordinator?
 
 
     
@@ -23,8 +23,8 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(appCoordinator: AppCoordinator) {
-        self.appCoordinator = appCoordinator
+    init(coordinator: LoginCoordinator) {
+        self.coordinator = coordinator
     }
     
     //MARK: - Appearance
@@ -40,12 +40,12 @@ class LoginLaunchViewModel: BasicControllerViewModel {
     //MARK: - Navigation
     
     func coordinateLoginPage() {
-        appCoordinator?.loginCoordinator?.presentLoginController()
+        coordinator?.presentLoginController()
     }
     func coordinateRegistrationPage() {
-        print("CHANGE IT LATER")
-        appCoordinator?.state = .logined
-        appCoordinator?.start()
-//        appCoordinator?.loginCoordinator?.presentRegistrationController()
+//        print("CHANGE IT LATER")
+//        self.coordinator?.updateSignInState(with: .logined)
+//        coordinator?.launchAppCoordinator()
+        coordinator?.presentRegistrationController()
     }
 }

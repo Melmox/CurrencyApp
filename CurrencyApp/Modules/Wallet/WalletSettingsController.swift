@@ -15,11 +15,17 @@ class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UI
 
     lazy var headerView: WalletSettingsTableHeader = {
         let headerView = WalletSettingsTableHeader(frame: CGRect(x: 0, y: 0, width: UIView.screenWidth, height: UIView.screenHeight * 0.3))
+        if let user = viewModel.user {
+            headerView.configureView(user: user)
+        }
         return headerView
     }()
     
     lazy var footerView: WalletSettingsTableFooter = {
         let footerView = WalletSettingsTableFooter(frame: CGRect(x: 0, y: 0, width:  UIView.screenWidth, height: 44))
+        footerView.openWebView = { [weak self] in
+            self?.viewModel.presentWebView()
+        }
         return footerView
     }()
     

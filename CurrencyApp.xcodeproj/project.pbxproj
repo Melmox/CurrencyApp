@@ -14,7 +14,7 @@
 		D2461E6829DAA52100118F57 /* LoginLaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6729DAA52100118F57 /* LoginLaunchViewModel.swift */; };
 		D2461E6A29DAABEC00118F57 /* LoginProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6929DAABEC00118F57 /* LoginProcessViewModel.swift */; };
 		D2461E6C29DAABF600118F57 /* RegistrationProcessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6B29DAABF600118F57 /* RegistrationProcessViewModel.swift */; };
-		D2461E6E29DADA8000118F57 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6D29DADA8000118F57 /* Firebase.swift */; };
+		D2461E6E29DADA8000118F57 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6D29DADA8000118F57 /* FirebaseManager.swift */; };
 		D2461E7029DAE75C00118F57 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2461E6F29DAE75C00118F57 /* AppCoordinator.swift */; };
 		D24634FA29C35F4B0058A610 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634F929C35F4B0058A610 /* BasicViewController.swift */; };
 		D24634FC29C3638F0058A610 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634FB29C3638F0058A610 /* WalletViewModel.swift */; };
@@ -35,6 +35,8 @@
 		D288B4BE29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4BD29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionView.swift */; };
 		D288B4C029D4289F00085C93 /* BasicTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4BF29D4289F00085C93 /* BasicTableViewHeaderFooterView.swift */; };
 		D288B4C229D42B5C00085C93 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4C129D42B5C00085C93 /* Typealias.swift */; };
+		D28B3A5129DEC7250063AE84 /* UserServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B3A5029DEC7250063AE84 /* UserServiceable.swift */; };
+		D28B3A5329DECC5C0063AE84 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B3A5229DECC5C0063AE84 /* UserService.swift */; };
 		D2CC021D29D16944008B9C11 /* LoginLaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021C29D16944008B9C11 /* LoginLaunchController.swift */; };
 		D2CC021F29D16974008B9C11 /* LoginProcessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC021E29D16974008B9C11 /* LoginProcessController.swift */; };
 		D2CC022129D16994008B9C11 /* RegistrationProcessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC022029D16994008B9C11 /* RegistrationProcessController.swift */; };
@@ -77,7 +79,7 @@
 		D2461E6729DAA52100118F57 /* LoginLaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLaunchViewModel.swift; sourceTree = "<group>"; };
 		D2461E6929DAABEC00118F57 /* LoginProcessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProcessViewModel.swift; sourceTree = "<group>"; };
 		D2461E6B29DAABF600118F57 /* RegistrationProcessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessViewModel.swift; sourceTree = "<group>"; };
-		D2461E6D29DADA8000118F57 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		D2461E6D29DADA8000118F57 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		D2461E6F29DAE75C00118F57 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D24634F929C35F4B0058A610 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		D24634FB29C3638F0058A610 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		D288B4BD29D420C300085C93 /* CurrencyHistoryInfoDetailsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoDetailsSectionView.swift; sourceTree = "<group>"; };
 		D288B4BF29D4289F00085C93 /* BasicTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		D288B4C129D42B5C00085C93 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		D28B3A5029DEC7250063AE84 /* UserServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceable.swift; sourceTree = "<group>"; };
+		D28B3A5229DECC5C0063AE84 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D2CC021C29D16944008B9C11 /* LoginLaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLaunchController.swift; sourceTree = "<group>"; };
 		D2CC021E29D16974008B9C11 /* LoginProcessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProcessController.swift; sourceTree = "<group>"; };
 		D2CC022029D16994008B9C11 /* RegistrationProcessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationProcessController.swift; sourceTree = "<group>"; };
@@ -243,8 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				D24B63C729DDB03E009C7F0B /* Controller */,
-				D24B63BA29DD8EE4009C7F0B /* View */,
 				D24B63B529DD827F009C7F0B /* ViewModel */,
+				D24B63BA29DD8EE4009C7F0B /* View */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -285,12 +289,22 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
+		D28B3A4F29DE9E860063AE84 /* WalletFlow */ = {
+			isa = PBXGroup;
+			children = (
+				D2E3A6AA29BF3AEA00F496EB /* Controller */,
+				D2E3A6AB29BF3AFE00F496EB /* ViewModels */,
+				D24634F629C35E010058A610 /* Views */,
+			);
+			name = WalletFlow;
+			sourceTree = "<group>";
+		};
 		D2ABA2AE29D2FBDB00BFB2C0 /* InfoDetails */ = {
 			isa = PBXGroup;
 			children = (
-				D2ABA2B029D2FBF400BFB2C0 /* View */,
 				D2ABA2B629D2FC2B00BFB2C0 /* Controller */,
 				D2ABA2B129D2FBFC00BFB2C0 /* ViewModel */,
+				D2ABA2B029D2FBF400BFB2C0 /* View */,
 			);
 			path = InfoDetails;
 			sourceTree = "<group>";
@@ -298,8 +312,8 @@
 		D2ABA2AF29D2FBE800BFB2C0 /* CurrencyName */ = {
 			isa = PBXGroup;
 			children = (
-				D24634FF29C449F30058A610 /* ViewModel */,
 				D24634FE29C449DD0058A610 /* Controller */,
+				D24634FF29C449F30058A610 /* ViewModel */,
 				D246350029C44A140058A610 /* View */,
 			);
 			path = CurrencyName;
@@ -343,20 +357,20 @@
 		D2CC021929D168D6008B9C11 /* LoginFlow */ = {
 			isa = PBXGroup;
 			children = (
+				D2CC021A29D16906008B9C11 /* Controller */,
 				D2CC021B29D1690B008B9C11 /* ViewModel */,
-				D2CC021A29D16906008B9C11 /* View */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
 		};
-		D2CC021A29D16906008B9C11 /* View */ = {
+		D2CC021A29D16906008B9C11 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D2CC021C29D16944008B9C11 /* LoginLaunchController.swift */,
 				D2CC021E29D16974008B9C11 /* LoginProcessController.swift */,
 				D2CC022029D16994008B9C11 /* RegistrationProcessController.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D2CC021B29D1690B008B9C11 /* ViewModel */ = {
@@ -414,10 +428,8 @@
 		D2E3A6A829BF3ADA00F496EB /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				D28B3A4F29DE9E860063AE84 /* WalletFlow */,
 				D24B63B429DD8274009C7F0B /* Settings */,
-				D24634F629C35E010058A610 /* Views */,
-				D2E3A6AB29BF3AFE00F496EB /* ViewModels */,
-				D2E3A6AA29BF3AEA00F496EB /* Controller */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -455,7 +467,9 @@
 			children = (
 				D2E3A6A529BF360100F496EB /* Networking.swift */,
 				D2EECDC129CAFB1500711997 /* APIDescriptor.swift */,
-				D2461E6D29DADA8000118F57 /* Firebase.swift */,
+				D2461E6D29DADA8000118F57 /* FirebaseManager.swift */,
+				D28B3A5029DEC7250063AE84 /* UserServiceable.swift */,
+				D28B3A5229DECC5C0063AE84 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -666,9 +680,11 @@
 				D2CC021F29D16974008B9C11 /* LoginProcessController.swift in Sources */,
 				D2EC4B7C29DC41D1008E0A34 /* User.swift in Sources */,
 				D2CC022329D16B2E008B9C11 /* LoginCoordinator.swift in Sources */,
+				D28B3A5129DEC7250063AE84 /* UserServiceable.swift in Sources */,
 				D2EC4B7E29DC49FB008E0A34 /* PopUpViewController.swift in Sources */,
 				D2EECDBE29C9E46500711997 /* WalletTableViewCell.swift in Sources */,
 				D24B63C029DD8F1C009C7F0B /* WalletSettingsTableFooter.swift in Sources */,
+				D28B3A5329DECC5C0063AE84 /* UserService.swift in Sources */,
 				D2EECDCD29CB0E6D00711997 /* CurrencyHistoryCurrencyNameViewModel.swift in Sources */,
 				D2EECDC429CB052B00711997 /* ExchangeRates.swift in Sources */,
 				D2E3A6B329BF3CC800F496EB /* TabBarController.swift in Sources */,
@@ -680,7 +696,7 @@
 				D2EECDD329CB0EFC00711997 /* CurrencyHistoryCurrencyNameCellViewModel.swift in Sources */,
 				D2EC4B7A29DC0954008E0A34 /* StringExtension.swift in Sources */,
 				D2461E6829DAA52100118F57 /* LoginLaunchViewModel.swift in Sources */,
-				D2461E6E29DADA8000118F57 /* Firebase.swift in Sources */,
+				D2461E6E29DADA8000118F57 /* FirebaseManager.swift in Sources */,
 				D24B63C429DD8F39009C7F0B /* WalletSettingsTableCellViewModel.swift in Sources */,
 				D24B63C929DDB05A009C7F0B /* WalletSettingsWebViewController.swift in Sources */,
 				D2E3A68F29BF2CA400F496EB /* AppDelegate.swift in Sources */,

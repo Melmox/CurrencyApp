@@ -1,5 +1,5 @@
 //
-//  Firebase.swift
+//  FirebaseManager.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 03.04.2023.
@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-final class Firebase {
+final class FirebaseManager {
     
     // MARK: - Configure
     func configure() {
@@ -73,7 +73,7 @@ final class Firebase {
             if let authData = authDataResult {
                 let userModelDictionary: Dictionary<String, Any> = [
                     "uid": authData.user.uid,
-                    "email": authData.user.email,
+                    "email": authData.user.email ?? "",
                     "name": name,
                     "profileImageUrl": ""
                 ]
@@ -102,6 +102,35 @@ final class Firebase {
             }
             if authDataResult != nil {
                 onSuccess(authDataResult!)
+            }
+        }
+    }
+    
+    // MARK: - Log out from current account
+    
+    func signOut(){
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            
+        }
+    }
+    
+    // MARK: - Reset the password
+    
+    func sendPasswordReset(withEmail email: String, _ callback: ((Error?) -> ())? = nil){
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            callback?(error)
+        }
+    }
+    
+    // MARK: - Delete account
+    
+    func deleteAccount() {
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+            if error == nil {
+                self.signOut()
             }
         }
     }

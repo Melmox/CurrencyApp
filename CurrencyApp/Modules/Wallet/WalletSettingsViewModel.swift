@@ -12,25 +12,32 @@ class WalletSettingsViewModel: BasicControllerViewModel {
     //MARK: - Properties
     //MARK: Content
     
-    private weak var interfaceCoordinator: AppCoordinator?
+    private weak var coordinator: MainFlowCoordinator?
+    private weak var service: UserService?
+    var user: User?
+    
     lazy var cellViewModels: [WalletSettingsTableCellViewModel] = []
     
     //MARK: Callbacks
     
-    var willReload: (() -> ())?
+    var willReload: emptyClosure?
     
     var openWebView: emptyClosure?
+    
+    var updateUserClosure: emptyClosure?
     
     
     //MARK: - Init
     
-    init(coordinator: AppCoordinator) {
-        interfaceCoordinator = coordinator
+    init(coordinator: MainFlowCoordinator, service: UserService) {
+        self.coordinator = coordinator
+        self.service = service
     }
     
     //MARK: - Appearance
     
     func configure() {
+        user = service?.user
         cellViewModels.append(WalletSettingsTableCellViewModel(type: .deleteAcount))
         cellViewModels.append(WalletSettingsTableCellViewModel(type: .logOut))
     }
@@ -38,13 +45,12 @@ class WalletSettingsViewModel: BasicControllerViewModel {
     private func processItemSeletion(for itemType: WalletSettingsTableCellType) {
         switch itemType {
         case .deleteAcount:
-            print("Delete")
-            
+            deleteAccount()
         case .logOut:
             logOut()
         }
     }
-
+    
     //MARK: - Provider
     
     var numberOfItems: Int {
@@ -59,19 +65,28 @@ class WalletSettingsViewModel: BasicControllerViewModel {
         let cellType = item(at: index).type
         processItemSeletion(for: cellType)
     }
-        
+    
     func footerTapped() {
-            interfaceCoordinator?.mainCoordinator?.presentWebViewController()
+        coordinator?.presentWebViewController()
+    }
+    
+    func deleteAccount() {
+        service?.deleteAccount()
+        coordinator?.launchAppCoordinator()
+    }
+    
+    func updateUser(with user: User) {
+        service?.updateUser(user: user)
     }
     
     //MARK: - Navigation
     
     func logOut() {
-        interfaceCoordinator?.state = .notLogined
-        interfaceCoordinator?.start()
+        service?.signOut()
+        coordinator?.launchAppCoordinator()
     }
     
-    
-    
-    
+    func presentWebView() {
+        coordinator?.presentWebViewController()
+    }
 }

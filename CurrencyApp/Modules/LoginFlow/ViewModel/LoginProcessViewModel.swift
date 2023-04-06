@@ -12,11 +12,11 @@ class LoginProcessViewModel: BasicControllerViewModel {
     
     private var email: String?
     private var password: String?
-    
+        
     //MARK: Content
     
-    private weak var interfaceCoordinator: AppCoordinator?
-    
+    private weak var coordinator: LoginCoordinator?
+    private weak var service: UserService?
     
     //MARK: Callbacks
     
@@ -24,8 +24,9 @@ class LoginProcessViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: AppCoordinator) {
-        interfaceCoordinator = coordinator
+    init(service: UserService, coordinator: LoginCoordinator) {
+        self.service = service
+        self.coordinator = coordinator
     }
     
     //MARK: - Appearance
@@ -44,20 +45,19 @@ class LoginProcessViewModel: BasicControllerViewModel {
             self.email = email
             self.email = self.email?.lowercased()
         } else {
-            interfaceCoordinator?.presentPopUpController(with: "You used incorrect format of email")
+            coordinator?.presentPopUpController(with: "You used incorrect format of email.")
         }
-        self.password = password
+        if password.count < 6 {
+            coordinator?.presentPopUpController(with: "Your password is too short.")
+        } else {
+            self.password = password
+        }
         if (self.email != nil && self.password != nil) {
-            Firebase().logIn(email: email, password: password, onSuccess: { (authDataResult) in
-                self.interfaceCoordinator?.state = .logined
-                if let name = authDataResult.user.displayName, let email = authDataResult.user.email, let profilePhoto = authDataResult.user.photoURL {
-                    self.interfaceCoordinator?.currentUser = User(name: name,
-                                                                  email: email,
-                                                                  profilePhotoURL: profilePhoto)
-                }
-                self.interfaceCoordinator?.start()
+            service?.logIn(email: email, password: password, onSuccess: {  (user) in
+                self.service?.state = .logined
+                self.coordinator?.launchAppCoordinator()
             }, onError: { (errorMessage) in
-                self.interfaceCoordinator?.presentPopUpController(with: errorMessage)
+                self.coordinator?.presentPopUpController(with: errorMessage)
             })
         }
     }

@@ -23,7 +23,6 @@ enum WalletSettingsTableCellType {
 
 struct WalletSettingsTableCellViewModel {
     var type: WalletSettingsTableCellType
-    
     var title: String {
         type.title
     }

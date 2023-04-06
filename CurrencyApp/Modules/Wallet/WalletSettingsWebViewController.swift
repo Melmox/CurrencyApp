@@ -13,20 +13,18 @@ class WalletSettingsWebViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        let myURL = URL(string: "https://github.com/Melmox/CurrencyApp")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        guard let url = URL(string: "https://github.com/Melmox/CurrencyApp") else {return}
+        webView.load(URLRequest(url: url))
     }
     
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
         let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-//        webView.uiDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
     
-    func setupUI() {
+    private func setupUI() {
             self.view.backgroundColor = .white
             self.view.addSubview(webView)
             

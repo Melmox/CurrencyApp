@@ -23,6 +23,7 @@ final class MainFlowCoordinator {
     
     
     // MARK: - Methods
+    
     func start() {
         let tabBarController = createTabBarController()
         parentCoordinator?.window?.rootViewController = tabBarController
@@ -48,6 +49,14 @@ final class MainFlowCoordinator {
         walletController?.navigationController?.pushViewController(controller, animated: true)
     }
     
+    func presentPopUpController(with message: String) {
+        parentCoordinator?.presentPopUpController(with: message)
+    }
+    
+    func launchAppCoordinator() {
+        parentCoordinator?.start()
+    }
+    
     // MARK: - Modules
     
     private func createTabBarController() -> UITabBarController {
@@ -61,30 +70,33 @@ final class MainFlowCoordinator {
     
     private func createWalletController() -> UINavigationController {
         let walletController = WalletController(
-            viewModel: WalletViewModel(coordinator: parentCoordinator!))
+            viewModel: WalletViewModel(coordinator: self))
         self.walletController = walletController
         return UINavigationController(rootViewController: walletController)
     }
     
     private func createCurrencyHistoryController() -> UINavigationController {
         let currencyHistoryController = CurrencyHistoryCurrencyNameController(
-            viewModel: CurrencyHistoryCurrencyNameViewModel(coordinator: parentCoordinator!))
+            viewModel: CurrencyHistoryCurrencyNameViewModel(coordinator: self))
         self.currencyHistoryController = currencyHistoryController
         return UINavigationController(rootViewController: currencyHistoryController)
     }
     
     private func createCurrencyHistoryInfoDetailsController() -> CurrencyHistoryInfoDetailsController {
         let currencyHistoryInfoDetails = CurrencyHistoryInfoDetailsController(
-            viewModel: CurrencyHistoryInfoDetailsViewModel(coordinator: parentCoordinator!)
+            viewModel: CurrencyHistoryInfoDetailsViewModel(coordinator: self)
         )
         return currencyHistoryInfoDetails
     }
     
     private func createWalletSettingsController() -> WalletSettingsController {
-        let walletSettingsController = WalletSettingsController(
-            viewModel: WalletSettingsViewModel(coordinator: parentCoordinator!)
-        )
-        return walletSettingsController
+        if let service = parentCoordinator?.getUserService() {
+            let walletSettingsController = WalletSettingsController(
+                viewModel: WalletSettingsViewModel(coordinator: self, service: service)
+            )
+            return walletSettingsController
+        }
+        return UIViewController() as! WalletSettingsController
     }
     
     private func createWebViewController() -> WalletSettingsWebViewController {

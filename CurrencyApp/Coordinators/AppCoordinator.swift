@@ -7,11 +7,10 @@
 
 import UIKit
 
-enum AppState {
-    case notLogined, logined
-}
-
 class AppCoordinator {
+    
+    // MARK: - Properties
+
     var window: UIWindow?
     var loginCoordinator: LoginCoordinator?
     var mainCoordinator: MainFlowCoordinator?
@@ -19,48 +18,27 @@ class AppCoordinator {
     var popUpController: PopUpViewController?
     var currentController: UIViewController?
     
-    var state = AppState.notLogined
+    // MARK: - Services
+
+    private let userService = UserService()
     
-    var currentUser: User?
     // MARK: - Initialization
     
     init(window: UIWindow?) {
         self.window = window
     }
     
+    // MARK: - Methods
+
     func start() {
-        switch state {
+        switch userService.state {
         case .notLogined:
             launchLoginCoordinator()
         case .logined:
             launchMainFlowCoordinator()
+        case .none:
+            launchLoginCoordinator()
         }
-    }
-    
-    private func launchLoginCoordinator() {
-        loginCoordinator = LoginCoordinator(parentCoordinator: self)
-        loginCoordinator?.start()
-        dismissMainFlowCoordinator()
-    }
-    
-    private func launchMainFlowCoordinator() {
-        mainCoordinator = MainFlowCoordinator(parentCoordinator: self)
-        mainCoordinator?.start()
-        dismissLoginCoordinator()
-    }
-    
-    private func dismissLoginCoordinator() {
-        loginCoordinator = nil
-        currentUser = nil
-    }
-    
-    private func dismissMainFlowCoordinator() {
-        mainCoordinator = nil
-    }
-    
-    private func createPopUpController() -> PopUpViewController {
-        let popUpCoontroller = PopUpViewController(viewModel: PopUpViewModel(appCoordinator: self))
-        return popUpCoontroller
     }
     
     func presentPopUpController(with text: String) {
@@ -81,7 +59,39 @@ class AppCoordinator {
         if let currentController = currentController {
             currentController.dismiss(animated: true, completion:nil)
             popUpController = nil
-            self.currentController = UIApplication.shared.keyWindow?.rootViewController
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            self.currentController = windowScene?.windows.first?.rootViewController
         }
+    }
+    
+    func getUserService() -> UserService {
+        userService
+    }
+    
+    // MARK: - Modules
+    
+    private func launchLoginCoordinator() {
+        loginCoordinator = LoginCoordinator(parentCoordinator: self)
+        loginCoordinator?.start()
+        dismissMainFlowCoordinator()
+    }
+    
+    private func launchMainFlowCoordinator() {
+        mainCoordinator = MainFlowCoordinator(parentCoordinator: self)
+        mainCoordinator?.start()
+        dismissLoginCoordinator()
+    }
+    
+    private func dismissLoginCoordinator() {
+        loginCoordinator = nil
+    }
+    
+    private func dismissMainFlowCoordinator() {
+        mainCoordinator = nil
+    }
+    
+    private func createPopUpController() -> PopUpViewController {
+        let popUpCoontroller = PopUpViewController(viewModel: PopUpViewModel(appCoordinator: self))
+        return popUpCoontroller
     }
 }
