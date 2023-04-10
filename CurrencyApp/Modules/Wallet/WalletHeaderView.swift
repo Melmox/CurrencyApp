@@ -10,8 +10,16 @@ import UIKit
 struct TableViewHeaderViewModel {
     var items: [WalletCollectionViewCellViewModel]?
     var willReload: EmptyClosure?
+    var openDetailsPage: ((WalletCollectionViewCellViewModel?) -> Void)?
     let widthOfHeader = UIView.screenWidth
     let heightOfHeader = UIView.screenWidth * 0.6
+    
+    func getWalletCollectionViewCellViewModel(at indexPath: IndexPath) -> WalletCollectionViewCellViewModel?{
+        if let items = items {
+           return items[indexPath.row]
+        }
+        return nil
+    }
 }
 
 final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -34,7 +42,10 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect(x: 20, y: 0, width: frame.width - 20 - 20, height: frame.height - 20 - 20), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect(x: 20,
+                                                            y: 0,
+                                                            width: frame.width - 2 * horizontalMargin,
+                                                            height: frame.height - 2 * verticalMargin), collectionViewLayout: layout)
         collectionView.dataSource = self
         return collectionView
     }()
@@ -87,16 +98,6 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         collection.heightAnchor.constraint(equalToConstant: self.frame.width * 0.6 ).isActive = true
     }
     
-    // MARK: UICollectionViewDelegate
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.items?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 0.631)
-    }
-    
     // MARK: UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,5 +111,22 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
             cell.configure(with: cellViewModel)
         }
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.items?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 0.631)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let openDetailsPage = viewModel?.openDetailsPage {
+            openDetailsPage(viewModel?.getWalletCollectionViewCellViewModel(at: indexPath))
+        }
+        print(indexPath.row)
     }
 }

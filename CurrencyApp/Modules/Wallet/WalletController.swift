@@ -74,6 +74,11 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
                 collback()
             }
         }
+        header.viewModel?.openDetailsPage = {cardInfo in
+            if let cardInfo = cardInfo{
+                self.viewModel.coordinateDetailsPage(with: cardInfo)
+            }
+        }
     }
     
     // MARK: - View Model
@@ -90,7 +95,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     
     @objc
     private func settingsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        viewModel.coordinateNextPage()
+        viewModel.coordinateSettingsPage()
     }
     
     // MARK: - UITableViewDelegate

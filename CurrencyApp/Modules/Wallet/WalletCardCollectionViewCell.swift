@@ -23,15 +23,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         return currencyLabel
     }()
     
-    private let amountLabel: UILabel = {
-        let amountLabel = UILabel()
-        amountLabel.textColor = .white
-        amountLabel.font = amountLabel.font.withSize(20)
-        amountLabel.textAlignment = .right
-        amountLabel.translatesAutoresizingMaskIntoConstraints = false
-        return amountLabel
-    }()
-    
     private lazy var cardNumberLabel: UILabel = {
         let cardNumberLabel = UILabel()
         cardNumberLabel.textColor = .white
@@ -80,7 +71,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     // MARK: Lifecycle
     
     override func prepareForReuse() {
-        amountLabel.text = nil
         cardNumberLabel.text = nil
         currencyLabel.text = nil
         cardholderNameLabel.text = nil
@@ -103,17 +93,13 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private func setupView() {
         
-        addBackgroundImage(cell: self)
+        addBackgroundImage()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(currencyLabel)
         currencyLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: self.frame.height * 0.2).isActive = true
         currencyLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1).isActive = true
-        
-        contentView.addSubview(amountLabel)
-        amountLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: frame.height * 0.8 ).isActive = true
-        amountLabel.rightAnchor.constraint(equalTo: self.leftAnchor, constant: frame.width * 0.9).isActive = true
-        
+
         contentView.addSubview(cardNumberLabel)
         cardNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (contentView.frame.height - cardNumberLabel.intrinsicContentSize.height) / 1.7).isActive = true
         cardNumberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -135,13 +121,13 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         leftArrow.leftAnchor.constraint(equalTo: self.leftAnchor, constant: (0.05 * self.frame.width)).isActive = true
     }
     
-    private func addBackgroundImage(cell: UICollectionViewCell){
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: self.frame.height))
+    private func addBackgroundImage(){
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         let image = UIImage(named: "backgroundBankCardImage")
         imageView.image = image
-        cell.backgroundView = UIView()
-        if cell.backgroundView != nil{
-            cell.backgroundView?.addSubview(imageView)
+        self.backgroundView = UIView()
+        if self.backgroundView != nil{
+            self.backgroundView?.addSubview(imageView)
         }
     }
     
@@ -151,14 +137,7 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     override func configure(with viewModel: WalletCollectionViewCellViewModel) {
         leftArrow.isHidden = viewModel.isFirst ?? true
         rightArrow.isHidden = viewModel.isLast ?? true
-        
-        guard let balance = viewModel.balance
-        else {
-            return
-        }
-        
         currencyLabel.text = viewModel.currency
-        amountLabel.text = String(balance)
         cardNumberLabel.text = viewModel.cardNumber
         cardholderNameLabel.text = viewModel.cardholderName
         openDateLabel.text = viewModel.openDate

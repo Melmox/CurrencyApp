@@ -77,7 +77,11 @@ final class WalletViewModel: BasicControllerViewModel {
     
     // MARK: - Navigation
     
-    func coordinateNextPage() {
+    func coordinateSettingsPage() {
         coordinator?.presentWalletSettingsController()
+    }
+    
+    func coordinateDetailsPage(with cardInfo: WalletCollectionViewCellViewModel) {
+        coordinator?.presentWalletDetailsController(with: cardInfo)
     }
 }

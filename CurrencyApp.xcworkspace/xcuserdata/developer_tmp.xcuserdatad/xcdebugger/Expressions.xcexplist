@@ -113,6 +113,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "WalletDetailsHeaderView.setupView():WalletDetailsHeaderView.swift">
+      </ContextState>
+      <ContextState
          contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
       </ContextState>
       <ContextState
@@ -120,6 +123,14 @@
          <PersistentStrings>
             <PersistentString
                value = "prepareFormatter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletDetailsController.setupHeader():WalletDetailsController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellDetailedInfo">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

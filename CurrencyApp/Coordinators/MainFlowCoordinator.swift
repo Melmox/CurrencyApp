@@ -60,6 +60,12 @@ final class MainFlowCoordinator {
         parentCoordinator?.start()
     }
     
+    func presentWalletDetailsController(with cardInfo: WalletCollectionViewCellViewModel) {
+        let controller = createWalletDetailsController()
+        controller.viewModel.cardInfoViewModel = cardInfo
+        walletController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     // MARK: - Modules
     
     private func createTabBarController() -> UITabBarController {
@@ -96,8 +102,7 @@ final class MainFlowCoordinator {
     private func createWalletSettingsController() -> WalletSettingsController {
         if let service = parentCoordinator?.getUserService() {
             let walletSettingsController = WalletSettingsController(
-                viewModel: WalletSettingsViewModel(coordinator: self, service: service)
-            )
+                viewModel: WalletSettingsViewModel(coordinator: self, service: service))
             return walletSettingsController
         }
         return UIViewController() as! WalletSettingsController
@@ -108,4 +113,11 @@ final class MainFlowCoordinator {
         return webViewController
     }
     
+    private func createWalletDetailsController() -> WalletDetailsController {
+        if let service = parentCoordinator?.getCardService(){
+            let walletDetailsController = WalletDetailsController(viewModel: WalletDetailsViewModel(coordinator: self, cardService: service))
+            return walletDetailsController
+        }
+        return UIViewController() as! WalletDetailsController
+    }
 }
