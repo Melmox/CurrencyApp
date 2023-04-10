@@ -8,6 +8,7 @@
 import Foundation
 
 extension Date {
+    
     var startDateOfMonth: Date {
         guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: self))
         else {
@@ -42,8 +43,8 @@ extension Date {
     }
     
     var prepareFormatToDateOnCard: String {
-        var month = self.numberOfMonthInYear
-        var year = self.yearNumber
+        let month = self.numberOfMonthInYear
+        let year = self.yearNumber
         if month < 10 {
             return "0\(month)/\(year)"
         } else {

@@ -8,7 +8,7 @@
 import UIKit
 
 class PopUpViewController: BasicViewController<PopUpViewModel> {
-    //MARK: - Properties
+    // MARK: - Properties
 
     private var container = UIView()
     private var alertSign = UIImageView()

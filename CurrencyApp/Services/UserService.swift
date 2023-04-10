@@ -13,7 +13,9 @@ enum UserState {
 
 final class UserService : UserServiceable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    // MARK: Content
+    
     private var user: User?
     private var state: UserState?
     private let firebaseManager = FirebaseManager()

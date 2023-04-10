@@ -10,7 +10,8 @@ import UIKit
 class AppCoordinator {
     
     // MARK: - Properties
-
+    // MARK: Content
+    
     var window: UIWindow?
     var loginCoordinator: LoginCoordinator?
     var mainCoordinator: MainFlowCoordinator?
@@ -23,7 +24,6 @@ class AppCoordinator {
     private let userService: UserServiceable = UserService()
     private let cardService: CardServiceable = CardService()
 
-    
     // MARK: - Initialization
     
     init(window: UIWindow?) {

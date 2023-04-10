@@ -7,10 +7,7 @@
 
 import Foundation
 
-//MARK: - Decoding of data from API
-
 final class APIDescriptor {
-    
     func decodeJSON<T: Decodable>(type: T.Type, jsonData: Data) -> T? {
         let decoder = JSONDecoder()
             do {

@@ -11,6 +11,7 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
     
     // MARK: - Properties
     // MARK: Content
+    
     static let identifier = String(describing: CurrencyHistoryInfoDetailsSectionView.self)
     var sectionHeaderButton = UIButton()
     
@@ -27,8 +28,8 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
         didSelect = nil
     }
     
-    //MARK: - View
-    //MARK: Configuration
+    // MARK: - View
+    // MARK: Configuration
     
     override func configureView() {
         super.configureView()
@@ -45,12 +46,6 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
         sectionHeaderButton.backgroundColor = .systemGray
         sectionHeaderButton.setTitleColor(.white, for: .normal)
         sectionHeaderButton.semanticContentAttribute = .forceRightToLeft
-    }
-    
-    // MARK: - Actions
-    
-    @objc private func buttonTapped() {
-        updateSelectedState()
     }
     
     // MARK: - ViewModel
@@ -70,5 +65,11 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
     private func updateSelectedState() {
         viewModel?.updateSelectedState()
         didSelect?()
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func buttonTapped() {
+        updateSelectedState()
     }
 }

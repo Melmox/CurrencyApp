@@ -10,34 +10,32 @@ import UIKit
 
 final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    // MARK: Content
+
     let currentDate = Date()
     let dateFormatter = DateFormatter()
-
-    //MARK: Content
     
     private weak var coordinator: MainFlowCoordinator?
     lazy var cellViewModels: [CurrencyHistoryCurrencyNameCellViewModel] = []
     
     var downloadedData: ExchangeRatesDateRange?
     var previousMonthDownloadedData: ExchangeRatesDateRange?
-
     
-    //MARK: Callbacks
+    // MARK: Callbacks
     
     var willReload: (() -> ())?
         
-    
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: MainFlowCoordinator) {
         self.coordinator = coordinator
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
     func configure() {
-        // MARK: - DownloadData
+        // MARK: Download Current Month Data
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let networkManager: NetworkManager = NetworkManager()
         networkManager.getData(endpoint: ExchangeRatesDateRange.self,
@@ -58,7 +56,8 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
             }
         }
         
-        // MARK: - PreviousMonthDownloadData
+        // MARK: Download Previous Month Data
+        
         guard let previousMonthDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: currentDate) else {
             fatalError("Unable to get end date from date")
         }
@@ -78,7 +77,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
         
     }
         
-    //MARK: - Provider
+    // MARK: - Provider
     
     func item(at indexPath: IndexPath) -> CurrencyHistoryCurrencyNameCellViewModel {
         return cellViewModels[indexPath.row]
@@ -88,10 +87,9 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
         cellViewModels.count
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     func coordinateNextPage(title: String) {
         coordinator?.presentCurrencyHistoryInfoDetailsController(title: title, data: downloadedData, previousMonthData: previousMonthDownloadedData)
     }
-    
 }

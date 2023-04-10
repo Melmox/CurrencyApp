@@ -17,6 +17,17 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
     var currencyExchangeCourceLabel = UILabel()
     var dateLabel = UILabel()
     var arrowImage = UIImageView()
+    var currencyRateState: CurrencyRateState?
+    
+    // MARK: - Lifecycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        currencyExchangeCourceLabel.text = nil
+        dateLabel.text = nil
+        arrowImage = UIImageView()
+    }
     
     // MARK: - Initialization
     
@@ -32,7 +43,6 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowImage.translatesAutoresizingMaskIntoConstraints = false
 
-
         currencyExchangeCourceLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         currencyExchangeCourceLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         
@@ -43,7 +53,6 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
         arrowImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         arrowImage.heightAnchor.constraint(equalToConstant: self.contentView.frame.height * 0.8).isActive = true
         arrowImage.widthAnchor.constraint(equalToConstant: self.contentView.frame.height * 0.8).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,15 +61,13 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
     
     // MARK: - ViewModel
     // MARK: Configure
-    
-    var currancyRateState: CurrencyRateState?
-
-    
+        
     override func configure(with viewModel: CurrencyHistoryInfoDetailsSectionItem) {
         super.configure(with: viewModel)
+        
         currencyExchangeCourceLabel.text = viewModel.value
         dateLabel.text = viewModel.title
-        currancyRateState = viewModel.currancyRateState        
+        currencyRateState = viewModel.currancyRateState
         
         switch viewModel.didSelected{
         case true:
@@ -69,7 +76,7 @@ final class CurrencyHistoryInfoDetailsCell: BasicTableCell<CurrencyHistoryInfoDe
             super.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }
 
-        switch currancyRateState {
+        switch currencyRateState {
         case .up:
             arrowImage.image = UIImage(systemName: viewModel.iconName)!.withTintColor(viewModel.color, renderingMode: .alwaysOriginal)
         case .down:

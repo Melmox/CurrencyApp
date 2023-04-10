@@ -15,14 +15,13 @@ final class CurrencyHistoryInfoDetailsSectionHeader {
     var title: String
     private(set) var isShowed = false
 
-    
-    //MARK: - Initialization
+    // MARK: - Initialization
 
     init(title: String) {
         self.title = title
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
     func updateSelectedState() {
         isShowed.toggle()

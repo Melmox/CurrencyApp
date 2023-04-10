@@ -9,7 +9,8 @@ import UIKit
 
 class WalletSettingsTableFooter: UIView {
     
-    // MARK: Properties
+    // MARK: - Properties
+    // MARK: Content
     
     var openWebView: EmptyClosure?
     private lazy var linkButton = UIButton()
@@ -25,7 +26,8 @@ class WalletSettingsTableFooter: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup View
+    // MARK: - View
+    // MARK: Configure
     
     private func configure() {
         self.addSubview(linkButton)
@@ -49,7 +51,7 @@ class WalletSettingsTableFooter: UIView {
         linkButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
     }
     
-    // MARK: - Action
+    // MARK: - Actions
     
     @objc func buttonClicked(sender:UIButton) {
         if let openWebView = openWebView {

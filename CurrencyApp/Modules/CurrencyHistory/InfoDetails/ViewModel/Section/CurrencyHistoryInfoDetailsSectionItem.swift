@@ -35,6 +35,47 @@ final class CurrencyHistoryInfoDetailsSectionItem {
     var choosenCurrency: String
     var currancyRateState: CurrencyRateState
     
+    var title: String {
+        prepareDate(dateString: content.date)
+    }
+    
+    var value: String {
+        getNecessaryExchangeRate(choosenCurrency: choosenCurrency, content: content)
+    }
+    
+    var iconName: String {
+        switch currancyRateState {
+        case .up:
+            return "arrow.up.right"
+        case .down:
+            return "arrow.down.right"
+        case .same:
+            return "arrow.right"
+        }
+    }
+    
+    var color: UIColor {
+        switch currancyRateState {
+        case .up:
+            return .systemGreen
+        case .down:
+            return .systemRed
+        case .same:
+            return .systemGray
+        }
+    }
+    
+    // MARK: - Initialization
+    
+    init(content: RateWithDate, didSelected: Bool, choosenCurrency: String, currancyRateState: CurrencyRateState) {
+        self.content = content
+        self.didSelected = didSelected
+        self.choosenCurrency = choosenCurrency
+        self.currancyRateState = currancyRateState
+    }
+    
+    // MARK: - Provider
+    
     var getNumberOfWeekInMonth: Int {
         guard let date = decodeFormatter.date(from: self.content.date) else {
             fatalError("Unable to get date format from this date")
@@ -85,47 +126,6 @@ final class CurrencyHistoryInfoDetailsSectionItem {
         } else {
             prepareFormatter.dateFormat = "dd.MM.yyyy"
             return prepareFormatter.string(from: date)
-        }
-    }
-    
-    //MARK: - Initialization
-    
-    init(content: RateWithDate, didSelected: Bool, choosenCurrency: String, currancyRateState: CurrencyRateState) {
-        self.content = content
-        self.didSelected = didSelected
-        self.choosenCurrency = choosenCurrency
-        self.currancyRateState = currancyRateState
-    }
-    
-    // MARK: - Appearance
-    
-    var title: String {
-        prepareDate(dateString: content.date)
-    }
-    
-    var value: String {
-        getNecessaryExchangeRate(choosenCurrency: choosenCurrency, content: content)
-    }
-    
-    var iconName: String {
-        switch currancyRateState {
-        case .up:
-            return "arrow.up.right"
-        case .down:
-            return "arrow.down.right"
-        case .same:
-            return "arrow.right"
-        }
-    }
-    
-    var color: UIColor {
-        switch currancyRateState {
-        case .up:
-            return .systemGreen
-        case .down:
-            return .systemRed
-        case .same:
-            return .systemGray
         }
     }
 }

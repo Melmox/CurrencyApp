@@ -10,6 +10,7 @@ import UIKit
 class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
+    // MARK: Content
     
     let tableView = UITableView()
     
@@ -28,44 +29,53 @@ class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UI
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    // MARK: - View
+    // MARK: Configure
+    
+    override func configureView() {
+        super.configureView()
         self.navigationItem.title = "Settings"
         let titleAttributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)
         ]
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
-        
-        tableView.alwaysBounceVertical = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 44
-        super.viewDidLoad()
         view.backgroundColor = .white
         setupTableView()
-        tableView.tableHeaderView = headerView
         tableView.register(WalletSettingsTableCell.self, forCellReuseIdentifier: WalletSettingsTableCell().identifier)
-        tableView.tableFooterView = footerView
-        viewModel.willReload = { [weak self] in
-            self?.tableView.reloadData()
-        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    //MARK: - Constraints
-    
-    func setupTableView() {
+    private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        tableView.alwaysBounceVertical = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 44
+        tableView.tableFooterView = footerView
+        tableView.tableHeaderView = headerView
     }
     
-    //MARK: - UITableViewDelegate
+    // MARK: - View Model
+    // MARK: Configure
+    
+    override func configureViewModel() {
+        viewModel.willReload = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        super.configureViewModel()
+    }
+    
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfItems

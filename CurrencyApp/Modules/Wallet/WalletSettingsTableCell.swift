@@ -9,7 +9,9 @@ import UIKit
 
 class WalletSettingsTableCell: BasicTableCell<WalletSettingsTableCellViewModel> {
     
-    // MARK: Properties
+    // MARK: - Properties
+    // MARK: Content
+    
     let identifier = String(describing: WalletSettingsTableCell.self)
     var settingLable = UILabel()
     

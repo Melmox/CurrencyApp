@@ -10,6 +10,7 @@ import UIKit
 final class WalletController: BasicViewController<WalletViewModel>, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Properties
+    // MARK: Content
     
     let tableView = UITableView()
     let settingsButton = UIImageView(image: UIImage(systemName: "gear"))
@@ -92,7 +93,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         viewModel.coordinateNextPage()
     }
     
-    //MARK: - UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfItems
@@ -106,7 +107,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         return false
     }
     
-    //MARK: - UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WalletTableViewCell", for: indexPath) as! WalletTableViewCell

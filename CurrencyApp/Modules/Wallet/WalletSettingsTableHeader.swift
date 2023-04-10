@@ -9,7 +9,8 @@ import UIKit
 
 final class WalletSettingsHeader: UIView {
     
-    // MARK: Properties
+    // MARK: - Properties
+    // MARK: Content
     
     private var profileImage = UIImageView()
     var viewModel: WalletSettingsHeaderViewModel
@@ -27,7 +28,8 @@ final class WalletSettingsHeader: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Constraints
+    // MARK: - View
+    // MARK: Configure
     
     private func configure() {
         

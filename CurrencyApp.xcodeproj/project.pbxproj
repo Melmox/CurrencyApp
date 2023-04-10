@@ -54,6 +54,7 @@
 		D2E3A6B929BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6B829BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift */; };
 		D2E3A6BB29C09B3000F496EB /* WalletCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */; };
 		D2E3A6BF29C1A86700F496EB /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */; };
+		D2E75E3129E3FFDE00DE9148 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E75E3029E3FFDE00DE9148 /* UIView+Extension.swift */; };
 		D2EC4B7A29DC0954008E0A34 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4B7929DC0954008E0A34 /* String+Extension.swift */; };
 		D2EC4B7C29DC41D1008E0A34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4B7B29DC41D1008E0A34 /* User.swift */; };
 		D2EC4B7E29DC49FB008E0A34 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4B7D29DC49FB008E0A34 /* PopUpViewController.swift */; };
@@ -123,6 +124,7 @@
 		D2E3A6B829BF758C00F496EB /* CurrencyHistoryCurrencyNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCurrencyNameController.swift; sourceTree = "<group>"; };
 		D2E3A6BA29C09B3000F496EB /* WalletCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHeaderView.swift; sourceTree = "<group>"; };
+		D2E75E3029E3FFDE00DE9148 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D2EC4B7929DC0954008E0A34 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D2EC4B7B29DC41D1008E0A34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D2EC4B7D29DC49FB008E0A34 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -173,8 +175,8 @@
 		D24634F629C35E010058A610 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D24634F729C35E3D0058A610 /* Cells */,
 				D2E3A6BE29C1A86700F496EB /* WalletHeaderView.swift */,
+				D24634F729C35E3D0058A610 /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -473,10 +475,9 @@
 				D2E3A6A529BF360100F496EB /* Networking.swift */,
 				D2EECDC129CAFB1500711997 /* APIDescriptor.swift */,
 				D2461E6D29DADA8000118F57 /* FirebaseManager.swift */,
-				D28B3A5029DEC7250063AE84 /* UserServiceable.swift */,
 				D28B3A5229DECC5C0063AE84 /* UserService.swift */,
-				D28B3A5829E006B10063AE84 /* CardServiceable.swift */,
 				D28B3A5A29E006CA0063AE84 /* CardService.swift */,
+				D2E75E3329E4033D00DE9148 /* Protocols */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -484,6 +485,7 @@
 		D2E3A6AE29BF3B3500F496EB /* Recources */ = {
 			isa = PBXGroup;
 			children = (
+				D2E3A69729BF2CA400F496EB /* CurrencyApp.xcdatamodeld */,
 				D2E3A69F29BF2CA500F496EB /* Info.plist */,
 				D2461E6529DAA08E00118F57 /* GoogleService-Info.plist */,
 				D2E3A69A29BF2CA500F496EB /* Assets.xcassets */,
@@ -508,13 +510,30 @@
 			children = (
 				D2EC4B7F29DC6781008E0A34 /* ViewModels */,
 				D24634F829C35F2E0058A610 /* Controllers */,
-				D2E3A69729BF2CA400F496EB /* CurrencyApp.xcdatamodeld */,
+				D2E75E3229E4003A00DE9148 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D2E75E3229E4003A00DE9148 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
 				D288B4C129D42B5C00085C93 /* Typealias.swift */,
 				D286667D29D5B61C00464DC9 /* Date+Extension.swift */,
 				D2EC4B7929DC0954008E0A34 /* String+Extension.swift */,
 				D244BD8229D710D000AEC43C /* UITextField+Extension .swift */,
+				D2E75E3029E3FFDE00DE9148 /* UIView+Extension.swift */,
 			);
-			path = Common;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2E75E3329E4033D00DE9148 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D28B3A5029DEC7250063AE84 /* UserServiceable.swift */,
+				D28B3A5829E006B10063AE84 /* CardServiceable.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D2EC4B7F29DC6781008E0A34 /* ViewModels */ = {
@@ -676,6 +695,7 @@
 				D28B3A5529DF022D0063AE84 /* CreditCard.swift in Sources */,
 				D24B63BC29DD8EF7009C7F0B /* WalletSettingsTableHeader.swift in Sources */,
 				D2EECDC229CAFB1500711997 /* APIDescriptor.swift in Sources */,
+				D2E75E3129E3FFDE00DE9148 /* UIView+Extension.swift in Sources */,
 				D24B63B729DD82DB009C7F0B /* WalletSettingsController.swift in Sources */,
 				D2EC4B8129DC6791008E0A34 /* PopUpViewModel.swift in Sources */,
 				D244BD8329D710D000AEC43C /* UITextField+Extension .swift in Sources */,

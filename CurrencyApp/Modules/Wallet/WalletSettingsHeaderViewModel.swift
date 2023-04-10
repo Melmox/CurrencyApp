@@ -9,26 +9,25 @@ import UIKit
 
 final class WalletSettingsHeaderViewModel {
     
-    //MARK: - Properties
-    //MARK: Content
+    // MARK: - Properties
+    // MARK: Content
     
     private var service: UserServiceable?
     private var user: User?
     private var image: UIImage?
         
-    //MARK: Callbacks
+    // MARK: Callbacks
     
     var didImageLoad: ((Data?) -> ())?
     
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(service: UserServiceable) {
         self.service = service
         user = service.getUser()
     }
     
-    
-    //MARK: - Provider
+    // MARK: - Provider
     
     private func updateUserDownloadedPickture(with pictureData: Data?) {
         let newUser = User(name: user?.name ?? "", email: user?.email ?? "", profilePhoto: pictureData)

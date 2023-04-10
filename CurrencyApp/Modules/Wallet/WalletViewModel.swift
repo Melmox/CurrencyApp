@@ -18,8 +18,6 @@ final class WalletViewModel: BasicControllerViewModel {
     lazy var collectionCellViewModels: [WalletCollectionViewCellViewModel] = []
     var tableHeaderViewModel: TableViewHeaderViewModel?
 
-    
-    
     // MARK: - Services
     
     private var cardService: CardServiceable?
@@ -28,8 +26,6 @@ final class WalletViewModel: BasicControllerViewModel {
     
     var willReload: EmptyClosure?
     var willReloadHeader: EmptyClosure?
-
-    
     
     // MARK: - Initialization
     
@@ -61,8 +57,6 @@ final class WalletViewModel: BasicControllerViewModel {
         })
     }
     
-
-    
     // MARK: - Provider
     
     func item(at indexPath: IndexPath) -> WalletTableViewCellViewModel{
@@ -80,8 +74,6 @@ final class WalletViewModel: BasicControllerViewModel {
     var numberOfCollectionItems: Int {
         collectionCellViewModels.count
     }
-    
-    
     
     // MARK: - Navigation
     

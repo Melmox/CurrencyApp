@@ -8,39 +8,33 @@
 import Foundation
 
 final class PopUpViewModel: BasicControllerViewModel {
-    //MARK: - Properties
+    // MARK: - Properties
     
     var alertLabelText = ""
 
-    //MARK: Content
+    // MARK: Content
     
     private weak var appCoordinator: AppCoordinator?
 
-
-    
-    //MARK: Callbacks
-    
-        
-    
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(appCoordinator: AppCoordinator) {
         self.appCoordinator = appCoordinator
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
     func configure() {
         
     }
     
-    //MARK: - Provider
+    // MARK: - Provider
     
     func setAlertLabelText(text: String) {
         alertLabelText = text
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     func closePopUpView() {
         appCoordinator?.dismisPopUpController()

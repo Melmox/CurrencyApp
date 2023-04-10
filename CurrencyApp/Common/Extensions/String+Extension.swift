@@ -24,12 +24,10 @@ extension String {
             
             if results.count == 0
             {
-//                print("not email")
                 returnValue = false
             }
             
         } catch _ as NSError {
-//            print("invalid regex: \(error.localizedDescription)")
             returnValue = false
         }
         return  returnValue

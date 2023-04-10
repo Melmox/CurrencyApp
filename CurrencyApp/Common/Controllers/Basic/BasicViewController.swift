@@ -14,12 +14,12 @@ protocol BasicControllerViewModel {
 
 class BasicViewController<ViewModel: BasicControllerViewModel>: UIViewController {
     
-    //MARK: - Properties
-    //MARK: Content
+    // MARK: - Properties
+    // MARK: Content
     
     private(set) var viewModel: ViewModel
     
-    //MARK: - Initialization
+    // MARK: - Initialization
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -30,7 +30,7 @@ class BasicViewController<ViewModel: BasicControllerViewModel>: UIViewController
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +46,8 @@ class BasicViewController<ViewModel: BasicControllerViewModel>: UIViewController
         
     }
     
-    //MARK: - ViewModel
-    //MARK: Configuration
+    // MARK: - ViewModel
+    // MARK: Configuration
     
     func configureViewModel() {
         viewModel.configure()

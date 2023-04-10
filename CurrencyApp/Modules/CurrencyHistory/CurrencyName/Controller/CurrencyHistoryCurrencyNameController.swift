@@ -11,32 +11,31 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
     
     
     // MARK: - Properties
-
+    // MARK: Content
+    
     let tableView = UITableView()
     
-    // MARK: - Properties
+    // MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 44
-
-        super.viewDidLoad()
-        setupTableView()
-        tableView.register(CurrencyHistoryCurrencyNameCell.self, forCellReuseIdentifier: "CurrencyHistoryCurrencyNameCell")
-        viewModel.configure()
-        viewModel.willReload = { [unowned self] in 
-            self.tableView.reloadData()
-        }
-    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    //MARK: - Constraints
+    // MARK: - View
+    // MARK: Configure
+    
+    override func configureView() {
+        super.configureView()
+        setupTableView()
+        tableView.register(CurrencyHistoryCurrencyNameCell.self, forCellReuseIdentifier: "CurrencyHistoryCurrencyNameCell")
+    }
     
     func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 44
+        
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -45,12 +44,18 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    //MARK: - TableViewDelegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems
+    // MARK: - View Model
+    // MARK: Configure
+    
+    override func configureViewModel() {
+        viewModel.willReload = { [unowned self] in
+            self.tableView.reloadData()
+        }
+        super.configureViewModel()
     }
     
-    //MARK: - TableViewDataSource
+    // MARK: - TableViewDataSource
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyHistoryCurrencyNameCell", for: indexPath) as! CurrencyHistoryCurrencyNameCell
         let cellViewModel = viewModel.item(at: indexPath)
@@ -59,7 +64,12 @@ class CurrencyHistoryCurrencyNameController: BasicViewController<CurrencyHistory
         return cell
     }
     
-    //MARK: - TableViewAction
+    // MARK: - TableViewDelegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfItems
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.coordinateNextPage(title: viewModel.cellViewModels[indexPath.row].currencyName)

@@ -70,14 +70,6 @@ final class FirebaseManager {
                 return
             }
             if let authData = authDataResult {
-                
-                //                let changeRequest = authData.user.createProfileChangeRequest()
-                //                changeRequest.displayName = name
-                //                changeRequest.commitChanges { (error) in
-                //                    if let error = error{
-                //                        onError(error.localizedDescription)
-                //                    }
-                //                }
                 let changeRequest = authData.user.createProfileChangeRequest()
                 changeRequest.displayName = name
                 changeRequest.commitChanges { error in

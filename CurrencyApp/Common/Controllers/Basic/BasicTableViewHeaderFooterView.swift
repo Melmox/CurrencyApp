@@ -9,8 +9,8 @@ import UIKit
 
 class BasicTableViewHeaderFooterView<ViewModel>: UITableViewHeaderFooterView {
     
-    //MARK: - Properties
-    //MARK: Content
+    // MARK: - Properties
+    // MARK: Content
     
     private(set) var viewModel: ViewModel?
     
@@ -25,22 +25,22 @@ class BasicTableViewHeaderFooterView<ViewModel>: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func prepareForReuse() {
         super.prepareForReuse()
         viewModel = nil
     }
     
-    //MARK: - View
-    //MARK: Configuration
+    // MARK: - View
+    // MARK: Configuration
     
     func configureView() {
         
     }
     
-    //MARK: - ViewModel
-    //MARK: Configuration
+    // MARK: - ViewModel
+    // MARK: Configuration
     
     func configure(with viewModel: ViewModel) {
         self.viewModel = viewModel

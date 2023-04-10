@@ -14,22 +14,26 @@ final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHi
     
     let tableView = UITableView()
     
-    override func viewDidLoad() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        super.viewDidLoad()
-        setupTableView()
-        viewModel.configure()
-        tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: CurrencyHistoryInfoDetailsCell.identifier)
-        tableView.register(CurrencyHistoryInfoDetailsSectionView.self, forHeaderFooterViewReuseIdentifier: CurrencyHistoryInfoDetailsSectionView.identifier)
-    }
+    // MARK: - Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    //MARK: - Constraints
+    // MARK: - View
+    // MARK: Configure
     
+    override func configureView() {
+        super.configureView()
+        
+        setupTableView()
+        tableView.register(CurrencyHistoryInfoDetailsCell.self, forCellReuseIdentifier: CurrencyHistoryInfoDetailsCell.identifier)
+        tableView.register(CurrencyHistoryInfoDetailsSectionView.self, forHeaderFooterViewReuseIdentifier: CurrencyHistoryInfoDetailsSectionView.identifier)
+    }
+        
     func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         view.addSubview(tableView)
         tableView.rowHeight = 44
         tableView.sectionHeaderHeight = 44
@@ -41,8 +45,8 @@ final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHi
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    //MARK: - ViewModel
-    //MARK: Configuration
+    // MARK: - View Model
+    // MARK: Configure
     
     override func configureViewModel() {
         viewModel.willReload = { [unowned self] in
@@ -51,10 +55,11 @@ final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHi
         viewModel.willReloadSection = { [unowned self] (section) in
             self.tableView.reloadSections([section], with: .automatic)
         }
+        
         super.configureViewModel()
     }
     
-    //MARK: - TableViewDelegate
+    // MARK: - TableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSections
@@ -69,7 +74,7 @@ final class CurrencyHistoryInfoDetailsController: BasicViewController<CurrencyHi
         tableView.reloadData()
     }
     
-    //MARK: - TableViewDataSource
+    // MARK: - TableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyHistoryInfoDetailsCell.identifier, for: indexPath) as! CurrencyHistoryInfoDetailsCell

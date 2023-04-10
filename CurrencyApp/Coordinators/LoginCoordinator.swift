@@ -10,7 +10,8 @@ import UIKit
 final class LoginCoordinator {
     
     // MARK: - Properties
-
+    // MARK: Content
+    
     private var loginLaunchScreenController: UINavigationController?
     private var parentCoordinator: AppCoordinator?
     

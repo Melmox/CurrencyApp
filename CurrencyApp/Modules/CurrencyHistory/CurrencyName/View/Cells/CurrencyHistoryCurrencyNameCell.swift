@@ -9,9 +9,12 @@ import UIKit
 
 class CurrencyHistoryCurrencyNameCell : BasicTableCell<CurrencyHistoryCurrencyNameCellViewModel> {
     
+    // MARK: - Properties
+    // MARK: Content
+    
     var currencyNameLabel = UILabel()
     
-    // MARK: - Initialize
+    // MARK: - Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,7 +26,6 @@ class CurrencyHistoryCurrencyNameCell : BasicTableCell<CurrencyHistoryCurrencyNa
 
         currencyNameLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         currencyNameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -9,30 +9,10 @@ import UIKit
 
 final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<WalletCollectionViewCellViewModel> {
     
-    static let identifier = String(describing: WalletCardCollectionViewCell.self)
-    
     // MARK: - Properties
+    // MARK: Content
     
-    // MARK: Prepareation for reusing
-    override func prepareForReuse() {
-        amountLabel.text = nil
-        cardNumberLabel.text = nil
-        currencyLabel.text = nil
-        
-        amountLabel.translatesAutoresizingMaskIntoConstraints = true
-        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
-        currencyLabel.translatesAutoresizingMaskIntoConstraints = true
-        leftArrow.translatesAutoresizingMaskIntoConstraints = true
-        rightArrow.translatesAutoresizingMaskIntoConstraints = true
-        
-        amountLabel.translatesAutoresizingMaskIntoConstraints = false
-        cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
-        leftArrow.translatesAutoresizingMaskIntoConstraints = false
-        rightArrow.translatesAutoresizingMaskIntoConstraints = false
-        }
-    
-    // MARK: Views
+    static let identifier = String(describing: WalletCardCollectionViewCell.self)
     
     private let currencyLabel: UILabel = {
         let currencyLabel = UILabel()
@@ -60,6 +40,25 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         return cardNumberLabel
     }()
+    
+    private lazy var cardholderNameLabel: UILabel = {
+        let cardholderNameLabel = UILabel()
+        cardholderNameLabel.textColor = .white
+        cardholderNameLabel.font = cardNumberLabel.font.withSize(20)
+        cardholderNameLabel.textAlignment = .center
+        cardholderNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        return cardholderNameLabel
+    }()
+    
+    private lazy var openDateLabel: UILabel = {
+        let openDateLabel = UILabel()
+        openDateLabel.textColor = .white
+        openDateLabel.font = cardNumberLabel.font.withSize(20)
+        openDateLabel.textAlignment = .center
+        openDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        return openDateLabel
+    }()
+    
     private let leftArrow: UIImageView = {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
         let leftArrow = UIImageView(image: UIImage(systemName: "chevron.compact.left", withConfiguration: largeConfig)!)
@@ -78,7 +77,17 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         return rightArrow
     }()
     
-    //MARK: - Initialization
+    // MARK: Lifecycle
+    
+    override func prepareForReuse() {
+        amountLabel.text = nil
+        cardNumberLabel.text = nil
+        currencyLabel.text = nil
+        cardholderNameLabel.text = nil
+        openDateLabel.text = nil
+    }
+    
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,21 +98,8 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Appearance
-    
-    override func configure(with viewModel: WalletCollectionViewCellViewModel) {
-        leftArrow.isHidden = viewModel.isFirst ?? true
-        rightArrow.isHidden = viewModel.isLast ?? true
-
-        guard let balance = viewModel.balance
-        else {
-            return
-        }
-
-        currencyLabel.text = viewModel.currency
-        amountLabel.text = String(balance)
-        cardNumberLabel.text = viewModel.cardNumber
-    }
+    // MARK: - View
+    // MARK: Configure
     
     private func setupView() {
         
@@ -119,9 +115,17 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         amountLabel.rightAnchor.constraint(equalTo: self.leftAnchor, constant: frame.width * 0.9).isActive = true
         
         contentView.addSubview(cardNumberLabel)
-        cardNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (contentView.frame.height - cardNumberLabel.intrinsicContentSize.height) / 1.5).isActive = true
+        cardNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (contentView.frame.height - cardNumberLabel.intrinsicContentSize.height) / 1.7).isActive = true
         cardNumberLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
+        contentView.addSubview(cardholderNameLabel)
+        cardholderNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: frame.height * 0.8 ).isActive = true
+        cardholderNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.width * 0.1).isActive = true
+
+        contentView.addSubview(openDateLabel)
+        openDateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: self.frame.height * 0.2).isActive = true
+        openDateLabel.rightAnchor.constraint(equalTo: self.leftAnchor, constant: frame.width * 0.9).isActive = true
+
         contentView.addSubview(rightArrow)
         rightArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         rightArrow.leftAnchor.constraint(equalTo: self.leftAnchor, constant: (0.95 * self.frame.width - rightArrow.image!.size.width)).isActive = true
@@ -139,6 +143,25 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         if cell.backgroundView != nil{
             cell.backgroundView?.addSubview(imageView)
         }
+    }
+    
+    // MARK: - View Model
+    // MARK: Configure
+    
+    override func configure(with viewModel: WalletCollectionViewCellViewModel) {
+        leftArrow.isHidden = viewModel.isFirst ?? true
+        rightArrow.isHidden = viewModel.isLast ?? true
+        
+        guard let balance = viewModel.balance
+        else {
+            return
+        }
+        
+        currencyLabel.text = viewModel.currency
+        amountLabel.text = String(balance)
+        cardNumberLabel.text = viewModel.cardNumber
+        cardholderNameLabel.text = viewModel.cardholderName
+        openDateLabel.text = viewModel.openDate
     }
 }
 

@@ -9,7 +9,9 @@ import Foundation
 
 final class CardService: CardServiceable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    // MARK: Content
+
     private let firebaseManager = FirebaseManager()
     
     // MARK: - Methods

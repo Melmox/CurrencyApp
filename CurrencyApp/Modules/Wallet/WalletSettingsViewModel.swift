@@ -9,8 +9,8 @@ import Foundation
 
 final class WalletSettingsViewModel: BasicControllerViewModel {
     
-    //MARK: - Properties
-    //MARK: Content
+    // MARK: - Properties
+    // MARK: Content
     
     private weak var coordinator: MainFlowCoordinator?
     private var service: UserServiceable?
@@ -18,21 +18,21 @@ final class WalletSettingsViewModel: BasicControllerViewModel {
     
     lazy var cellViewModels: [WalletSettingsTableCellViewModel] = []
     
-    //MARK: Callbacks
+    // MARK: Callbacks
     
     var willReload: EmptyClosure?
     
     var openWebView: EmptyClosure?
 
     
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: MainFlowCoordinator, service: UserServiceable) {
         self.coordinator = coordinator
         self.service = service
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
     func configure() {
         user = service?.getUser()
@@ -40,16 +40,7 @@ final class WalletSettingsViewModel: BasicControllerViewModel {
         cellViewModels.append(WalletSettingsTableCellViewModel(type: .logOut))
     }
     
-    private func processItemSeletion(for itemType: WalletSettingsTableCellType) {
-        switch itemType {
-        case .deleteAcount:
-            deleteAccount()
-        case .logOut:
-            logOut()
-        }
-    }
-    
-    //MARK: - Provider
+    // MARK: - Provider
     
     var numberOfItems: Int {
         cellViewModels.count
@@ -80,7 +71,16 @@ final class WalletSettingsViewModel: BasicControllerViewModel {
         return UserServiceable.self as! UserServiceable
     }
     
-    //MARK: - Navigation
+    private func processItemSeletion(for itemType: WalletSettingsTableCellType) {
+        switch itemType {
+        case .deleteAcount:
+            deleteAccount()
+        case .logOut:
+            logOut()
+        }
+    }
+    
+    // MARK: - Navigation
     
     func logOut() {
         service?.signOut()

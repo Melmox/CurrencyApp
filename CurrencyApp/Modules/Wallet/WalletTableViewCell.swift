@@ -9,7 +9,12 @@ import UIKit
 
 final class WalletTableViewCell: BasicTableCell<WalletTableViewCellViewModel> {
     
+    // MARK: - Properties
+    // MARK: Content
+    
     var exchangeRatelabel = UILabel()
+    
+    // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

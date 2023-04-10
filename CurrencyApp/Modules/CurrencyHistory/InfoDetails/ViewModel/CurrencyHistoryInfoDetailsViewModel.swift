@@ -9,8 +9,8 @@ import Foundation
 
 final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
-    //MARK: - Properties
-    //MARK: Content
+    // MARK: - Properties
+    // MARK: Content
     
     private weak var coordinator: MainFlowCoordinator?
     
@@ -27,27 +27,27 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
         return arrayOfWeeksInMonth.reversed()
     }
     
-    
     var exchangeCureencyRates: ExchangeRatesDateRange?
     var previousMonthExchangeCureencyRates: ExchangeRatesDateRange?
     var selectedCurrency: String?
     
-    //MARK: Callbacks
+    // MARK: Callbacks
     
     var willReload: EmptyClosure?
     var willReloadSection: ((Int) -> ())?
     
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: MainFlowCoordinator) {
         self.coordinator = coordinator
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
     func configure() {
         
-        // MARK: PreviousMonthItems
+        // MARK: Previous Month Items
+        
         if let rates = previousMonthExchangeCureencyRates?.rates, let currency = selectedCurrency {
             previousMonthCellViewModels = rates
                 .sorted(by:  {$0.date > $1.date })
@@ -75,7 +75,8 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
             }
         }
         
-        // MARK: Items
+        // MARK: Current Month Items
+        
         if let rates = exchangeCureencyRates?.rates, let currency = selectedCurrency {
             cellViewModels = rates
                 .sorted(by:  {$0.date > $1.date })
@@ -103,7 +104,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
             }
         }
         
-        // MARK: SectionHeaders
+        // MARK: Section Headers
         
         sectionHeaders = arrayOfWeeksInMonth
             .compactMap { header in
@@ -136,8 +137,9 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
         willReload?()
     }
     
-    //MARK: - Provider
-    //MARK: Section
+    // MARK: - Provider
+    // MARK: Section
+    
     var numberOfSections: Int {
         sectionViewModels.count
     }
@@ -146,7 +148,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
         sectionViewModels[section]
     }
     
-    //MARK: SectionHeader
+    // MARK: SectionHeader
     func numberOfItemsInSection(in section: Int) -> Int {
         self.section(at: section).numberOfItems
     }
@@ -155,7 +157,8 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
         sectionHeaders[section]
     }
     
-    //MARK: Items
+    // MARK: Items
+
     var numberOfItems: Int {
         cellViewModels.count
     }
@@ -164,7 +167,8 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
         sectionViewModels[indexPath.section].items[indexPath.item]
     }
     
-    //MARK: Actions
+    // MARK: Actions
+    
     private func processItemSelection(with item: CurrencyHistoryInfoDetailsSectionItem) {
         item.didSelected.toggle()
     }

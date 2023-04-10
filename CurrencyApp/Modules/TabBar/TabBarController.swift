@@ -45,12 +45,8 @@ private enum TabBarPage: Int, CaseIterable{
 
 final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    // MARK: - Properties
-//    fileprivate let currentTab: TabBarPage = .wallet
-//    var walletViewController = WalletController(collectionViewLayout: UICollectionViewLayout())
-    
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -82,11 +78,5 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
                                       tag: pageType.tag)
         tab.tabBarItem = tabBarItem
         return tab
-    }
-    
-    // MARK: - UITabBarControllerDelegate
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
     }
 }

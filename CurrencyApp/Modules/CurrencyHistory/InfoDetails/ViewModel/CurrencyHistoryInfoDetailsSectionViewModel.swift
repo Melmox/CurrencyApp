@@ -27,7 +27,8 @@ final class CurrencyHistoryInfoDetailsSectionViewModel {
         self.isFirst = isFirst
     }
     
-    // MARK: - Appearance
+    // MARK: - Provider
+    
     var numberOfItems: Int {
         if isFirst{
             header.title = ""

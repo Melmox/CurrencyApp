@@ -8,37 +8,27 @@
 import Foundation
 
 class LoginProcessViewModel: BasicControllerViewModel {
-    //MARK: - Properties
     
+    // MARK: - Properties
+    // MARK: Content
+
     private var email: String?
     private var password: String?
-        
-    //MARK: Content
-    
     private weak var coordinator: LoginCoordinator?
     private var service: UserServiceable?
     
-    //MARK: Callbacks
-    
-    
-    
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: LoginCoordinator, service: UserServiceable) {
         self.service = service
         self.coordinator = coordinator
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
-    func configure() {
-        
-    }
+    func configure() {}
     
-    //MARK: - Provider
-    
-    
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     func loginButtonClick(email: String, password: String) {
         if email.isValidEmailAddress {

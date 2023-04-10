@@ -10,12 +10,8 @@ import WebKit
 
 class WalletSettingsWebViewController: UIViewController{
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-        guard let url = URL(string: "https://github.com/Melmox/CurrencyApp") else {return}
-        webView.load(URLRequest(url: url))
-    }
+    // MARK: - Properties
+    // MARK: Content
     
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -23,6 +19,18 @@ class WalletSettingsWebViewController: UIViewController{
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
+    
+    // MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        guard let url = URL(string: "https://github.com/Melmox/CurrencyApp") else {return}
+        webView.load(URLRequest(url: url))
+    }
+    
+    // MARK: - View
+    // MARK: Configure
     
     private func setupUI() {
             self.view.backgroundColor = .white

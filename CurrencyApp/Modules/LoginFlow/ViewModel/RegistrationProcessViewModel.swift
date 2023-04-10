@@ -9,40 +9,28 @@ import Foundation
 
 class RegistrationProcessViewModel: BasicControllerViewModel {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    // MARK: Content
     
     private var name: String?
     private var email: String?
     private var password: String?
     private var profileImage: Data?
-    
-    //MARK: Content
-    
     private weak var coordinator: LoginCoordinator?
     private var service: UserServiceable?
     
-    
-    //MARK: Callbacks
-    
-    
-    
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: LoginCoordinator, service: UserServiceable) {
         self.coordinator = coordinator
         self.service = service
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
-    func configure() {
-        
-    }
+    func configure() {}
     
-    //MARK: - Provider
-        
-    
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     func registrationButtonClick(user: User, password: String, confirmPassword: String) {
         if user.name.isValidName {

@@ -8,44 +8,29 @@
 import Foundation
 
 class LoginLaunchViewModel: BasicControllerViewModel {
-    //MARK: - Properties
-
-
-    //MARK: Content
+    
+    // MARK: - Properties
+    // MARK: Content
     
     private weak var coordinator: LoginCoordinator?
-
-
-    
-    //MARK: Callbacks
-    
         
-    
-    //MARK: - Init
+    // MARK: - Initialization
     
     init(coordinator: LoginCoordinator) {
         self.coordinator = coordinator
     }
     
-    //MARK: - Appearance
+    // MARK: - Appearance
     
-    func configure() {
-        // MARK: - DownloadData
-
-    }
+    func configure() {}
     
-    //MARK: - Provider
-    
-    
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     func coordinateLoginPage() {
         coordinator?.presentLoginController()
     }
+    
     func coordinateRegistrationPage() {
-//        print("CHANGE IT LATER")
-//        self.coordinator?.updateSignInState(with: .logined)
-//        coordinator?.launchAppCoordinator()
         coordinator?.presentRegistrationController()
     }
 }

@@ -9,6 +9,9 @@ import UIKit
 
 final class MainFlowCoordinator {
     
+    // MARK: - Properties
+    // MARK: Content
+    
     private var currencyHistoryController: CurrencyHistoryCurrencyNameController?
     private var walletController: WalletController?
     
@@ -60,8 +63,6 @@ final class MainFlowCoordinator {
     // MARK: - Modules
     
     private func createTabBarController() -> UITabBarController {
-        //        let viewModel = SomeViewModel(coordinator: self, service: SomeService)
-        //        let controller = UIViewController(viewModel: viewModel)
         let tabBarController = TabBarController()
         let tabBarViews = [createWalletController(), createCurrencyHistoryController()]
         tabBarController.configureTabItems(with: tabBarViews)
