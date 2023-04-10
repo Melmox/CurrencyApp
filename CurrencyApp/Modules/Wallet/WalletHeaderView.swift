@@ -7,10 +7,19 @@
 
 import UIKit
 
+struct TableViewHeaderViewModel {
+    var items: [WalletCollectionViewCellViewModel]?
+    var willReload: EmptyClosure?
+    let widthOfHeader = UIView.screenWidth
+    let heightOfHeader = UIView.screenWidth * 0.6
+}
+
 final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
-    private let codeOfMoney = ["UAH", "USD", "EUR", "PLN"]
+    
+    var viewModel: TableViewHeaderViewModel?
+    
     static let identifier = String(describing: TableViewHeaderView.self)
     
     private let layout: UICollectionViewFlowLayout = {
@@ -24,14 +33,14 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         collectionView.dataSource = self
         return collectionView
     }()
+
     
     // MARK: - UICollectionView
     // MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return codeOfMoney.count
+        return viewModel?.items?.count ?? 0
     }
     
-    // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 0.631)
     }
@@ -40,17 +49,23 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WalletCardCollectionViewCell.identifier, for: indexPath) as? WalletCardCollectionViewCell
         else { return UICollectionViewCell() }
-        cell.isFirst = indexPath.row == 0
-        cell.isLast = indexPath.row == (codeOfMoney.count - 1)
-        cell.configure(index: indexPath.row)
+        
+        if let creditCard = viewModel?.items?[indexPath.row].creditCard {
+            let cellViewModel = WalletCollectionViewCellViewModel(content: (creditCard))
+            cellViewModel.isFirst = indexPath.row == 0
+            cellViewModel.isLast = indexPath.row == ((viewModel?.items?.count ?? 1) - 1)
+            cell.configure(with: cellViewModel)
+        }
         return cell
     }
     
     
     // MARK: - Inits
-    override init(frame: CGRect) {
+
+    init (viewModel: TableViewHeaderViewModel, frame: CGRect) {
         super.init(frame: frame)
-        self.setUpCollectionView()
+        setUpCollectionView()
+        configureComponent(with: viewModel)
     }
     
     required init?(coder: NSCoder) {
@@ -85,6 +100,13 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.register(WalletCardCollectionViewCell.self, forCellWithReuseIdentifier: WalletCardCollectionViewCell.identifier)
+    }
+    
+    func configureComponent(with content: TableViewHeaderViewModel) {
+        self.viewModel = content
+        viewModel?.willReload = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 

@@ -7,68 +7,32 @@
 
 import Foundation
 
-final class WalletCollectionViewCellViewModel: BasicControllerCollectionViewItemModel{
-    //MARK: - Properties
-    //MARK: Fakedata
+final class WalletCollectionViewCellViewModel {
+
+    // MARK: - Properties
+    // MARK: Content
     
-//    let data = ApiDescriptor().descriptApi()
+    var creditCard: CreditCard?
     
-    
-    private let codeOfMoney : [CurrencyName] = [CurrencyName(currencyName: "UAH"),
-                                                CurrencyName(currencyName: "USD"),
-                                                CurrencyName(currencyName: "EUR"),
-                                                CurrencyName(currencyName: "PLN")]
-    private let amountOfMoney : [AmountOfMoney] = [AmountOfMoney(amountOfMoney: 10000.35),
-                                                   AmountOfMoney(amountOfMoney: 2344),
-                                                   AmountOfMoney(amountOfMoney: 32),
-                                                   AmountOfMoney(amountOfMoney: 25.7)]
-    
-    //MARK: Content
-    
-//    private weak var interfaceCoordinator: Coordinator?
-    
-    //    private var header: WalletHeaderViewModel()
-    private var items: [WalletCellViewModel] = []
-    
-    
-    
-    //MARK: - Init
-    
-    //    init(coordinator: Coordinator) {
-    //        interfaceCoordinator = coordinator
-    //    }
-    
-    //MARK: - Appearance
-    
-    func configure() {
-        for i in 0...codeOfMoney.count - 1{
-            items.append(WalletCellViewModel(currencyAndAmount: [codeOfMoney[i] : amountOfMoney[i]]))
-        }
-                
+    var currency: String? {
+        creditCard?.currency
     }
     
-    //    private func configureItems(with someData: SomeDAta) {
-    //
-    //    }
-    
-    //MARK: - Provider
-    
-    var getNumberOfItems: Int {
-        items.count
+    var cardNumber: String? {
+        creditCard?.cardNumber
     }
     
-    func getItem(at indexPath: IndexPath) -> WalletCellViewModel {
-        items[indexPath.row]
+    var balance: Double? {
+        creditCard?.balance
     }
     
-    func getItems() -> [WalletCellViewModel] {
-        configure()
-        return items
+    var isFirst: Bool?
+    
+    var isLast: Bool?
+
+    // MARK: - Init
+    
+    init(content: CreditCard) {
+        creditCard = content
     }
-    
-    
-    
-    //MARK: - Navigation
-    
-    
 }

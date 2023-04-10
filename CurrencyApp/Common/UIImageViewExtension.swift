@@ -7,22 +7,14 @@
 
 import UIKit
 
-extension UIImageView {
-    func makeRounded() {
-       let radius = CGRectGetWidth(self.frame) / 2
-       self.layer.cornerRadius = radius
-       self.layer.masksToBounds = true
-    }
-    
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
+//extension UIImageView {
+//    func download(url: URL) {
+//        DispatchQueue.global().async {
+//            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+//                DispatchQueue.main.async { [weak self] in
+//                    self?.image = image
+//                }
+//            }
+//        }
+//    }
+//}

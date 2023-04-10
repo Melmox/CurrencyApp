@@ -20,7 +20,9 @@ class AppCoordinator {
     
     // MARK: - Services
 
-    private let userService = UserService()
+    private let userService: UserServiceable = UserService()
+    private let cardService: CardServiceable = CardService()
+
     
     // MARK: - Initialization
     
@@ -31,7 +33,7 @@ class AppCoordinator {
     // MARK: - Methods
 
     func start() {
-        switch userService.state {
+        switch userService.getState(){
         case .notLogined:
             launchLoginCoordinator()
         case .logined:
@@ -64,8 +66,12 @@ class AppCoordinator {
         }
     }
     
-    func getUserService() -> UserService {
+    func getUserService() -> UserServiceable {
         userService
+    }
+    
+    func getCardService() -> CardServiceable {
+        cardService
     }
     
     // MARK: - Modules

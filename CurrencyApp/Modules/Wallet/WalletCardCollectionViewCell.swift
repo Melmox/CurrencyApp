@@ -7,18 +7,9 @@
 
 import UIKit
 
-final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<WalletCollectionViewCellViewModel> { //rename to
-    
-    //final class WalletCardCollectionViewCell: UICollectionViewCell{
+final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<WalletCollectionViewCellViewModel> {
     
     static let identifier = String(describing: WalletCardCollectionViewCell.self)
-    //    static let identifier = "CardCollectionViewCell" // if its possible, create indentifier by using class name
-    //    private lazy var creditCardNumber = getCreditCardNumber()
-    
-    private var testData = WalletCollectionViewCellViewModel().getItems()
-    
-    var isFirst : Bool = false
-    var isLast : Bool = false
     
     // MARK: - Properties
     
@@ -27,8 +18,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         amountLabel.text = nil
         cardNumberLabel.text = nil
         currencyLabel.text = nil
-        isFirst = false
-        isLast = false
         
         amountLabel.translatesAutoresizingMaskIntoConstraints = true
         cardNumberLabel.translatesAutoresizingMaskIntoConstraints = true
@@ -41,13 +30,12 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         currencyLabel.translatesAutoresizingMaskIntoConstraints = false
         leftArrow.translatesAutoresizingMaskIntoConstraints = false
         rightArrow.translatesAutoresizingMaskIntoConstraints = false
-    }
+        }
     
     // MARK: Views
     
     private let currencyLabel: UILabel = {
         let currencyLabel = UILabel()
-        //        currencyLabel.text = "USD"
         currencyLabel.textColor = .white
         currencyLabel.font = currencyLabel.font.withSize(20)
         currencyLabel.textAlignment = .left
@@ -57,7 +45,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private let amountLabel: UILabel = {
         let amountLabel = UILabel()
-        //        amountLabel.text = "100500$"
         amountLabel.textColor = .white
         amountLabel.font = amountLabel.font.withSize(20)
         amountLabel.textAlignment = .right
@@ -67,7 +54,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     private lazy var cardNumberLabel: UILabel = {
         let cardNumberLabel = UILabel()
-        //        cardNumberLabel.text = testData[0]._cardNumber
         cardNumberLabel.textColor = .white
         cardNumberLabel.font = cardNumberLabel.font.withSize(20)
         cardNumberLabel.textAlignment = .center
@@ -97,7 +83,6 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        //setupViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -106,18 +91,18 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     
     // MARK: - Appearance
     
-    func configure(index: Int) {
-        leftArrow.isHidden = isFirst
-        rightArrow.isHidden = isLast
-        
-        for key in testData[index].currencyAndAmount.keys{
-            currencyLabel.text = key.currencyName
+    override func configure(with viewModel: WalletCollectionViewCellViewModel) {
+        leftArrow.isHidden = viewModel.isFirst ?? true
+        rightArrow.isHidden = viewModel.isLast ?? true
+
+        guard let balance = viewModel.balance
+        else {
+            return
         }
-        for value in testData[index].currencyAndAmount.values{
-            amountLabel.text = String(value.amountOfMoney)
-        }
-        cardNumberLabel.text = testData[index]._cardNumber
-        
+
+        currencyLabel.text = viewModel.currency
+        amountLabel.text = String(balance)
+        cardNumberLabel.text = viewModel.cardNumber
     }
     
     private func setupView() {

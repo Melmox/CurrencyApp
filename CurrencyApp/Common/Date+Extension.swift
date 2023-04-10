@@ -34,4 +34,20 @@ extension Date {
         calendar.locale = Locale(identifier: "uk")
         return calendar.component(.month, from: self)
     }
+    
+    var yearNumber: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy"
+        return dateFormatter.string(from: self)
+    }
+    
+    var prepareFormatToDateOnCard: String {
+        var month = self.numberOfMonthInYear
+        var year = self.yearNumber
+        if month < 10 {
+            return "0\(month)/\(year)"
+        } else {
+            return "\(month)/\(year)"
+        }
+    }
 }

@@ -61,7 +61,7 @@ final class LoginCoordinator {
     
     private func createLoginProcessController() -> UIViewController{
         if let service = parentCoordinator?.getUserService() {
-            let loginProcessController = LoginProcessController(viewModel: LoginProcessViewModel(service: service, coordinator: self))
+            let loginProcessController = LoginProcessController(viewModel: LoginProcessViewModel(coordinator: self, service: service))
             return loginProcessController
         }
         return UIViewController()

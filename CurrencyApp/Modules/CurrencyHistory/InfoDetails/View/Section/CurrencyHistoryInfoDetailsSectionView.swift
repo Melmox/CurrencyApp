@@ -16,7 +16,7 @@ final class CurrencyHistoryInfoDetailsSectionView: BasicTableViewHeaderFooterVie
     
     // MARK: Callbacks:
     
-    var didSelect: emptyClosure?
+    var didSelect: EmptyClosure?
     
     // MARK: - Lifecycle
     

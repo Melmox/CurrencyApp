@@ -11,7 +11,7 @@ class WalletSettingsTableFooter: UIView {
     
     // MARK: Properties
     
-    var openWebView: emptyClosure?
+    var openWebView: EmptyClosure?
     private lazy var linkButton = UIButton()
     
     // MARK: Initialization

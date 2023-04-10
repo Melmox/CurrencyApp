@@ -3,6 +3,42 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CardCollectionViewCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellViewModels.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in WalletSettingsController.headerView.getter:WalletSettingsController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryInfoDetailsCell.configure(with:):CurrencyHistoryInfoDetailsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "super">
+            </PersistentString>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "super.selectionStyle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "WalletCardCollectionViewCell.configure(index:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,31 +47,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
+         contextName = "CurrencyHistoryInfoDetailsViewModel.didSelectSection(at:):CurrencyHistoryInfoDetailsViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sectionViewModels">
-            </PersistentString>
-            <PersistentString
-               value = "item.getNumberOfWeekInMonth">
+               value = "willReloadSection">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
+         contextName = "WalletSettingsHeaderViewModel.updateUserDownloadedPickture(with:):WalletSettingsTableHeader.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sender.tag">
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletCardCollectionViewCell.configure():WalletCardCollectionViewCell.swift">
+         contextName = "closure #1 in FirebaseManager.logIn(email:password:onSuccess:onError:):FirebaseManager.swift">
          <PersistentStrings>
             <PersistentString
-               value = "testData[0].currencyAndAmount.description">
+               value = "authDataResult?.additionalUserInfo">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletSettingsHeader.showPhoto(user:):WalletSettingsTableHeader.swift">
       </ContextState>
       <ContextState
          contextName = "CardCollectionViewCell.sutupView():CardCollectionViewCell.swift">
@@ -63,10 +99,43 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CardCollectionViewCell.identifier.unsafeMutableAddressor:CardCollectionViewCell.swift">
+         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in WalletController.setupHeader():WalletController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "CardCollectionViewCell">
+               value = "testData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHistoryInfoDetailsSectionItem.prepareDate(dateString:):CurrencyHistoryInfoDetailsSectionItem.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "prepareFormatter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WalletCardCollectionViewCell.configure():WalletCardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testData[0].currencyAndAmount.description">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginCoordinator.start():LoginCoordinator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginLaunchScreenController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -79,43 +148,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryController.tableView(_:didSelectRowAt:):CurrencyHistoryController.swift">
+         contextName = "closure #1 in TableViewHeaderView.configureComponent(with:):WalletHeaderView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "super">
+               value = "self?.collectionView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryInfoDetailsCell.configure(with:):CurrencyHistoryInfoDetailsCell.swift">
+         contextName = "closure #1 in closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "super">
+               value = "sectionViewModels">
             </PersistentString>
             <PersistentString
-               value = "">
-            </PersistentString>
-            <PersistentString
-               value = "super.selectionStyle">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #5 in CurrencyHistoryInfoDetailsViewModel.configure():CurrencyHistoryInfoDetailsViewModel.swift">
-      </ContextState>
-      <ContextState
-         contextName = "CurrencyHistoryCurrencyNameViewModel.numberOfItems.getter:CurrencyHistoryCurrencyNameViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cellViewModels.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "testData">
+               value = "item.getNumberOfWeekInMonth">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -137,34 +184,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryInfoDetailsViewModel.didSelectSection(at:):CurrencyHistoryInfoDetailsViewModel.swift">
+         contextName = "CurrencyHistoryController.tableView(_:didSelectRowAt:):CurrencyHistoryController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "willReloadSection">
+               value = "super">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginCoordinator.start():LoginCoordinator.swift">
+         contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "loginLaunchScreenController">
+               value = "sender.tag">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CurrencyHistoryInfoDetailsSectionItem.prepareDate(dateString:):CurrencyHistoryInfoDetailsSectionItem.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "prepareFormatter">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

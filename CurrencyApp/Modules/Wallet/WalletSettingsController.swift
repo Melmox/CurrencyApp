@@ -10,14 +10,11 @@ import UIKit
 class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
-
+    
     let tableView = UITableView()
-
-    lazy var headerView: WalletSettingsTableHeader = {
-        let headerView = WalletSettingsTableHeader(frame: CGRect(x: 0, y: 0, width: UIView.screenWidth, height: UIView.screenHeight * 0.3))
-        if let user = viewModel.user {
-            headerView.configureView(user: user)
-        }
+    
+    lazy var headerView: UIView? = {
+        let headerView = WalletSettingsHeader(viewModel: WalletSettingsHeaderViewModel(service: viewModel.getUserService()))
         return headerView
     }()
     
@@ -37,7 +34,7 @@ class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UI
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)
         ]
         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
-
+        
         tableView.alwaysBounceVertical = false
         tableView.delegate = self
         tableView.dataSource = self
@@ -48,8 +45,8 @@ class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UI
         tableView.tableHeaderView = headerView
         tableView.register(WalletSettingsTableCell.self, forCellReuseIdentifier: WalletSettingsTableCell().identifier)
         tableView.tableFooterView = footerView
-        viewModel.willReload = {
-            self.tableView.reloadData()
+        viewModel.willReload = { [weak self] in
+            self?.tableView.reloadData()
         }
     }
     
@@ -67,7 +64,7 @@ class WalletSettingsController: BasicViewController<WalletSettingsViewModel>, UI
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
-        
+    
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

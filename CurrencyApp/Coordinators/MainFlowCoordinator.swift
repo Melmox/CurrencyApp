@@ -69,10 +69,13 @@ final class MainFlowCoordinator {
     }
     
     private func createWalletController() -> UINavigationController {
-        let walletController = WalletController(
-            viewModel: WalletViewModel(coordinator: self))
-        self.walletController = walletController
-        return UINavigationController(rootViewController: walletController)
+        if let service = parentCoordinator?.getCardService() {
+            let walletController = WalletController(
+                viewModel: WalletViewModel(coordinator: self, cardService: service))
+            self.walletController = walletController
+            return UINavigationController(rootViewController: walletController)
+        }
+        return UINavigationController(rootViewController: UIViewController())
     }
     
     private func createCurrencyHistoryController() -> UINavigationController {

@@ -10,7 +10,7 @@ import UIKit
 final class RegistrationProcessController: BasicViewController<RegistrationProcessViewModel> {
     
     //MARK: - Properties
-
+    
     var nameTextField = UITextField()
     var loginTextField = UITextField()
     var passwordTextField = UITextField()
@@ -151,11 +151,11 @@ final class RegistrationProcessController: BasicViewController<RegistrationProce
     }
     
     @objc func addPictureTapped() {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(picker, animated: true)
+        lazy var imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 

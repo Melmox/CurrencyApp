@@ -7,29 +7,27 @@
 
 import Foundation
 
-class WalletSettingsViewModel: BasicControllerViewModel {
+final class WalletSettingsViewModel: BasicControllerViewModel {
     
     //MARK: - Properties
     //MARK: Content
     
     private weak var coordinator: MainFlowCoordinator?
-    private weak var service: UserService?
+    private var service: UserServiceable?
     var user: User?
     
     lazy var cellViewModels: [WalletSettingsTableCellViewModel] = []
     
     //MARK: Callbacks
     
-    var willReload: emptyClosure?
+    var willReload: EmptyClosure?
     
-    var openWebView: emptyClosure?
-    
-    var updateUserClosure: emptyClosure?
-    
+    var openWebView: EmptyClosure?
+
     
     //MARK: - Init
     
-    init(coordinator: MainFlowCoordinator, service: UserService) {
+    init(coordinator: MainFlowCoordinator, service: UserServiceable) {
         self.coordinator = coordinator
         self.service = service
     }
@@ -37,7 +35,7 @@ class WalletSettingsViewModel: BasicControllerViewModel {
     //MARK: - Appearance
     
     func configure() {
-        user = service?.user
+        user = service?.getUser()
         cellViewModels.append(WalletSettingsTableCellViewModel(type: .deleteAcount))
         cellViewModels.append(WalletSettingsTableCellViewModel(type: .logOut))
     }
@@ -75,8 +73,11 @@ class WalletSettingsViewModel: BasicControllerViewModel {
         coordinator?.launchAppCoordinator()
     }
     
-    func updateUser(with user: User) {
-        service?.updateUser(user: user)
+    func getUserService() -> UserServiceable {
+        if let service = service {
+            return service
+        }
+        return UserServiceable.self as! UserServiceable
     }
     
     //MARK: - Navigation

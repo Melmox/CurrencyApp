@@ -12,10 +12,10 @@ enum UserState {
 }
 
 final class UserService : UserServiceable {
-
+    
     //MARK: - Properties
-    var user: User?
-    var state: UserState?
+    private var user: User?
+    private var state: UserState?
     private let firebaseManager = FirebaseManager()
     
     // MARK: - Methods
@@ -60,7 +60,19 @@ final class UserService : UserServiceable {
         state = .notLogined
     }
     
-    func updateUser(user: User) {
+    func updateUser(with user: User) {
         self.user = user
+    }
+    
+    func updateState(with state: UserState) {
+        self.state = state
+    }
+    
+    func getUser() -> User? {
+        user
+    }
+    
+    func getState() -> UserState? {
+        state
     }
 }

@@ -34,7 +34,7 @@ final class CurrencyHistoryInfoDetailsViewModel: BasicControllerViewModel {
     
     //MARK: Callbacks
     
-    var willReload: emptyClosure?
+    var willReload: EmptyClosure?
     var willReloadSection: ((Int) -> ())?
     
     //MARK: - Init

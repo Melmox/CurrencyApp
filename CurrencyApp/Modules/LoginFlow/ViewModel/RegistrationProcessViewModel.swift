@@ -19,7 +19,7 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
     //MARK: Content
     
     private weak var coordinator: LoginCoordinator?
-    private weak var service: UserService?
+    private var service: UserServiceable?
     
     
     //MARK: Callbacks
@@ -28,7 +28,7 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(coordinator: LoginCoordinator, service: UserService) {
+    init(coordinator: LoginCoordinator, service: UserServiceable) {
         self.coordinator = coordinator
         self.service = service
     }
@@ -70,7 +70,7 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
         }
         if (name != nil && email != nil && self.password != nil) {
             service?.signIn(user: user, password: password, onSuccess: { user in
-                self.service?.state = .logined
+                self.service?.updateState(with: .logined)
                 self.coordinator?.launchAppCoordinator()
             }, onError: { errorMessage in
                 self.coordinator?.presentPopUpController(with: errorMessage)

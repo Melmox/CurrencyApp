@@ -16,7 +16,7 @@ class LoginProcessViewModel: BasicControllerViewModel {
     //MARK: Content
     
     private weak var coordinator: LoginCoordinator?
-    private weak var service: UserService?
+    private var service: UserServiceable?
     
     //MARK: Callbacks
     
@@ -24,7 +24,7 @@ class LoginProcessViewModel: BasicControllerViewModel {
     
     //MARK: - Init
     
-    init(service: UserService, coordinator: LoginCoordinator) {
+    init(coordinator: LoginCoordinator, service: UserServiceable) {
         self.service = service
         self.coordinator = coordinator
     }
@@ -54,7 +54,7 @@ class LoginProcessViewModel: BasicControllerViewModel {
         }
         if (self.email != nil && self.password != nil) {
             service?.logIn(email: email, password: password, onSuccess: {  (user) in
-                self.service?.state = .logined
+                self.service?.updateState(with: .logined)
                 self.coordinator?.launchAppCoordinator()
             }, onError: { (errorMessage) in
                 self.coordinator?.presentPopUpController(with: errorMessage)

@@ -8,28 +8,25 @@
 import Foundation
 import UIKit
 
-protocol BasicControllerCollectionViewItemModel {
-    func configure()
-}
+class BasicControllerCollectionViewCell<ViewModel>: UICollectionViewCell {
+    
+    //MARK: - Properties
+    //MARK: Content
+    
+    private var viewModel: ViewModel?
 
-class BasicControllerCollectionViewCell<CollectionViewCell: BasicControllerCollectionViewItemModel>: UICollectionViewCell {
+    //MARK: - Lifecycle
     
-    private(set) var myItem : CGRect
-    
-    
-    override init(frame: CGRect) {
-        self.myItem = frame
-        super.init(frame: myItem)
-    }
-    
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
     override func prepareForReuse() {
-//        <#code#>
+        super.prepareForReuse()
+        viewModel = nil
+    }
+    
+    //MARK: - ViewModel
+    //MARK: Configuration
+    
+    func configure(with viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
     
 }
