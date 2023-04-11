@@ -14,6 +14,8 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     
     let tableView = UITableView()
     let settingsButton = UIImageView(image: UIImage(systemName: "gear"))
+    let plusButton = UIImageView(image: UIImage(systemName: "plus"))
+
     
     // MARK: - Lifecycle
     
@@ -43,8 +45,18 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsTapped(tapGestureRecognizer:)))
         settingsButton.isUserInteractionEnabled = true
         settingsButton.addGestureRecognizer(tapGestureRecognizer)
-        let segmentBarItem = UIBarButtonItem(customView: settingsButton)
-        navigationItem.rightBarButtonItem = segmentBarItem
+        
+        plusButton.translatesAutoresizingMaskIntoConstraints = false
+        plusButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        plusButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        let tapOnPlus = UITapGestureRecognizer(target: self, action: #selector(plusTapped(tapGestureRecognizer:)))
+        plusButton.isUserInteractionEnabled = true
+        plusButton.addGestureRecognizer(tapOnPlus)
+        
+        let settingsBarItem = UIBarButtonItem(customView: settingsButton)
+        let plusBarItem = UIBarButtonItem(customView: plusButton)
+        
+        navigationItem.rightBarButtonItems = [settingsBarItem, plusBarItem]
     }
     
     private func setupTableView() {
@@ -96,6 +108,11 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     @objc
     private func settingsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         viewModel.coordinateSettingsPage()
+    }
+    
+    @objc
+    private func plusTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        viewModel.coordinateAddingCardController()
     }
     
     // MARK: - UITableViewDelegate

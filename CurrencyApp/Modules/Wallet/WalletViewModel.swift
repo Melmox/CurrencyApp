@@ -84,4 +84,9 @@ final class WalletViewModel: BasicControllerViewModel {
     func coordinateDetailsPage(with cardInfo: WalletCollectionViewCellViewModel) {
         coordinator?.presentWalletDetailsController(with: cardInfo)
     }
+    
+    func coordinateAddingCardController() {
+//        cardService?.addCreditCard()
+        coordinator?.presentAddingCardController()
+    }
 }

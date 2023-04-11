@@ -7,12 +7,18 @@
 
 import UIKit
 
+struct WalletDetailsHeaderViewModel {
+    let creditCard: CreditCard?
+    let choosenSegment: ((WalletCardDetaisTab) -> ())?
+}
+
 final class WalletDetailsHeaderView: UIView {
     
     // MARK: - Properties
     // MARK: Content
     
-    private var viewModel: WalletCollectionViewCellViewModel
+    private var viewModel: WalletDetailsHeaderViewModel
+    
     
     private let currencyLabel: UILabel = {
         let currencyLabel = UILabel()
@@ -59,19 +65,23 @@ final class WalletDetailsHeaderView: UIView {
         return openDateLabel
     }()
     
-    private lazy var conntainerEquivalentOfCollectionView = UIView(frame: CGRect(x: 20,
-                                          y: 5,
-                                          width: frame.width - 2 * 20,
-                                          height: frame.height - 2 * 20))
+    private lazy var conntainerEquivalentOfCollectionView = UIView()
+    private lazy var conntainerEquivalentOfItem = UIImageView()
     
-    private lazy var conntainerEquivalentOfItem = UIView(frame: CGRect(x: 0,
-                                                                       y: 0,
-                                                                       width: conntainerEquivalentOfCollectionView.frame.width,
-                                                                       height: conntainerEquivalentOfCollectionView.frame.width * 0.631))
+    private lazy var segmentControl: UISegmentedControl = {
+        let segmentItems = ["Top up card", "Transaction history"]
+        let segmentControl = UISegmentedControl(items: segmentItems)
+        segmentControl.backgroundColor = .white
+        segmentControl.selectedSegmentTintColor = .systemGreen
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
+        return segmentControl
+    }()
+    
     
     // MARK: - Initialization
     
-    init(frame: CGRect, viewModel: WalletCollectionViewCellViewModel) {
+    init(frame: CGRect, viewModel: WalletDetailsHeaderViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
@@ -83,54 +93,93 @@ final class WalletDetailsHeaderView: UIView {
     
     // MARK: - View
     // MARK: Configure
-
+    
     private func setupView() {
-        
         configure()
-
-        self.addSubview(conntainerEquivalentOfCollectionView)
-        conntainerEquivalentOfCollectionView.addSubview(conntainerEquivalentOfItem)
+        
+        self.addSubview(segmentControl)
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        segmentControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        segmentControl.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9).isActive = true
+        
+        segmentControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        segmentControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         self.backgroundColor = .white
-        addBackgroundImage()
+        
+        self.addSubview(conntainerEquivalentOfCollectionView)
+        conntainerEquivalentOfCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        conntainerEquivalentOfCollectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        conntainerEquivalentOfCollectionView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9).isActive = true
+        conntainerEquivalentOfCollectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        conntainerEquivalentOfCollectionView.bottomAnchor.constraint(equalTo: segmentControl.topAnchor, constant: -10).isActive = true
+        
+        conntainerEquivalentOfCollectionView.addSubview(conntainerEquivalentOfItem)
         conntainerEquivalentOfItem.translatesAutoresizingMaskIntoConstraints = false
         
+        conntainerEquivalentOfItem.centerXAnchor.constraint(equalTo: conntainerEquivalentOfCollectionView.centerXAnchor).isActive = true
+        conntainerEquivalentOfItem.centerYAnchor.constraint(equalTo: conntainerEquivalentOfCollectionView.centerYAnchor).isActive = true
+        conntainerEquivalentOfItem.widthAnchor.constraint(equalTo: conntainerEquivalentOfCollectionView.widthAnchor).isActive = true
+        conntainerEquivalentOfItem.heightAnchor.constraint(equalTo: conntainerEquivalentOfCollectionView.widthAnchor, multiplier: 0.631).isActive = true
+        
+        addBackgroundImage(to: conntainerEquivalentOfItem)
+        
         conntainerEquivalentOfItem.addSubview(currencyLabel)
-        currencyLabel.topAnchor.constraint(equalTo: conntainerEquivalentOfItem.topAnchor, constant: conntainerEquivalentOfItem.frame.height * 0.2).isActive = true
-        currencyLabel.leftAnchor.constraint(equalTo: conntainerEquivalentOfItem.leftAnchor, constant: conntainerEquivalentOfItem.frame.width * 0.1).isActive = true
+        currencyLabel.topAnchor.constraint(equalToSystemSpacingBelow: conntainerEquivalentOfItem.topAnchor, multiplier: 4).isActive = true
+        currencyLabel.leftAnchor.constraint(equalToSystemSpacingAfter: conntainerEquivalentOfItem.leftAnchor, multiplier: 4).isActive = true
         
         conntainerEquivalentOfItem.addSubview(amountLabel)
-        amountLabel.topAnchor.constraint(equalTo: conntainerEquivalentOfItem.topAnchor, constant: frame.height * 0.8 ).isActive = true
-        amountLabel.rightAnchor.constraint(equalTo: conntainerEquivalentOfItem.leftAnchor, constant: frame.width * 0.9).isActive = true
+        amountLabel.topAnchor.constraint(equalToSystemSpacingBelow: conntainerEquivalentOfItem.topAnchor, multiplier: 22).isActive = true
+        amountLabel.rightAnchor.constraint(equalToSystemSpacingAfter: conntainerEquivalentOfItem.leftAnchor, multiplier: 40).isActive = true
         
         conntainerEquivalentOfItem.addSubview(cardNumberLabel)
-        cardNumberLabel.topAnchor.constraint(equalTo: conntainerEquivalentOfItem.topAnchor, constant: (conntainerEquivalentOfItem.frame.height - cardNumberLabel.intrinsicContentSize.height) / 1.7).isActive = true
+        cardNumberLabel.topAnchor.constraint(equalToSystemSpacingBelow: conntainerEquivalentOfItem.topAnchor, multiplier: 16).isActive = true
         cardNumberLabel.centerXAnchor.constraint(equalTo: conntainerEquivalentOfItem.centerXAnchor).isActive = true
         
         conntainerEquivalentOfItem.addSubview(cardholderNameLabel)
-        cardholderNameLabel.topAnchor.constraint(equalTo: conntainerEquivalentOfItem.topAnchor, constant: frame.height * 0.8 ).isActive = true
-        cardholderNameLabel.leftAnchor.constraint(equalTo: conntainerEquivalentOfItem.leftAnchor, constant: conntainerEquivalentOfItem.frame.width * 0.1).isActive = true
-
+        cardholderNameLabel.topAnchor.constraint(equalToSystemSpacingBelow: conntainerEquivalentOfItem.topAnchor, multiplier: 22).isActive = true
+        cardholderNameLabel.leftAnchor.constraint(equalToSystemSpacingAfter: conntainerEquivalentOfItem.leftAnchor, multiplier: 4).isActive = true
+        
         conntainerEquivalentOfItem.addSubview(openDateLabel)
-        openDateLabel.topAnchor.constraint(equalTo: conntainerEquivalentOfItem.topAnchor, constant: conntainerEquivalentOfItem.frame.height * 0.2).isActive = true
-        openDateLabel.rightAnchor.constraint(equalTo: conntainerEquivalentOfItem.leftAnchor, constant: frame.width * 0.9).isActive = true
+        openDateLabel.topAnchor.constraint(equalToSystemSpacingBelow: conntainerEquivalentOfItem.topAnchor, multiplier: 4).isActive = true
+        openDateLabel.rightAnchor.constraint(equalToSystemSpacingAfter: conntainerEquivalentOfItem.leftAnchor, multiplier: 40).isActive = true
     }
     
-    private func addBackgroundImage(){
-        let imageView = UIImageView(frame: CGRect(x: 0,
-                                                  y: 0,
-                                                  width: conntainerEquivalentOfItem.frame.width,
-                                                  height: conntainerEquivalentOfItem.frame.height))
-        
+    private func addBackgroundImage(to container: UIImageView){
         let image = UIImage(named: "backgroundBankCardImage")
-        imageView.image = image
-        conntainerEquivalentOfItem.addSubview(imageView)
+        container.image = image
     }
     
     func configure() {
-       currencyLabel.text = viewModel.currency
-       cardNumberLabel.text = viewModel.cardNumber
-       cardholderNameLabel.text = viewModel.cardholderName
-       openDateLabel.text = viewModel.openDate
-   }
+        if let balance = viewModel.creditCard?.balance {
+            amountLabel.text = String(balance)
+        }
+        currencyLabel.text = viewModel.creditCard?.currency
+        cardNumberLabel.text = viewModel.creditCard?.cardNumber
+        cardholderNameLabel.text = viewModel.creditCard?.cardholderName
+        openDateLabel.text = viewModel.creditCard?.openDate
+        if let choosenSegment = viewModel.choosenSegment {
+            choosenSegment(.topUp)
+        }
+    }
+    
+    // MARK: -  Actions
+    
+    @objc
+    func segmentControl(_ segmentedControl: UISegmentedControl) {
+        if let choosenSegment = viewModel.choosenSegment {
+            switch (segmentedControl.selectedSegmentIndex) {
+            case 0:
+                choosenSegment(.topUp)
+                break
+            case 1:
+                choosenSegment(.transactionHistory)
+                break
+            default:
+                break
+            }
+        }
+    }
 }

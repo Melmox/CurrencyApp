@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum WalletCardDetaisTab {
+    case topUp, transactionHistory
+}
+
 final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
@@ -30,9 +34,8 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         view.backgroundColor = .white
         configureNavigationBar()
         setupTableView()
-        setupHeader()
         
-        tableView.register(WalletTableViewCell.self, forCellReuseIdentifier: "WalletTableViewCell")
+        tableView.register(WalletDetailsCellTopUpView.self, forCellReuseIdentifier: WalletDetailsCellTopUpView().identifier)
     }
     
     private func configureNavigationBar() {
@@ -43,7 +46,6 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 44
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -53,48 +55,71 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
     
     private func setupHeader() {
         let widthOfHeader = UIView.screenWidth
-        let heightOfHeader = UIView.screenWidth * 0.6
+        let heightOfHeader = UIView.screenWidth * 0.7
         if let cellDetailedInfo = viewModel.cardInfoViewModel {
-        let header = WalletDetailsHeaderView(frame: CGRect(x: 0, y: 0,
+            let header = WalletDetailsHeaderView(frame: CGRect(x: 0, y: 0,
                                                                width: widthOfHeader,
-                                                               height: heightOfHeader), viewModel: cellDetailedInfo)
+                                                               height: heightOfHeader), viewModel:  WalletDetailsHeaderViewModel(creditCard: cellDetailedInfo.creditCard, choosenSegment: viewModel.choosenTab))
             tableView.tableHeaderView = header
-            tableView.tableHeaderView?.heightAnchor.constraint(equalToConstant: heightOfHeader).isActive = true
         }
     }
     
     // MARK: - View Model
     // MARK: Configure
-
+    
     override func configureViewModel() {
         viewModel.willReload = { [weak self] in
             self?.tableView.reloadData()
         }
+        
         super.configureViewModel()
-    }
-    
-    // MARK: - Actions
-    
-    @objc
-    private func settingsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        viewModel.coordinateNextPage()
+        
+        setupHeader()
+        
     }
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        viewModel.numberOfItems
-        3
+        switch viewModel.walletCardDetaisTabState {
+        case .topUp:
+            return 1
+        case .transactionHistory:
+            return 10 // viewModel.count
+        case .none:
+            return 0
+        }
     }
-
+    
     
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WalletTableViewCell", for: indexPath) as! WalletTableViewCell
-//        let cellViewModel = viewModel.item(at: indexPath)
-//        cell.configure(with: cellViewModel)
-        return cell
+        switch viewModel.walletCardDetaisTabState {
+        case .topUp:
+            let cell = tableView.dequeueReusableCell(withIdentifier: WalletDetailsCellTopUpView().identifier, for: indexPath) as! WalletDetailsCellTopUpView
+            //            guard let cellViewModel = viewModel.cellViewModel else { return UITableViewCell() }
+            let cellViewModel = viewModel.cellViewModel
+            cell.configure(with: cellViewModel)
+            return cell
+        case .transactionHistory:
+            return UITableViewCell()
+        case .none:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch viewModel.walletCardDetaisTabState {
+        case .topUp:
+            tableView.separatorStyle = .none
+            return 200
+        case .transactionHistory:
+            tableView.separatorStyle = .singleLine
+            return 44
+        case .none:
+            return 0
+        }
     }
 }
 

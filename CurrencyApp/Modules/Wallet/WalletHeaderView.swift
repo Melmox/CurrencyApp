@@ -61,8 +61,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
+    }    
     
     // MARK: - View
     // MARK: Configure
@@ -127,6 +126,5 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         if let openDetailsPage = viewModel?.openDetailsPage {
             openDetailsPage(viewModel?.getWalletCollectionViewCellViewModel(at: indexPath))
         }
-        print(indexPath.row)
     }
 }

@@ -66,6 +66,11 @@ final class MainFlowCoordinator {
         walletController?.navigationController?.pushViewController(controller, animated: true)
     }
     
+    func presentAddingCardController() {
+        let controller = createAddingCardController()
+        walletController?.present(controller, animated: true)
+    }
+    
     // MARK: - Modules
     
     private func createTabBarController() -> UITabBarController {
@@ -119,5 +124,30 @@ final class MainFlowCoordinator {
             return walletDetailsController
         }
         return UIViewController() as! WalletDetailsController
+    }
+    
+    private func createAddingCardController() -> UIAlertController {
+        let alertView = UIAlertController(
+            title: "Select item from list",
+            message: "\n\n\n\n\n\n\n\n\n",
+            preferredStyle: .alert)
+
+        let pickerView = UIPickerView(frame:
+            CGRect(x: 0, y: 50, width: 260, height: 162))
+//        pickerView.dataSource = self
+//        pickerView.delegate = self
+
+        // comment this line to use white color
+        pickerView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+
+        alertView.view.addSubview(pickerView)
+
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+
+        alertView.addAction(action)
+//        present(alertView, animated: true, completion: { _ in
+//            pickerView.frame.size.width = alertView.view.frame.size.width
+//        })
+        return alertView
     }
 }
