@@ -16,8 +16,8 @@ final class CardService: CardServiceable {
     
     // MARK: - Methods
     
-    func addCreditCard() {
-        firebaseManager.addCreditCard(currency: "UAH")
+    func addCreditCard(with currency: String) {
+        firebaseManager.addCreditCard(currency: currency)
     }
     
     func getCreditCards(completion: @escaping ([CreditCard]) -> Void) {

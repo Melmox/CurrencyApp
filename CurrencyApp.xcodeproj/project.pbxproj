@@ -28,6 +28,7 @@
 		D24B63C929DDB05A009C7F0B /* WalletSettingsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24B63C829DDB05A009C7F0B /* WalletSettingsWebViewController.swift */; };
 		D272A85A29E55D2100034D31 /* WalletDetailsCellTopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272A85929E55D2100034D31 /* WalletDetailsCellTopUpView.swift */; };
 		D272A85C29E56A9400034D31 /* WalletDetailsCellTransactionHistoryView.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272A85B29E56A9400034D31 /* WalletDetailsCellTransactionHistoryView.swift.swift */; };
+		D27CC04129E6826100BD242C /* WalletAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CC04029E6826100BD242C /* WalletAlertController.swift */; };
 		D286667C29D58A8600464DC9 /* CurrencyHistoryInfoDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286667B29D58A8600464DC9 /* CurrencyHistoryInfoDetailsSectionViewModel.swift */; };
 		D286667E29D5B61C00464DC9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286667D29D5B61C00464DC9 /* Date+Extension.swift */; };
 		D288B4B929D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288B4B829D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift */; };
@@ -101,6 +102,7 @@
 		D24B63C829DDB05A009C7F0B /* WalletSettingsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSettingsWebViewController.swift; sourceTree = "<group>"; };
 		D272A85929E55D2100034D31 /* WalletDetailsCellTopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsCellTopUpView.swift; sourceTree = "<group>"; };
 		D272A85B29E56A9400034D31 /* WalletDetailsCellTransactionHistoryView.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsCellTransactionHistoryView.swift.swift; sourceTree = "<group>"; };
+		D27CC04029E6826100BD242C /* WalletAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAlertController.swift; sourceTree = "<group>"; };
 		D286667B29D58A8600464DC9 /* CurrencyHistoryInfoDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryInfoDetailsSectionViewModel.swift; sourceTree = "<group>"; };
 		D286667D29D5B61C00464DC9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D288B4B829D406EA00085C93 /* CurrencyHistoryCurrencyNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCurrencyNameCell.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E3A6B429BF46ED00F496EB /* WalletController.swift */,
+				D27CC04029E6826100BD242C /* WalletAlertController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				D2EC4B7C29DC41D1008E0A34 /* User.swift in Sources */,
 				D2CC022329D16B2E008B9C11 /* LoginCoordinator.swift in Sources */,
 				D28B3A5129DEC7250063AE84 /* UserServiceable.swift in Sources */,
+				D27CC04129E6826100BD242C /* WalletAlertController.swift in Sources */,
 				D2EC4B7E29DC49FB008E0A34 /* PopUpViewController.swift in Sources */,
 				D28B3A5B29E006CA0063AE84 /* CardService.swift in Sources */,
 				D2EECDBE29C9E46500711997 /* WalletTableViewCell.swift in Sources */,

@@ -152,7 +152,7 @@ final class FirebaseManager {
             
             let creditCard = CreditCard(cardNumber: String().createCardNumber,
                                         currency: currency,
-                                        balance: 0,
+                                        balance: 5000,
                                         cardholderName: userName,
                                         openDate: Date().prepareFormatToDateOnCard)
             

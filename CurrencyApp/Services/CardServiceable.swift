@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CardServiceable {
-    func addCreditCard()
+    func addCreditCard(with currency: String)
     
     func getCreditCards(completion: @escaping ([CreditCard]) -> Void)
 

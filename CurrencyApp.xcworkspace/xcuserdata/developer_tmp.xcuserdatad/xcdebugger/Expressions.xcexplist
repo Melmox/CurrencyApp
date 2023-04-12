@@ -22,7 +22,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in WalletSettingsController.headerView.getter:WalletSettingsController.swift">
+         contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.tag">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CurrencyHistoryInfoDetailsCell.configure(with:):CurrencyHistoryInfoDetailsCell.swift">
@@ -63,15 +68,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in FirebaseManager.logIn(email:password:onSuccess:onError:):FirebaseManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "authDataResult?.additionalUserInfo">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "closure #1 in WalletController.setupHeader():WalletController.swift">
       </ContextState>
       <ContextState
-         contextName = "WalletSettingsHeader.showPhoto(user:):WalletSettingsTableHeader.swift">
+         contextName = "WalletDetailsHeaderView.setupView():WalletDetailsHeaderView.swift">
       </ContextState>
       <ContextState
          contextName = "CardCollectionViewCell.sutupView():CardCollectionViewCell.swift">
@@ -99,10 +99,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
+         contextName = "WalletSettingsHeader.showPhoto(user:):WalletSettingsTableHeader.swift">
       </ContextState>
       <ContextState
-         contextName = "closure #1 in WalletController.setupHeader():WalletController.swift">
+         contextName = "WalletController.collectionView(_:cellForItemAt:):WalletController.swift">
       </ContextState>
       <ContextState
          contextName = "WalletCardCollectionViewCell.init(frame:):WalletCardCollectionViewCell.swift">
@@ -113,7 +113,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "WalletDetailsHeaderView.setupView():WalletDetailsHeaderView.swift">
+         contextName = "closure #1 in FirebaseManager.logIn(email:password:onSuccess:onError:):FirebaseManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "authDataResult?.additionalUserInfo">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CardCollectionViewCell.init(frame:):CardCollectionViewCell.swift">
@@ -203,12 +208,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CurrencyHistoryInfoDetailsController.buttonAction(sender:):CurrencyHistoryInfoDetailsController.swift">
+         contextName = "WalletAlertController.init(viewModel:):WalletAlertController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sender.tag">
+               value = "0x15201c200">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in WalletSettingsController.headerView.getter:WalletSettingsController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
