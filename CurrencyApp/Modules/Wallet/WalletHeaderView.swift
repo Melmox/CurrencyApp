@@ -7,22 +7,23 @@
 
 import UIKit
 
-struct TableViewHeaderViewModel {
-    var items: [WalletCollectionViewCellViewModel]?
+struct WalletHeaderViewModel {
+    var items: [WalletCollectionViewCellViewModel] = [WalletCollectionViewCellViewModel(content: nil, state: .addCard)]
     var willReload: EmptyClosure?
     var openDetailsPage: ((WalletCollectionViewCellViewModel?) -> Void)?
+    var openAddCardAlert: EmptyClosure?
     let widthOfHeader = UIView.screenWidth
     let heightOfHeader = UIView.screenWidth * 0.6
     
     func getWalletCollectionViewCellViewModel(at indexPath: IndexPath) -> WalletCollectionViewCellViewModel?{
-        if let items = items {
+//        if let items = items {
            return items[indexPath.row]
-        }
-        return nil
+//        }
+//        return nil
     }
 }
 
-final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+final class WalletHeaderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
     // MARK: Constants
@@ -32,8 +33,8 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     
     // MARK: Content
     
-    var viewModel: TableViewHeaderViewModel?
-    static let identifier = String(describing: TableViewHeaderView.self)
+    var viewModel: WalletHeaderViewModel?
+    static let identifier = String(describing: WalletHeaderView.self)
     
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -53,7 +54,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     
     // MARK: - Initialization
 
-    init (viewModel: TableViewHeaderViewModel, frame: CGRect) {
+    init (viewModel: WalletHeaderViewModel, frame: CGRect) {
         super.init(frame: frame)
         setUpCollectionView()
         configureComponent(with: viewModel)
@@ -83,7 +84,7 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         collectionView.register(WalletCardCollectionViewCell.self, forCellWithReuseIdentifier: WalletCardCollectionViewCell.identifier)
     }
     
-    private func configureComponent(with content: TableViewHeaderViewModel) {
+    private func configureComponent(with content: WalletHeaderViewModel) {
         self.viewModel = content
         viewModel?.willReload = { [weak self] in
             self?.collectionView.reloadData()
@@ -103,19 +104,23 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WalletCardCollectionViewCell.identifier, for: indexPath) as? WalletCardCollectionViewCell
         else { return UICollectionViewCell() }
         
-        if let creditCard = viewModel?.items?[indexPath.row].creditCard {
-            let cellViewModel = WalletCollectionViewCellViewModel(content: (creditCard))
+        if let creditCard = viewModel?.items[indexPath.row].creditCard {
+            let cellViewModel = WalletCollectionViewCellViewModel(content: (creditCard), state: .normalCard)
             cellViewModel.isFirst = indexPath.row == 0
-            cellViewModel.isLast = indexPath.row == ((viewModel?.items?.count ?? 1) - 1)
+            cellViewModel.isLast = indexPath.row == ((viewModel?.items.count ?? 1) - 1)
+            cell.configure(with: cellViewModel)
+        } else {
+            let cellViewModel = WalletCollectionViewCellViewModel(content: nil, state: .addCard)
             cell.configure(with: cellViewModel)
         }
+        
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.items?.count ?? 0
+        return viewModel?.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -123,8 +128,15 @@ final class TableViewHeaderView: UIView, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let openDetailsPage = viewModel?.openDetailsPage {
-            openDetailsPage(viewModel?.getWalletCollectionViewCellViewModel(at: indexPath))
+        if viewModel?.getWalletCollectionViewCellViewModel(at: indexPath)?.state == .normalCard {
+            if let openDetailsPage = viewModel?.openDetailsPage {
+                openDetailsPage(viewModel?.getWalletCollectionViewCellViewModel(at: indexPath))
+            }
+        }
+        if viewModel?.getWalletCollectionViewCellViewModel(at: indexPath)?.state == .addCard {
+            if let openAddCardAlert = viewModel?.openAddCardAlert {
+                openAddCardAlert()
+            }
         }
     }
 }

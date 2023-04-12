@@ -68,6 +68,15 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         return rightArrow
     }()
     
+    private let plus: UIImageView = {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .bold, scale: .large)
+        let plus = UIImageView(image: UIImage(systemName: "plus.circle", withConfiguration: largeConfig)!)
+        plus.translatesAutoresizingMaskIntoConstraints = false
+        plus.tintColor = .systemGray
+        plus.layer.opacity = 0.5
+        return plus
+    }()
+    
     // MARK: Lifecycle
     
     override func prepareForReuse() {
@@ -119,6 +128,10 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
         contentView.addSubview(leftArrow)
         leftArrow.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         leftArrow.leftAnchor.constraint(equalTo: self.leftAnchor, constant: (0.05 * self.frame.width)).isActive = true
+        
+        contentView.addSubview(plus)
+        plus.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        plus.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
     private func addBackgroundImage(){
@@ -135,12 +148,34 @@ final class WalletCardCollectionViewCell: BasicControllerCollectionViewCell<Wall
     // MARK: Configure
     
     override func configure(with viewModel: WalletCollectionViewCellViewModel) {
-        leftArrow.isHidden = viewModel.isFirst ?? true
-        rightArrow.isHidden = viewModel.isLast ?? true
-        currencyLabel.text = viewModel.currency
-        cardNumberLabel.text = viewModel.cardNumber
-        cardholderNameLabel.text = viewModel.cardholderName
-        openDateLabel.text = viewModel.openDate
+        super.configure(with: viewModel)
+
+        switch viewModel.state {
+        case .normalCard:
+            leftArrow.isHidden = viewModel.isFirst ?? true
+            rightArrow.isHidden = viewModel.isLast ?? true
+            plus.isHidden = true
+            currencyLabel.text = viewModel.currency
+            cardNumberLabel.text = viewModel.cardNumber
+            cardholderNameLabel.text = viewModel.cardholderName
+            openDateLabel.text = viewModel.openDate
+        case .addCard:
+            leftArrow.isHidden = true
+            rightArrow.isHidden = true
+            plus.isHidden = false
+            currencyLabel.text = nil
+            cardNumberLabel.text = nil
+            cardholderNameLabel.text = nil
+            openDateLabel.text = nil
+        case .none:
+            leftArrow.isHidden = true
+            rightArrow.isHidden = true
+            plus.isHidden = true
+            currencyLabel.text = nil
+            cardNumberLabel.text = nil
+            cardholderNameLabel.text = nil
+            openDateLabel.text = nil
+        }
     }
 }
 

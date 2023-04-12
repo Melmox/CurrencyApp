@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum CardCellState {
+    case addCard, normalCard
+}
+
 final class WalletCollectionViewCellViewModel {
 
     // MARK: - Properties
@@ -30,10 +34,12 @@ final class WalletCollectionViewCellViewModel {
     }
     var isFirst: Bool?
     var isLast: Bool?
+    var state: CardCellState?
 
     // MARK: - Initialization
     
-    init(content: CreditCard) {
+    init(content: CreditCard?, state: CardCellState) {
         creditCard = content
+        self.state = state
     }
 }

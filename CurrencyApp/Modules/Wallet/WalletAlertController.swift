@@ -101,6 +101,7 @@ final class WalletAlertController: UIAlertController, UIPickerViewDelegate, UIPi
         self.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             self.viewModel.addCard(with: self.chosedCurrency)
         }))
+        self.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
     }
     
     func configurePicker() {

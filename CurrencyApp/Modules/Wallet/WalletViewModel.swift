@@ -16,7 +16,7 @@ final class WalletViewModel: BasicControllerViewModel {
     
     lazy var cellViewModels: [WalletTableViewCellViewModel] = []
     lazy var collectionCellViewModels: [WalletCollectionViewCellViewModel] = []
-    var tableHeaderViewModel: TableViewHeaderViewModel?
+    var tableHeaderViewModel: WalletHeaderViewModel?
 
     // MARK: - Services
     
@@ -50,9 +50,9 @@ final class WalletViewModel: BasicControllerViewModel {
         }
         cardService?.getCreditCards(completion: { [weak self] creditCards in
             self?.collectionCellViewModels = creditCards.map { card in
-                WalletCollectionViewCellViewModel(content: card)
+                WalletCollectionViewCellViewModel(content: card, state: .normalCard)
             }
-            self?.tableHeaderViewModel = TableViewHeaderViewModel(items: self?.collectionCellViewModels)
+            self?.tableHeaderViewModel = WalletHeaderViewModel(items: self!.collectionCellViewModels)
             self?.willReloadHeader?()
         })
     }
@@ -86,7 +86,6 @@ final class WalletViewModel: BasicControllerViewModel {
     }
     
     func coordinateAddingCardController() {
-//        cardService?.addCreditCard()
         coordinator?.presentAddingCardController()
     }
 }

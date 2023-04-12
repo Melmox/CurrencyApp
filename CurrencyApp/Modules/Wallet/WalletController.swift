@@ -49,7 +49,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         plusButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         plusButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        let tapOnPlus = UITapGestureRecognizer(target: self, action: #selector(plusTapped(tapGestureRecognizer:)))
+        let tapOnPlus = UITapGestureRecognizer(target: self, action: #selector(plusTapped))
         plusButton.isUserInteractionEnabled = true
         plusButton.addGestureRecognizer(tapOnPlus)
         
@@ -73,16 +73,16 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     }
     
     private func setupHeader() {
-        var headerViewModel = TableViewHeaderViewModel()
-        let header = TableViewHeaderView(viewModel: headerViewModel,
+        var headerViewModel = WalletHeaderViewModel()
+        let header = WalletHeaderView(viewModel: headerViewModel,
                                          frame: CGRect(x: 0, y: 0,
                                                        width: headerViewModel.widthOfHeader,
                                                        height: headerViewModel.heightOfHeader))
-        headerViewModel = header.viewModel ?? TableViewHeaderViewModel()
+        headerViewModel = header.viewModel ?? WalletHeaderViewModel()
         tableView.tableHeaderView = header
         viewModel.willReloadHeader = { [weak self] in
             if let collback = headerViewModel.willReload {
-                header.viewModel?.items = self?.viewModel.tableHeaderViewModel?.items
+                header.viewModel?.items = (self?.viewModel.tableHeaderViewModel!.items)!
                 collback()
             }
         }
@@ -90,6 +90,9 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
             if let cardInfo = cardInfo{
                 self.viewModel.coordinateDetailsPage(with: cardInfo)
             }
+        }
+        header.viewModel?.openAddCardAlert = { [weak self] in
+            self?.plusTapped()
         }
     }
     
@@ -111,7 +114,7 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
     }
     
     @objc
-    private func plusTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    private func plusTapped() {
         viewModel.coordinateAddingCardController()
     }
     

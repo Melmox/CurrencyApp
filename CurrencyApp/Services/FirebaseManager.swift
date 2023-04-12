@@ -171,7 +171,7 @@ final class FirebaseManager {
     
     func getCreditCards(completion: @escaping ([CreditCard]) -> Void) {
         if let userUid = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("cards").child(userUid).observeSingleEvent(of: .value) { snapshot in
+            Database.database().reference().child("cards").child(userUid).observe(.value) { snapshot in
                 guard let value = snapshot.value as? [String : Any] else {
                     return
                 }

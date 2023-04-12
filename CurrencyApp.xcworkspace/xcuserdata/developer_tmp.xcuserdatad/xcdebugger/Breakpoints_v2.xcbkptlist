@@ -776,9 +776,9 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletHeaderView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "TableViewHeaderView"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "WalletHeaderView"
             landmarkType = "3">
             <Locations>
                <Location
@@ -935,8 +935,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletHeaderView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "init(viewModel:frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -951,8 +951,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletHeaderView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "init(viewModel:frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -967,8 +967,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletHeaderView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "setUpCollectionView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -983,8 +983,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletHeaderView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "configureComponent(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1031,8 +1031,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletCardCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
