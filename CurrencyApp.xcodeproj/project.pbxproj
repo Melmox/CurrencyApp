@@ -491,8 +491,8 @@
 			isa = PBXGroup;
 			children = (
 				D2E3A6A529BF360100F496EB /* AlamofireManager.swift */,
-				D2EECDC129CAFB1500711997 /* APIDescriptor.swift */,
 				D2461E6D29DADA8000118F57 /* FirebaseManager.swift */,
+				D2EECDC129CAFB1500711997 /* APIDescriptor.swift */,
 				D28B3A5229DECC5C0063AE84 /* UserService.swift */,
 				D28B3A5A29E006CA0063AE84 /* CardService.swift */,
 				D241821829E6D114005992A8 /* ExchangeRateService.swift */,

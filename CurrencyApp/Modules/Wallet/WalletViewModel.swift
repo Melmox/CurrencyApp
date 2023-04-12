@@ -89,5 +89,8 @@ final class WalletViewModel: BasicControllerViewModel {
     
     func coordinateAddingCardController() {
         coordinator?.presentAddingCardController()
+        cardService?.updateCreditCardBalance(from: "-NSp2qs1EtSa88LA9rBG", to: "-NSp2lW4uy3WgkqyyE5s", for: 1500, onSuccess: {
+            print("yPa")
+        })
     }
 }

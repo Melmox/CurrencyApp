@@ -8,6 +8,7 @@
 import Foundation
 
 struct CreditCard: Decodable {
+    var cardUid: String? = nil
     let cardNumber: String
     let currency: String
     let balance: Double

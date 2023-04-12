@@ -179,8 +179,10 @@ final class FirebaseManager {
                     let jsonData = try JSONSerialization.data(withJSONObject: value, options: [])
                     let decoder = JSONDecoder()
                     var creditCards = [CreditCard]()
-                    for (_, value) in try decoder.decode([String: CreditCard].self, from: jsonData) {
-                        creditCards.append(value)
+                    for (cardUid, card) in try decoder.decode([String: CreditCard].self, from: jsonData) {
+                        var creditCard = card
+                        creditCard.cardUid = cardUid
+                        creditCards.append(creditCard)
                     }
                     completion(creditCards)
                 } catch {
@@ -190,6 +192,104 @@ final class FirebaseManager {
         }
     }
     
+    // MARK: - Update credit card balance
+    
+    private func getCardBalance(for cardUid: String, onSuccess: @escaping (Double) -> ()) {
+        if let userUid = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("cards").child(userUid).child(cardUid).child("balance").observe(.value) { snapshot in
+//                guard let value = snapshot.value as? Double else {
+//                    return
+//                }
+//                do {
+//                    onSuccess(value)
+//                }
+                if let value = snapshot.value as? Double {
+                    onSuccess(value)
+                }
+            }
+        }
+    }
+    
+    private func updateCardBalance(for cardUid: String, with value: Double, onSuccess: @escaping EmptyClosure){
+        if let userUid = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("cards").child(userUid).child(cardUid).child("balance").setValue(value) {
+                (error:Error?, ref:DatabaseReference) in
+                if error != nil {
+                    print(error ?? "Error of taking money")
+                } else {
+                    onSuccess()
+                }
+            }
+        }
+    }
+    
+    func transferMoneyBeetwenCards(from takeMoneyCard: String, to currentCard: String, for amount: Double, onSuccsess: @escaping EmptyClosure) {
+                
+        let group = DispatchGroup()
+
+        group.enter()
+        getCardBalance(for: takeMoneyCard, onSuccess: { [weak self] (balance) in
+            let finalBalance = balance - amount
+            group.leave()
+            self?.updateCardBalance(for: takeMoneyCard, with: finalBalance, onSuccess: {
+                print("Request 1 completed")
+//                group.leave()
+            })
+        })
+        
+        group.enter()
+        getCardBalance(for: currentCard, onSuccess: { [weak self] (balance) in
+            let finalBalance = balance + (amount * 0.97)
+            group.leave()
+            self?.updateCardBalance(for: currentCard, with: finalBalance, onSuccess: {
+                print("Request 2 completed")
+//                group.leave()
+            })
+        })
+
+        group.notify(queue: .main) {
+            print("Requests completed")
+            onSuccsess()
+        }
+        
+    }
+    
+//    func updateCreditCardBalance(currentCard: String, takeMoneyCard: String, amountMoneyToTransfer: Double, onSuccsess: @escaping EmptyClosure) {
+//        
+//        if let userUid = Auth.auth().currentUser?.uid {
+//            Database.database().reference().child("cards").child(userUid).child(takeMoneyCard).child("balance").observe(.value) { snapshot in
+//                guard let value = snapshot.value as? Double else {
+//                    return
+//                }
+//                do {
+//                    let takeMoneyCardNewBallance = value - amountMoneyToTransfer
+//                    Database.database().reference().child("cards").child(userUid).child(takeMoneyCard).child("balance").setValue(takeMoneyCardNewBallance) {
+//                        (error:Error?, ref:DatabaseReference) in
+//                        if error != nil {
+//                            print(error ?? "Error of taking money")
+//                        } else {
+//                            Database.database().reference().child("cards").child(userUid).child(currentCard).child("balance").observe(.value) { snapshot in
+//                                guard let value = snapshot.value as? Double else {
+//                                    return
+//                                }
+//                                do {
+//                                    let currentCardNewBallance = value + (amountMoneyToTransfer * 0.97)
+//                                    Database.database().reference().child("cards").child(userUid).child(currentCard).child("balance").setValue(currentCardNewBallance) {
+//                                        (error:Error?, ref:DatabaseReference) in
+//                                        if error != nil {
+//                                            print(error ?? "Error of outting money")
+//                                        } else {
+//                                            onSuccsess()
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 private extension String {
