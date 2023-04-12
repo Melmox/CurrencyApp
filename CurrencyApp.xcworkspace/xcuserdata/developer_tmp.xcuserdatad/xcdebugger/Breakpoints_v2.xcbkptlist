@@ -185,8 +185,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "numberOfItems"
             landmarkType = "24">
          </BreakpointContent>
@@ -839,8 +839,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -855,8 +855,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>

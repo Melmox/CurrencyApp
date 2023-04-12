@@ -22,14 +22,19 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     var downloadedData: ExchangeRatesDateRange?
     var previousMonthDownloadedData: ExchangeRatesDateRange?
     
+    // MARK: - Services
+    
+    private var ratesService: ExchangeRateServiceable?
+    
     // MARK: Callbacks
     
     var willReload: (() -> ())?
         
     // MARK: - Initialization
     
-    init(coordinator: MainFlowCoordinator) {
+    init(coordinator: MainFlowCoordinator, ratesService: ExchangeRateServiceable) {
         self.coordinator = coordinator
+        self.ratesService = ratesService
     }
     
     // MARK: - Appearance
@@ -37,8 +42,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
     func configure() {
         // MARK: Download Current Month Data
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let networkManager: NetworkManager = NetworkManager()
-        networkManager.getData(endpoint: ExchangeRatesDateRange.self,
+        ratesService?.getExchangeRateData(endpoint: ExchangeRatesDateRange.self,
                                baseCurrency: "USD",
                                start_date: dateFormatter.string(from: currentDate.startDateOfMonth),
                                end_date: dateFormatter.string(from: currentDate))
@@ -61,7 +65,7 @@ final class CurrencyHistoryCurrencyNameViewModel: BasicControllerViewModel {
         guard let previousMonthDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: currentDate) else {
             fatalError("Unable to get end date from date")
         }
-        networkManager.getData(endpoint: ExchangeRatesDateRange.self,
+        ratesService?.getExchangeRateData(endpoint: ExchangeRatesDateRange.self,
                                baseCurrency: "USD",
                                start_date: dateFormatter.string(from: previousMonthDate.startDateOfMonth),
                                end_date: dateFormatter.string(from: previousMonthDate.endDateOfMonth))

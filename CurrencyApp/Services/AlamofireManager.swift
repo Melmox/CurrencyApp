@@ -1,5 +1,5 @@
 //
-//  Networking.swift
+//  AlamofireManager.swift
 //  CurrencyApp
 //
 //  Created by developer_tmp on 13.03.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-final class NetworkManager {
+final class AlamofireManager {
         
     func getData<T: Codable>(
         endpoint: T.Type,

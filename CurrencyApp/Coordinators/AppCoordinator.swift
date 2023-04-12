@@ -23,6 +23,7 @@ class AppCoordinator {
 
     private let userService: UserServiceable = UserService()
     private let cardService: CardServiceable = CardService()
+    private let ratesService: ExchangeRateServiceable = ExchangeRateService()
 
     // MARK: - Initialization
     
@@ -72,6 +73,10 @@ class AppCoordinator {
     
     func getCardService() -> CardServiceable {
         cardService
+    }
+    
+    func getRatesService() -> ExchangeRateServiceable {
+        ratesService
     }
     
     // MARK: - Modules
