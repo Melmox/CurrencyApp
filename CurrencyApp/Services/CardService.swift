@@ -26,8 +26,8 @@ final class CardService: CardServiceable {
         })
     }
     
-    func updateCreditCardBalance(from takeMoneyCard: String, to currentCard: String, for amountMoneyToTransfer: Double, onSuccess: @escaping EmptyClosure) {
-        firebaseManager.transferMoneyBeetwenCards(from: takeMoneyCard, to: currentCard, for: amountMoneyToTransfer, onSuccsess: {
+    func updateCreditCardBalance(from takeMoneyCard: String, to putMoneyCard: String, with amountMoneyToTake: Double, with amountMoneyToAdd: Double, onSuccess: @escaping EmptyClosure) {
+        firebaseManager.transferMoneyBeetwenCards(from: takeMoneyCard, to: putMoneyCard, with: amountMoneyToTake, with: amountMoneyToAdd, onSuccsess: {
             onSuccess()
         })
     }

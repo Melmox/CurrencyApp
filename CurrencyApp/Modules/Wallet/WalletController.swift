@@ -87,8 +87,8 @@ final class WalletController: BasicViewController<WalletViewModel>, UITableViewD
             }
         }
         header.viewModel?.openDetailsPage = {cardInfo in
-            if let cardInfo = cardInfo{
-                self.viewModel.coordinateDetailsPage(with: cardInfo)
+            if let card = cardInfo?.creditCard{
+                self.viewModel.coordinateDetailsPage(with: card)
             }
         }
         header.viewModel?.openAddCardAlert = { [weak self] in

@@ -185,8 +185,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "numberOfItems"
             landmarkType = "24">
          </BreakpointContent>
@@ -506,8 +506,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "LoginCoordinator"
-            landmarkType = "3">
+            landmarkName = "presentLoginController()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -839,8 +839,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -855,8 +855,8 @@
             filePath = "CurrencyApp/Modules/Wallet/WalletViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1047,8 +1047,8 @@
             filePath = "CurrencyApp/Modules/Wallet/View/WalletDetailsCellTopUpView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "init(style:reuseIdentifier:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1104,54 +1104,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F77B3FA7-B734-41AF-93A9-43ADD4DC95D2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "configure()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F77B3FA7-B734-41AF-93A9-43ADD4DC95D2 - ac03524668cc0fa6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "F77B3FA7-B734-41AF-93A9-43ADD4DC95D2 - 890bc8f4aeef1b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (CurrencyApp.WalletCardDetaisTab) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
-                  moduleName = "CurrencyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6FCFE8E4-3CC1-4D36-8CDC-9B2711C5DF18"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1159,8 +1111,8 @@
             filePath = "CurrencyApp/Coordinators/MainFlowCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "presentAddingCardController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1207,26 +1159,10 @@
             filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "configure()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1D0A7110-9B70-430A-A4C0-D9B1D54D3AAC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CurrencyApp/Services/FirebaseManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "FirebaseManager"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1239,9 +1175,9 @@
             filePath = "CurrencyApp/Services/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "transferMoneyBeetwenCards(from:to:for:onSuccsess:)"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1255,9 +1191,9 @@
             filePath = "CurrencyApp/Services/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "transferMoneyBeetwenCards(from:to:for:onSuccsess:)"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1271,9 +1207,9 @@
             filePath = "CurrencyApp/Services/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "transferMoneyBeetwenCards(from:to:for:onSuccsess:)"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1287,25 +1223,537 @@
             filePath = "CurrencyApp/Services/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "transferMoneyBeetwenCards(from:to:for:onSuccsess:)"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F316877-E0B2-44FC-956B-1BC465AA35C6"
+            uuid = "61D7E0FE-9CEB-4057-9E87-749AB599C3CD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyApp/Services/FirebaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "transferMoneyBeetwenCards(from:to:for:onSuccsess:)"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "getCardBalance(for:onSuccess:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F875052C-31E7-470C-968D-A8AF8C474AFB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Services/FirebaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "updateCardBalance(for:with:onSuccess:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F990300-6194-4E20-9155-334F88E97BFB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Services/FirebaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F990300-6194-4E20-9155-334F88E97BFB - d4925591775acf51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.FirebaseManager.transferMoneyBeetwenCards(from: Swift.String, to: Swift.String, for: Swift.Double, onSuccsess: () -&gt; ()) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Services/FirebaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "9F990300-6194-4E20-9155-334F88E97BFB - 9e509a825c54edad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Double) -&gt; () in CurrencyApp.FirebaseManager.transferMoneyBeetwenCards(from: Swift.String, to: Swift.String, for: Swift.Double, onSuccsess: () -&gt; ()) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Services/FirebaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2FE8CEB-3BD3-4184-A851-C5291D95996C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Services/FirebaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "transferMoneyBeetwenCards(from:to:with:with:onSuccsess:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8A5F27B-3C7C-444F-BE96-DC0F6874CA92"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Services/CardService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "updateCreditCardBalance(from:to:with:with:onSuccess:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C130D83A-3CB8-4735-8224-3ACCEBA3161D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/View/WalletDetailsCellTopUpView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "sendMoney()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E560F5E-86CE-421C-BED4-F5F6E598D9BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "transferMoney(from:to:for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6E560F5E-86CE-421C-BED4-F5F6E598D9BC - 491d544eb534ddd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in CurrencyApp.WalletDetailsViewModel.transferMoney(from: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, to: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, for: Swift.Optional&lt;Swift.Double&gt;) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "6E560F5E-86CE-421C-BED4-F5F6E598D9BC - 491d544eb534ddd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in CurrencyApp.WalletDetailsViewModel.transferMoney(from: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, to: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, for: Swift.Optional&lt;Swift.Double&gt;) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27DA86E0-8A37-4DCD-AE62-B1F0A63E01B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "transferMoney(from:to:for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27DA86E0-8A37-4DCD-AE62-B1F0A63E01B0 - c610554c4fe349b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in CurrencyApp.WalletDetailsViewModel.transferMoney(from: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, to: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, for: Swift.Double) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "27DA86E0-8A37-4DCD-AE62-B1F0A63E01B0 - c610554c4fe349b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in CurrencyApp.WalletDetailsViewModel.transferMoney(from: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, to: Swift.Optional&lt;CurrencyApp.CreditCard&gt;, for: Swift.Double) -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DD3D845-8E79-45E9-8854-086C325F2038"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Services/ExchangeRateService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getExchangeRateData(endpoint:baseCurrency:start_date:end_date:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "776DCF98-6B75-4A71-B6AB-9E7DAC9D7585"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "776DCF98-6B75-4A71-B6AB-9E7DAC9D7585 - ac03524668cc00bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  uuid = "776DCF98-6B75-4A71-B6AB-9E7DAC9D7585 - 9fa4a05bef753dd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "60FEE032-C123-4B3A-8C67-91AAE61F4D38"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "60FEE032-C123-4B3A-8C67-91AAE61F4D38 - 9fa4a05bef753df5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "60FEE032-C123-4B3A-8C67-91AAE61F4D38 - 9fa4a05bef753df5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D2EEB9D-62C4-448D-9232-3CF186035DAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D2EEB9D-62C4-448D-9232-3CF186035DAD - 9fa4a05bef753dab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  uuid = "0D2EEB9D-62C4-448D-9232-3CF186035DAD - 91a64033c3654766"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6A3FA97-82AA-41E3-940B-D1333D8829A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E6A3FA97-82AA-41E3-940B-D1333D8829A2 - 91a64033c3654785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "E6A3FA97-82AA-41E3-940B-D1333D8829A2 - 91a64033c3654785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;CurrencyApp.ExchangeRatesLatest&gt;) -&gt; () in closure #4 (Swift.Optional&lt;CurrencyApp.CreditCard&gt;, Swift.Double) -&gt; () in CurrencyApp.WalletDetailsViewModel.configure() -&gt; ()"
+                  moduleName = "CurrencyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer_tmp/Desktop/CurrencyApp/CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66039B62-21C4-44E6-B228-F8B7341BE474"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/View/WalletDetailsCellTopUpView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "sendMoney()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8904904E-16FC-4420-8E90-AF772E0022C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/Controller/WalletDetailsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2FFAC8F9-F442-471A-A800-E1D506C0577F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/Controller/WalletDetailsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "configureView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA68C0A5-5DC9-437F-B9BF-FF8D8373BBF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/Controller/WalletDetailsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F63C3C26-BCC6-42DE-8BB7-14A1AECB13BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D5EF3FA-C36C-4041-9911-73242BE70D45"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyApp/Modules/Wallet/ViewModel/WalletDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

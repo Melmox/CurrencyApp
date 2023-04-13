@@ -69,7 +69,7 @@ final class WalletDetailsHeaderView: UIView {
     private lazy var conntainerEquivalentOfItem = UIImageView()
     
     private lazy var segmentControl: UISegmentedControl = {
-        let segmentItems = ["Top up card", "Transaction history"]
+        let segmentItems = ["Transfer money", "Transaction history"]
         let segmentControl = UISegmentedControl(items: segmentItems)
         segmentControl.backgroundColor = .white
         segmentControl.selectedSegmentTintColor = .systemGreen

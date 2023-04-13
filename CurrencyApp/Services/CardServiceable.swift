@@ -13,7 +13,8 @@ protocol CardServiceable {
     func getCreditCards(completion: @escaping ([CreditCard]) -> Void)
 
     func updateCreditCardBalance(from takeMoneyCard: String,
-                                 to currentCard: String,
-                                 for amountMoneyToTransfer: Double,
+                                 to putMoneyCard: String,
+                                 with amountMoneyToTake: Double,
+                                 with amountMoneyToAdd: Double,
                                  onSuccess: @escaping EmptyClosure)
 }

@@ -12,7 +12,7 @@ class BasicTableCell<ViewModel>: UITableViewCell {
     // MARK: - Properties
     // MARK: Content
     
-    private(set) var viewModel: ViewModel?
+    private (set) var viewModel: ViewModel?
     
     // MARK: - Lifecycle
     

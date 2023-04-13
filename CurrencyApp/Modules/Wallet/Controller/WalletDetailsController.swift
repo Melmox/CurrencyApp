@@ -34,8 +34,7 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         view.backgroundColor = .white
         configureNavigationBar()
         setupTableView()
-        
-        tableView.register(WalletDetailsCellTopUpView.self, forCellReuseIdentifier: WalletDetailsCellTopUpView().identifier)
+        setupHeader()
     }
     
     private func configureNavigationBar() {
@@ -51,15 +50,16 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.register(WalletDetailsCellTopUpView.self, forCellReuseIdentifier: WalletDetailsCellTopUpView().identifier)
     }
     
     private func setupHeader() {
         let widthOfHeader = UIView.screenWidth
         let heightOfHeader = UIView.screenWidth * 0.7
-        if let cellDetailedInfo = viewModel.cardInfoViewModel {
+        if let cellDetailedInfo = viewModel.selectedCard {
             let header = WalletDetailsHeaderView(frame: CGRect(x: 0, y: 0,
                                                                width: widthOfHeader,
-                                                               height: heightOfHeader), viewModel:  WalletDetailsHeaderViewModel(creditCard: cellDetailedInfo.creditCard, choosenSegment: viewModel.choosenTab))
+                                                               height: heightOfHeader), viewModel:  WalletDetailsHeaderViewModel(creditCard: cellDetailedInfo, choosenSegment: viewModel.choosenTab))
             tableView.tableHeaderView = header
         }
     }
@@ -73,9 +73,6 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         }
         
         super.configureViewModel()
-        
-        setupHeader()
-        
     }
     
     // MARK: - UITableViewDelegate
@@ -86,11 +83,8 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
             return 1
         case .transactionHistory:
             return 10 // viewModel.count
-        case .none:
-            return 0
         }
     }
-    
     
     // MARK: - UITableViewDataSource
     
@@ -98,13 +92,11 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         switch viewModel.walletCardDetaisTabState {
         case .topUp:
             let cell = tableView.dequeueReusableCell(withIdentifier: WalletDetailsCellTopUpView().identifier, for: indexPath) as! WalletDetailsCellTopUpView
-            //            guard let cellViewModel = viewModel.cellViewModel else { return UITableViewCell() }
-            let cellViewModel = viewModel.cellViewModel
-            cell.configure(with: cellViewModel)
+            if let cellViewModel = viewModel.cellViewModel {
+                cell.configure(with: cellViewModel)
+            }
             return cell
         case .transactionHistory:
-            return UITableViewCell()
-        case .none:
             return UITableViewCell()
         }
     }
@@ -113,12 +105,10 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
         switch viewModel.walletCardDetaisTabState {
         case .topUp:
             tableView.separatorStyle = .none
-            return 200
+            return 400
         case .transactionHistory:
             tableView.separatorStyle = .singleLine
             return 44
-        case .none:
-            return 0
         }
     }
 }

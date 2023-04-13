@@ -16,7 +16,6 @@ final class MainFlowCoordinator {
     private var walletController: WalletController?
     
     private var parentCoordinator: AppCoordinator?
-    var currentController: UIViewController?
     
     // MARK: - Initialization
     
@@ -40,16 +39,19 @@ final class MainFlowCoordinator {
         controller.viewModel.previousMonthExchangeCureencyRates = previousMonthData
         controller.viewModel.selectedCurrency = title
         currencyHistoryController?.navigationController?.pushViewController(controller, animated: true)
+        parentCoordinator?.currentController = controller
     }
     
     func presentWalletSettingsController() {
         let controller = createWalletSettingsController()
         walletController?.navigationController?.pushViewController(controller, animated: true)
+        parentCoordinator?.currentController = controller
     }
     
     func presentWebViewController() {
         let controller = createWebViewController()
         walletController?.navigationController?.pushViewController(controller, animated: true)
+        parentCoordinator?.currentController = controller
     }
     
     func presentPopUpController(with message: String) {
@@ -60,15 +62,17 @@ final class MainFlowCoordinator {
         parentCoordinator?.start()
     }
     
-    func presentWalletDetailsController(with cardInfo: WalletCollectionViewCellViewModel) {
+    func presentWalletDetailsController(with card: CreditCard) {
         let controller = createWalletDetailsController()
-        controller.viewModel.cardInfoViewModel = cardInfo
+        controller.viewModel.selectedCard = card
         walletController?.navigationController?.pushViewController(controller, animated: true)
+        parentCoordinator?.currentController = controller
     }
     
     func presentAddingCardController() {
         let controller = createAddingCardController()
         walletController?.present(controller, animated: true)
+        parentCoordinator?.currentController = controller
     }
     
     // MARK: - Modules
@@ -122,8 +126,8 @@ final class MainFlowCoordinator {
     }
     
     private func createWalletDetailsController() -> WalletDetailsController {
-        if let service = parentCoordinator?.getCardService(){
-            let walletDetailsController = WalletDetailsController(viewModel: WalletDetailsViewModel(coordinator: self, cardService: service))
+        if let cardService = parentCoordinator?.getCardService(), let ratesService = parentCoordinator?.getRatesService(){
+            let walletDetailsController = WalletDetailsController(viewModel: WalletDetailsViewModel(coordinator: self, cardService: cardService, exchangeRateService: ratesService))
             return walletDetailsController
         }
         return UIViewController() as! WalletDetailsController

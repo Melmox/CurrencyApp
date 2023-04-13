@@ -23,7 +23,6 @@ final class WalletViewModel: BasicControllerViewModel {
     private var cardService: CardServiceable?
     private var ratesService: ExchangeRateServiceable?
 
-
     // MARK: Callbacks
     
     var willReload: EmptyClosure?
@@ -83,14 +82,13 @@ final class WalletViewModel: BasicControllerViewModel {
         coordinator?.presentWalletSettingsController()
     }
     
-    func coordinateDetailsPage(with cardInfo: WalletCollectionViewCellViewModel) {
-        coordinator?.presentWalletDetailsController(with: cardInfo)
+    func coordinateDetailsPage(with selectedCard: CreditCard) {
+        coordinator?.presentWalletDetailsController(with: selectedCard)
     }
     
     func coordinateAddingCardController() {
         coordinator?.presentAddingCardController()
-        cardService?.updateCreditCardBalance(from: "-NSp2qs1EtSa88LA9rBG", to: "-NSp2lW4uy3WgkqyyE5s", for: 1500, onSuccess: {
-            print("yPa")
-        })
     }
+    
+    
 }
