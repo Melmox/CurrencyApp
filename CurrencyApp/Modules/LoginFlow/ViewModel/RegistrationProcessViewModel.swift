@@ -38,22 +38,22 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
             name = name?.trimmingCharacters(in: .whitespaces)
             name = name?.capitalized
         } else {
-            coordinator?.presentPopUpController(with: "You inputed inappropriate name.")
+            coordinator?.presentPopUpController(with: "You inputed inappropriate name.", on: .error)
         }
         
         if user.email.isValidEmailAddress {
             email = user.email
             email = email?.lowercased()
         } else {
-            coordinator?.presentPopUpController(with: "You inputed inappropriate email.")
+            coordinator?.presentPopUpController(with: "You inputed inappropriate email.", on: .error)
         }
         if (password.count < 6) {
-            coordinator?.presentPopUpController(with: "Your passwords too short. It must be 6 charecters or longer.")
+            coordinator?.presentPopUpController(with: "Your passwords too short. It must be 6 charecters or longer.", on: .error)
         } else {
             if (password == confirmPassword) {
                 self.password = password
             } else {
-                coordinator?.presentPopUpController(with: "Your passwords are differend.")
+                coordinator?.presentPopUpController(with: "Your passwords are differend.", on: .error)
             }
         }
         if (name != nil && email != nil && self.password != nil) {
@@ -61,7 +61,7 @@ class RegistrationProcessViewModel: BasicControllerViewModel {
                 self.service?.updateState(with: .logined)
                 self.coordinator?.launchAppCoordinator()
             }, onError: { errorMessage in
-                self.coordinator?.presentPopUpController(with: errorMessage)
+                self.coordinator?.presentPopUpController(with: errorMessage, on: .error)
             })
         }
     }

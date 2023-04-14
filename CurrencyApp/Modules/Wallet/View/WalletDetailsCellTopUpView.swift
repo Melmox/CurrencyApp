@@ -7,19 +7,44 @@
 
 import UIKit
 
-class WalletDetailsCellTopUpViewModel {
+enum SendMoneyButtonState {
+    case sendMoney
+    case confirm
+}
+
+final class WalletDetailsCellTopUpViewModel {
+    
+    // MARK: - Properties
+    // MARK: Content
+    
     var curentCard: CreditCard?
     var pickedCard: CreditCard?
     var creditCards: [CreditCard]?
-    var sendMoneyClicked: EmptyClosure?
+    
     var amountMoneyToTransfer: Double?
     var exchangedValue: Double?
+    var buttonState: SendMoneyButtonState = .sendMoney
     
+    var informationText: String? {
+            if let amountMoneyToTransfer = amountMoneyToTransfer,
+               let curentCard = curentCard,
+               let pickedCard = pickedCard,
+               let exchangedValue = exchangedValue {
+                return "You want to transfer \(amountMoneyToTransfer) \(curentCard.currency) to card \(pickedCard.cardNumber). You will get \(String(format: "%.2f", exchangedValue)) \(pickedCard.currency). From current card will be charged \(String(format: "%.2f",amountMoneyToTransfer * 1.03)) \(curentCard.currency) because of servise commission 3%."
+            }
+            return nil
+    }
     
+    // MARK: Callbacks
+    
+    var prepareForSendingMoney: EmptyClosure?
+    var sendMoneyClicked: EmptyClosure?
+    
+    // MARK: - Provider
     
     func title(row: Int) -> String {
         if let currency = creditCards?[row].currency,
-        let cardNumber = creditCards?[row].cardNumber{
+           let cardNumber = creditCards?[row].cardNumber{
             return "\(currency) - \(cardNumber)"
         }
         return ""
@@ -31,6 +56,23 @@ class WalletDetailsCellTopUpViewModel {
     
     func setAmountMoneyToTransfer(with value: Double?){
         amountMoneyToTransfer = value
+    }
+    
+    func sendMoney() {
+        switch buttonState {
+        case .sendMoney:
+            if let _ = amountMoneyToTransfer,
+               let _ = curentCard,
+               let _ = pickedCard {
+                if let callback = prepareForSendingMoney {
+                    callback()
+                }
+            }
+        case .confirm:
+            if let callback = sendMoneyClicked {
+                callback()
+            }
+        }
     }
 }
 
@@ -51,6 +93,11 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        cardPicker = UIPickerView()
+        cardTextField.text = nil
+        amountTextField.text = nil
+        sendButton.setTitle(nil, for: .normal)
+        infoLabel.text = nil
     }
     
     // MARK: - Configure
@@ -97,15 +144,30 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
         amountTextField.returnKeyType = .default
         amountTextField.keyboardType = .decimalPad
         amountTextField.textAlignment = .center
-//        amountTextField.addTarget(self, action: #selector(textOnTextFieldDidChange), for: .editingChanged)
         
-        sendButton.setTitle("Top up selected card", for: .normal)
+        switch viewModel?.buttonState {
+        case .sendMoney:
+            sendButton.setTitle("Top up selected card", for: .normal)
+            cardTextField.isHidden = false
+            amountTextField.isHidden = false
+            infoLabel.text = nil
+        case .confirm:
+            sendButton.setTitle("Confirm", for: .normal)
+            cardTextField.isHidden = true
+            amountTextField.isHidden = true
+            infoLabel.text = viewModel?.informationText
+        case .none:
+            sendButton.setTitle("Top up selected card", for: .normal)
+            cardTextField.isHidden = false
+            amountTextField.isHidden = false
+            infoLabel.text = nil
+        }
         sendButton.backgroundColor = .systemGreen
         sendButton.layer.cornerRadius = 15
         sendButton.titleLabel?.font =  sendButton.titleLabel?.font.withSize(20)
         sendButton.setTitleColor(.black, for: .normal)
         sendButton.addTarget(self, action: #selector(sendMoney), for: .touchUpInside)
-
+        
         infoLabel.textAlignment = .center
         infoLabel.font = infoLabel.font.withSize(20)
         infoLabel.numberOfLines = 10
@@ -126,7 +188,6 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -138,6 +199,7 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
     
     override func configure(with viewModel: WalletDetailsCellTopUpViewModel) {
         super.configure(with: viewModel)
+        configureView()
     }
     
     // MARK: - UIPickerViewDelegate
@@ -156,7 +218,6 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
         if let viewModel = viewModel {
             self.viewModel?.setPickedCard(with: viewModel.creditCards?[row])
             cardTextField.text = viewModel.title(row: row)
-//            textOnTextFieldDidChange()
         }
     }
     
@@ -173,19 +234,14 @@ final class WalletDetailsCellTopUpView: BasicTableCell<WalletDetailsCellTopUpVie
     
     @objc
     private func sendMoney() {
-        viewModel?.setAmountMoneyToTransfer(with: Double(amountTextField.text ?? "0"))
-        if let callback = viewModel?.sendMoneyClicked {
-            callback()
+        switch viewModel?.buttonState {
+        case .sendMoney:
+            viewModel?.amountMoneyToTransfer = Double(amountTextField.text ?? "0")
+            viewModel?.sendMoney()
+        case .confirm:
+            viewModel?.sendMoney()
+        case .none:
+            viewModel?.sendMoney()
         }
     }
-    
-//    @objc
-//    private func textOnTextFieldDidChange() {
-//        if let amountToTake = Double(amountTextField.text ?? "0"),
-//           let currentCard = viewModel?.curentCard,
-//           let cardDestenation = viewModel?.pickedCard,
-//           let exchangedValue = viewModel?.exchangedValue {
-//            infoLabel.text = "You want to transfer \(amountToTake) \(currentCard.currency) to card \(cardDestenation.cardNumber). You will get \(exchangedValue) \(cardDestenation.currency). From current card will be charged \(amountToTake * 1.03) because of servise commission 3%."
-//        }
-//    }
 }

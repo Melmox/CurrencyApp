@@ -35,10 +35,10 @@ class LoginProcessViewModel: BasicControllerViewModel {
             self.email = email
             self.email = self.email?.lowercased()
         } else {
-            coordinator?.presentPopUpController(with: "You used incorrect format of email.")
+            coordinator?.presentPopUpController(with: "You used incorrect format of email.", on: .error)
         }
         if password.count < 6 {
-            coordinator?.presentPopUpController(with: "Your password is too short.")
+            coordinator?.presentPopUpController(with: "Your password is too short.", on: .error)
         } else {
             self.password = password
         }
@@ -47,7 +47,7 @@ class LoginProcessViewModel: BasicControllerViewModel {
                 self.service?.updateState(with: .logined)
                 self.coordinator?.launchAppCoordinator()
             }, onError: { (errorMessage) in
-                self.coordinator?.presentPopUpController(with: errorMessage)
+                self.coordinator?.presentPopUpController(with: errorMessage, on: .error)
             })
         }
     }

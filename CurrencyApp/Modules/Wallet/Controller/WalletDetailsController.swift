@@ -56,11 +56,14 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
     private func setupHeader() {
         let widthOfHeader = UIView.screenWidth
         let heightOfHeader = UIView.screenWidth * 0.7
-        if let cellDetailedInfo = viewModel.selectedCard {
-            let header = WalletDetailsHeaderView(frame: CGRect(x: 0, y: 0,
+        viewModel.willReloadHeader = { [weak self] in
+            let headerViewModel = self?.viewModel.headerViewModel
+            let header = WalletDetailsHeaderView(frame: CGRect(x: 0,
+                                                               y: 0,
                                                                width: widthOfHeader,
-                                                               height: heightOfHeader), viewModel:  WalletDetailsHeaderViewModel(creditCard: cellDetailedInfo, choosenSegment: viewModel.choosenTab))
-            tableView.tableHeaderView = header
+                                                               height: heightOfHeader),
+                                                 viewModel: headerViewModel)
+            self?.tableView.tableHeaderView = header
         }
     }
     
@@ -68,10 +71,12 @@ final class WalletDetailsController: BasicViewController<WalletDetailsViewModel>
     // MARK: Configure
     
     override func configureViewModel() {
+        viewModel.willReloadCell = { [weak self] in
+            self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        }
         viewModel.willReload = { [weak self] in
             self?.tableView.reloadData()
         }
-        
         super.configureViewModel()
     }
     

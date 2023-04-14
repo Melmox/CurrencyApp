@@ -451,8 +451,8 @@
 		D2E3A6A829BF3ADA00F496EB /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				D2E75E3429E4296A00DE9148 /* WalletDetails */,
 				D28B3A4F29DE9E860063AE84 /* WalletFlow */,
+				D2E75E3429E4296A00DE9148 /* WalletDetails */,
 				D24B63B429DD8274009C7F0B /* Settings */,
 			);
 			path = Wallet;

@@ -16,5 +16,6 @@ protocol CardServiceable {
                                  to putMoneyCard: String,
                                  with amountMoneyToTake: Double,
                                  with amountMoneyToAdd: Double,
-                                 onSuccess: @escaping EmptyClosure)
+                                 onSuccess: @escaping EmptyClosure,
+                                 onError: @escaping EmptyClosure)
 }

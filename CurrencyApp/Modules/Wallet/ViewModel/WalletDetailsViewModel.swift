@@ -29,6 +29,8 @@ final class WalletDetailsViewModel: BasicControllerViewModel {
     // MARK: Callbacks
     
     var willReload: EmptyClosure?
+    var willReloadHeader: EmptyClosure?
+    var willReloadCell: EmptyClosure?
     var choosenTab: ((WalletCardDetaisTab) -> ())?
     
     // MARK: - Initialization
@@ -42,6 +44,16 @@ final class WalletDetailsViewModel: BasicControllerViewModel {
     // MARK: - Appearance
     
     func configure() {
+        choosenTab = { [weak self] (state) in
+            self?.walletCardDetaisTabState = state
+            if let willReload = self?.willReload {
+                willReload()
+            }
+        }
+        
+        headerViewModel = WalletDetailsHeaderViewModel(creditCard: selectedCard, choosenSegment: choosenTab)
+        cellViewModel = WalletDetailsCellTopUpViewModel()
+        
         cardService?.getCreditCards(completion: { [weak self] creditCards in
             self?.cellViewModel?.creditCards = creditCards.filter { card in
                 return card.cardNumber != self?.selectedCard?.cardNumber
@@ -50,34 +62,47 @@ final class WalletDetailsViewModel: BasicControllerViewModel {
             self?.willReload?()
         })
         
-        choosenTab = { [weak self] (state) in
-            self?.walletCardDetaisTabState = state
-            if let willReload = self?.willReload {
-                willReload()
+        cellViewModel?.prepareForSendingMoney = { [weak self] in
+            self?.prepareToTransfer {
+                self?.cellViewModel?.buttonState = .confirm
+                self?.willReloadCell?()
             }
         }
-        
+    
         cellViewModel?.sendMoneyClicked = { [weak self] in
             let curentCard = self?.cellViewModel?.curentCard
             let pickedCard = self?.cellViewModel?.pickedCard
             let amountMoneyToTransfer = self?.cellViewModel?.amountMoneyToTransfer
-            self?.transferMoney(from: curentCard, to: pickedCard, for: amountMoneyToTransfer)
+            self?.transferMoney(from: curentCard, to: pickedCard, for: amountMoneyToTransfer, onSuccess: { [weak self] in
+                self?.coordinator?.presentPopUpController(with: "Money transfered successfully", on: .success)
+                self?.cellViewModel?.buttonState = .sendMoney
+                self?.updateSelectedCard(onSuccess: {
+                    self?.willReload?()
+                    self?.willReloadHeader?()
+                })
+            }, onError: {
+                self?.coordinator?.presentPopUpController(with: "Your money wasn't transfered cause some error", on: .error)
+            })
         }
-        
-//        cellViewModel.getExchangedValue = { [weak self] (selectedCard, amountToTransfer) in
-//            if let currentCardCurrency = self?.cellViewModel.curentCard?.currency,
-//               let takeCardCurrency = selectedCard?.currency {
-//                self?.exchangeRateService?.getExchangeRateData(endpoint: ExchangeRatesLatest.self, baseCurrency: currentCardCurrency, start_date: nil, end_date: nil, completion: { [weak self] (response) in
-//                    let exchangeRate = response?._rates[takeCardCurrency] ?? 0
-//                    self?.cellViewModel.exchangedValue = amountToTransfer * exchangeRate
-//                })
-//            }
-//        }
+        willReload?()
+        willReloadHeader?()
     }
     
     // MARK: - Provider
     
-    func transferMoney(from currentCard: CreditCard?, to pickedCard: CreditCard?, for amountMoneyToTransfer: Double?) {
+    func prepareToTransfer(onSuccess: @escaping EmptyClosure) {
+        if let currentCardCurrency = cellViewModel?.curentCard?.currency,
+           let takeCardCurrency = cellViewModel?.pickedCard?.currency,
+           let amountToTransfer =  cellViewModel?.amountMoneyToTransfer{
+            self.exchangeRateService?.getExchangeRateData(endpoint: ExchangeRatesLatest.self, baseCurrency: currentCardCurrency, start_date: nil, end_date: nil, completion: { [weak self] (response) in
+                let exchangeRate = response?._rates[takeCardCurrency] ?? 0
+                self?.cellViewModel?.exchangedValue = amountToTransfer * exchangeRate
+                onSuccess()
+            })
+        }
+    }
+    
+    func transferMoney(from currentCard: CreditCard?, to pickedCard: CreditCard?, for amountMoneyToTransfer: Double?, onSuccess: @escaping EmptyClosure, onError: @escaping EmptyClosure) {
         let currentCardCurrency = currentCard?.currency ?? ""
         let pickedCardCurrency = pickedCard?.currency ?? ""
         let amountMoneyToTransfer = amountMoneyToTransfer ?? 0.0
@@ -87,15 +112,21 @@ final class WalletDetailsViewModel: BasicControllerViewModel {
             let amountMoneyToAdd = amountMoneyToTransfer * exchangeRate
             let pickedCardUid = pickedCard?.cardUid ?? ""
             let currentCardUid = currentCard?.cardUid ?? ""
-            self?.cardService?.updateCreditCardBalance(from: currentCardUid, to: pickedCardUid, with: amountMoneyToTake, with: amountMoneyToAdd, onSuccess: { [weak self] in
-                if let reload = self?.willReload{
-                    reload()
-                }
-                self?.coordinator?.presentPopUpController(with: "Money transfered successfully")
+            self?.cardService?.updateCreditCardBalance(from: currentCardUid, to: pickedCardUid, with: amountMoneyToTake, with: amountMoneyToAdd, onSuccess: {
+                onSuccess()
+            }, onError: {
+                onError()
             })
         })
     }
     
-    // MARK: - Navigation
-    
+    func updateSelectedCard(onSuccess: @escaping EmptyClosure) {
+        cardService?.getCreditCards(completion: {[weak self] creditCards in
+            let card = creditCards.filter { card in
+                return card.cardUid == self?.selectedCard?.cardUid
+            }
+            self?.headerViewModel?.creditCard = card[0]
+            onSuccess()
+        })
+    }
 }

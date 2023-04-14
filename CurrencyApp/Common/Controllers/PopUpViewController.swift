@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum PopUpState {
+    case success
+    case error
+}
+
 class PopUpViewController: BasicViewController<PopUpViewModel> {
     // MARK: - Properties
 
@@ -25,7 +30,13 @@ class PopUpViewController: BasicViewController<PopUpViewModel> {
         container.layer.cornerRadius = 15
         
         alertSign.image = UIImage(systemName: "exclamationmark.triangle")
-        alertSign.tintColor = .systemRed
+        
+        switch viewModel.alertState {
+        case .success:
+            alertSign.tintColor = .systemGreen
+        case .error:
+            alertSign.tintColor = .systemRed
+        }
         
         alertLabel.text = viewModel.alertLabelText
         alertLabel.numberOfLines = 6
@@ -71,8 +82,6 @@ class PopUpViewController: BasicViewController<PopUpViewModel> {
         alertLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
         alertLabel.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 15).isActive = true
         alertLabel.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -15).isActive = true
-//        alertLabel.leftAnchor.constraint(equalToConstant: container.leftAnchor).isActive = true
-//        alertLabel.heightAnchor.constraint(equalToConstant: view.frame.width * 0.3).isActive = true
         
         okButton.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         okButton.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -15).isActive = true

@@ -8,7 +8,7 @@
 import UIKit
 
 struct WalletDetailsHeaderViewModel {
-    let creditCard: CreditCard?
+    var creditCard: CreditCard?
     let choosenSegment: ((WalletCardDetaisTab) -> ())?
 }
 
@@ -17,7 +17,7 @@ final class WalletDetailsHeaderView: UIView {
     // MARK: - Properties
     // MARK: Content
     
-    private var viewModel: WalletDetailsHeaderViewModel
+    var viewModel: WalletDetailsHeaderViewModel?
     
     
     private let currencyLabel: UILabel = {
@@ -81,7 +81,7 @@ final class WalletDetailsHeaderView: UIView {
     
     // MARK: - Initialization
     
-    init(frame: CGRect, viewModel: WalletDetailsHeaderViewModel) {
+    init(frame: CGRect, viewModel: WalletDetailsHeaderViewModel?) {
         self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
@@ -153,14 +153,14 @@ final class WalletDetailsHeaderView: UIView {
     }
     
     func configure() {
-        if let balance = viewModel.creditCard?.balance {
-            amountLabel.text = String(balance)
+        if let balance = viewModel?.creditCard?.balance {
+            amountLabel.text = String(format: "%.2f", balance)
         }
-        currencyLabel.text = viewModel.creditCard?.currency
-        cardNumberLabel.text = viewModel.creditCard?.cardNumber
-        cardholderNameLabel.text = viewModel.creditCard?.cardholderName
-        openDateLabel.text = viewModel.creditCard?.openDate
-        if let choosenSegment = viewModel.choosenSegment {
+        currencyLabel.text = viewModel?.creditCard?.currency
+        cardNumberLabel.text = viewModel?.creditCard?.cardNumber
+        cardholderNameLabel.text = viewModel?.creditCard?.cardholderName
+        openDateLabel.text = viewModel?.creditCard?.openDate
+        if let choosenSegment = viewModel?.choosenSegment {
             choosenSegment(.topUp)
         }
     }
@@ -169,7 +169,7 @@ final class WalletDetailsHeaderView: UIView {
     
     @objc
     func segmentControl(_ segmentedControl: UISegmentedControl) {
-        if let choosenSegment = viewModel.choosenSegment {
+        if let choosenSegment = viewModel?.choosenSegment {
             switch (segmentedControl.selectedSegmentIndex) {
             case 0:
                 choosenSegment(.topUp)

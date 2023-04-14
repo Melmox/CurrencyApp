@@ -44,10 +44,11 @@ class AppCoordinator {
         }
     }
     
-    func presentPopUpController(with text: String) {
+    func presentPopUpController(with text: String, on state: PopUpState) {
         if currentController != popUpController {
             let controller = createPopUpController()
             controller.viewModel.alertLabelText = text
+            controller.viewModel.alertState = state
             controller.modalPresentationStyle = .overCurrentContext
             controller.modalTransitionStyle = .crossDissolve
             if let currentController = currentController {

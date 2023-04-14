@@ -11,6 +11,7 @@ final class PopUpViewModel: BasicControllerViewModel {
     // MARK: - Properties
     
     var alertLabelText = ""
+    var alertState: PopUpState = .success
 
     // MARK: Content
     
@@ -24,15 +25,17 @@ final class PopUpViewModel: BasicControllerViewModel {
     
     // MARK: - Appearance
     
-    func configure() {
-        
-    }
+    func configure() {}
     
     // MARK: - Provider
     
-    func setAlertLabelText(text: String) {
-        alertLabelText = text
-    }
+//    func setAlertLabelText(text: String) {
+//        alertLabelText = text
+//    }
+//    
+//    func setAlertLabelState(state: PopUpState) {
+//        alertState = state
+//    }
     
     // MARK: - Navigation
     

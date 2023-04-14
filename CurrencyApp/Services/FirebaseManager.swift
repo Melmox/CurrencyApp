@@ -194,21 +194,24 @@ final class FirebaseManager {
     
     // MARK: - Update credit card balance
     
-    private func getCardBalance(for cardUid: String, onSuccess: @escaping (Double) -> ()) {
+    private func getCardBalance(for cardUid: String, onSuccess: @escaping (Double) -> (), onError: @escaping EmptyClosure) {
         if let userUid = Auth.auth().currentUser?.uid {
             Database.database().reference().child("cards").child(userUid).child(cardUid).child("balance").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? Double {
                     onSuccess(value)
+                } else {
+                    onError()
                 }
             }
         )}
     }
     
-    private func updateCardBalance(for cardUid: String, with value: Double, onSuccess: @escaping EmptyClosure){
+    private func updateCardBalance(for cardUid: String, with value: Double, onSuccess: @escaping EmptyClosure, onError: @escaping EmptyClosure){
         if let userUid = Auth.auth().currentUser?.uid {
             Database.database().reference().child("cards").child(userUid).child(cardUid).child("balance").setValue(value) {
                 (error:Error?, _) in
                 if error != nil {
+                    onError()
                 } else {
                     onSuccess()
                 }
@@ -216,28 +219,57 @@ final class FirebaseManager {
         }
     }
     
-    func transferMoneyBeetwenCards(from takeMoneyCard: String, to putMoneyCard: String, with amountMoneyToTake: Double, with amountMoneyToAdd: Double, onSuccsess: @escaping EmptyClosure) {
+    func transferMoneyBeetwenCards(from takeMoneyCard: String, to putMoneyCard: String, with amountMoneyToTake: Double, with amountMoneyToAdd: Double, onSuccsess: @escaping EmptyClosure, onError: @escaping EmptyClosure) {
                     
         let group = DispatchGroup()
-
-        group.enter()
+        var errorCounter = 0
+        
+            group.enter()
             getCardBalance(for: takeMoneyCard, onSuccess: { [weak self] (balance) in
                 let finalBalance = balance - (amountMoneyToTake * 1.03)
-                self?.updateCardBalance(for: takeMoneyCard, with: finalBalance, onSuccess: {
+                if finalBalance > 0 {
+                    self?.updateCardBalance(for: takeMoneyCard, with: finalBalance, onSuccess: {
+                        group.leave()
+                        
+                        group.enter()
+                        self?.getCardBalance(for: putMoneyCard, onSuccess: { [weak self] (balance) in
+                            let finalBalance = balance + amountMoneyToAdd
+                            if finalBalance > 0 {
+                                self?.updateCardBalance(for: putMoneyCard, with: finalBalance, onSuccess: {
+                                    group.leave()
+                                }, onError: {
+                                    errorCounter += 1
+                                    group.leave()
+                                })
+                            } else {
+                                errorCounter += 1
+                                group.leave()
+                            }
+                        }, onError: {
+                            errorCounter += 1
+                            group.leave()
+                        })
+                        
+                    }, onError: {
+                        errorCounter += 1
+                        group.leave()
+                    })
+                } else {
+                    errorCounter += 1
                     group.leave()
-                })
+                }
+            }, onError: {
+                errorCounter += 1
+                group.leave()
             })
 
-        group.enter()
-            getCardBalance(for: putMoneyCard, onSuccess: { [weak self] (balance) in
-                let finalBalance = balance + amountMoneyToAdd
-                self?.updateCardBalance(for: putMoneyCard, with: finalBalance, onSuccess: {
-                    group.leave()
-                })
-            })
 
         group.notify(queue: .main) {
-            onSuccsess()
+            if errorCounter == 0 {
+                onSuccsess()
+            } else {
+                onError()
+            }
         }
     }
 }

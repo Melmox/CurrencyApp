@@ -45,8 +45,8 @@ final class LoginCoordinator {
         }
     }
     
-    func presentPopUpController(with message: String) {
-        parentCoordinator?.presentPopUpController(with: message)
+    func presentPopUpController(with message: String, on state: PopUpState) {
+        parentCoordinator?.presentPopUpController(with: message, on: state)
     }
     
     func launchAppCoordinator() {
